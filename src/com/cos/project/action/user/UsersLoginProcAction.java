@@ -12,6 +12,7 @@ import com.cos.project.model.RoleType;
 import com.cos.project.action.Action;
 import com.cos.project.model.Users;
 import com.cos.project.repository.UsersRepository;
+import com.cos.project.util.SHA256;
 import com.cos.project.util.Script;
 
 public class UsersLoginProcAction implements Action{
@@ -32,7 +33,9 @@ public class UsersLoginProcAction implements Action{
 		//1. 파라메터 받기
 
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		
+		String rawPassword = request.getParameter("password");
+		String password = SHA256.encodeSha256(rawPassword);
 
 		
 		// 3. DB 연결 

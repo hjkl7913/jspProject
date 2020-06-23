@@ -14,6 +14,7 @@ import com.cos.project.action.user.UsersJoinAction;
 import com.cos.project.action.user.UsersJoinProcAction;
 import com.cos.project.action.user.UsersLoginAction;
 import com.cos.project.action.user.UsersLoginProcAction;
+import com.cos.project.action.user.UsersLogoutAction;
 
 
 @WebServlet("/user")
@@ -56,6 +57,8 @@ public class UsersController extends HttpServlet {
 			return new UsersLoginAction();
 		}else if(cmd.equals("loginProc")) {
 			return new UsersLoginProcAction();
+		}else if(cmd.equals("logout")) {
+			return new UsersLogoutAction();
 		}
 		return null;
 	}

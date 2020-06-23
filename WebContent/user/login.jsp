@@ -25,19 +25,29 @@
 
 							</div>
 							<br />
-							<div class="custom-control custom-checkbox mb-3">
-								<input type="checkbox" class="custom-control-input" id="customCheck1" name="remember"> <label class="custom-control-label" for="customCheck1">이메일 기억하기</label>
-							</div>
-							<br/>
+
+							<c:choose>
+								<c:when test="${empty cookie.remember.value}">
+									<div class="custom-control custom-checkbox mb-3">
+										<input type="checkbox" class="custom-control-input" id="customCheck1" name="remember"> <label class="custom-control-label" for="customCheck1">이메일 기억하기</label>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="custom-control custom-checkbox mb-3">
+										<input type="checkbox" class="custom-control-input" id="customCheck1" name="remember" checked> <label class="custom-control-label" for="customCheck1">이메일 기억하기</label>
+									</div>
+								</c:otherwise>
+							</c:choose>
+							<br />
 							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">로그인</button>
 							<hr class="my-4">
 						</form>
-						
-						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

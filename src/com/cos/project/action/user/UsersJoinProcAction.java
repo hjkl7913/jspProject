@@ -10,7 +10,10 @@ import com.cos.project.model.RoleType;
 import com.cos.project.action.Action;
 import com.cos.project.model.Users;
 import com.cos.project.repository.UsersRepository;
+import com.cos.project.util.SHA256;
 import com.cos.project.util.Script;
+
+import sun.security.provider.SHA;
 
 public class UsersJoinProcAction implements Action{
 	@Override
@@ -37,7 +40,10 @@ public class UsersJoinProcAction implements Action{
 		String username = request.getParameter("username");
 		String displayName = request.getParameter("displayname");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		
+		String rawPassword = request.getParameter("password");
+		String password = SHA256.encodeSha256(rawPassword);
+		
 		String userRole = RoleType.USER.toString();
 		
 		//2. User 오브젝트 변환

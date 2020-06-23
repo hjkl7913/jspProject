@@ -12,33 +12,33 @@
 </style>
 </head>
 <body>
-<div class="container">
-	<div id="demo" class="carousel slide" data-ride="carousel">
-	<form class="form-inline justify-content-center">
-		<!-- Indicators -->
-		<ul class="carousel-indicators">
-			<li data-target="#demo" data-slide-to="0" class="active"></li>
-			<li data-target="#demo" data-slide-to="1"></li>
-			<li data-target="#demo" data-slide-to="2"></li>
-		</ul>
-		
-			<!-- The slideshow -->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="images/Fortnite.jpg" alt="Los Angeles" width="600px" height="300px">
-				</div>
-				<div class="carousel-item">
-					<img src="images/starwars.png" alt="Chicago" width="600px" height="300px">
-				</div>
-				<div class="carousel-item">
-					<img src="images/control.jpg" alt="New York" width="600px" height="300px">
-				</div>
-			</div>
+	<div class="container">
+		<div id="demo" class="carousel slide" data-ride="carousel">
+			<form class="form-inline justify-content-center">
+				<!-- Indicators -->
+				<ul class="carousel-indicators">
+					<li data-target="#demo" data-slide-to="0" class="active"></li>
+					<li data-target="#demo" data-slide-to="1"></li>
+					<li data-target="#demo" data-slide-to="2"></li>
+				</ul>
 
-			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev"> <span class="carousel-control-prev-icon"></span>
-			</a> <a class="carousel-control-next" href="#demo" data-slide="next"> <span class="carousel-control-next-icon"></span>
-			</a>
+				<!-- The slideshow -->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="images/Fortnite.jpg" alt="Los Angeles" width="600px" height="300px">
+					</div>
+					<div class="carousel-item">
+						<img src="images/starwars.png" alt="Chicago" width="600px" height="300px">
+					</div>
+					<div class="carousel-item">
+						<img src="images/control.jpg" alt="New York" width="600px" height="300px">
+					</div>
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="carousel-control-prev" href="#demo" data-slide="prev"> <span class="carousel-control-prev-icon"></span>
+				</a> <a class="carousel-control-next" href="#demo" data-slide="next"> <span class="carousel-control-next-icon"></span>
+				</a>
 			</form>
 		</div>
 	</div>
@@ -140,4 +140,3 @@
 	</section>
 
 	<%@ include file="include/footer.jsp"%>
-	
