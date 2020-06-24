@@ -15,7 +15,7 @@
 			<button class="btn btn-danger" type="submit">검색</button>
 		</form>
 		
-		<form action="/project/admin?cmd=adminProc" method="post">
+		<form action="/project/admin?cmd=update" method="post" enctype="multipart/form-data">
 		<label for="usr">이미지</label>
 			<div class="form-group">
 				<img id="img__wrap" src="${detailgameInfo.image}" width="250px" height="200px" />
@@ -95,6 +95,9 @@
 			<div class="form-group">
 				<label for="usr">Storage</label> <input type="text" class="form-control" id="recomstorage" name="recomstorage" value="${detailgameInfo.recomStorage}">
 			</div>
+			<div class="form-group">
+				<input type="hidden" class="form-control" id="id" name="id" value="${detailgameInfo.id}">
+			</div>
 
 			<h4>지원 언어</h4>
 			<div class="form-group">
@@ -102,8 +105,9 @@
 				<textarea class="form-control" rows="5" id="language" name="language">${detailgameInfo.languagesSupported}</textarea>
 			</div>
 			<div class="d-flex justify-content-end">
-			<button type="submit" class="btn btn-primary">수정</button>
-			<button type="submit" class="btn btn-primary">삭제</button>
+			<button type="submit" class="btn btn-warning">수정</button>&nbsp;&nbsp;
+			<button class="btn btn-danger" onclick="deleteById(${detailgameInfo.id})">삭제</button>
+			
 			</div><br/><br/><br/><br/>
 		</form>
 	</div>

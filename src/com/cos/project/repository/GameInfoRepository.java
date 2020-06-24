@@ -24,6 +24,52 @@ public class GameInfoRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		public int update(GameInfos gameInfos) {
+			final String SQL ="UPDATE gameinfo SET gamename = ?, price = ?, img = ?, movie = ?, developer = ?, publisher = ?, explanation = ?, tags = ?, rating = ?, releasedate = ?, platform = ?, minos = ?, minprocessor = ?, minmemory = ?, minGraphics = ?, minDirectX = ?, minStorage = ?, recomos = ?, recomprocessor = ?, recommemory = ?, recomGraphics = ?, recomDirectX = ?, recomStorage = ?, LanguagesSup = ?   WHERE id = ?";
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				// 물음표 완성하기
+				
+				pstmt.setString(1, gameInfos.getGamename());
+				pstmt.setString(2, gameInfos.getPrice());
+				pstmt.setString(3, gameInfos.getImage());
+				pstmt.setString(4, gameInfos.getMovie());
+				pstmt.setString(5, gameInfos.getDeveloper());
+				pstmt.setString(6, gameInfos.getPublisher());
+				pstmt.setString(7, gameInfos.getExplanation());
+				pstmt.setString(8, gameInfos.getTags());
+				pstmt.setString(9, gameInfos.getRating());
+				pstmt.setString(10, gameInfos.getReleasedate());
+				pstmt.setString(11, gameInfos.getPlatform());
+				pstmt.setString(12, gameInfos.getMinOS());
+				pstmt.setString(13, gameInfos.getMinProcessor());
+				pstmt.setString(14, gameInfos.getMinMemory());
+				pstmt.setString(15, gameInfos.getMinGraphics());
+				pstmt.setString(16, gameInfos.getMinDirectX());
+				pstmt.setString(17, gameInfos.getMinStorage());
+				pstmt.setString(18, gameInfos.getRecomOS());
+				pstmt.setString(19, gameInfos.getRecomProcessor());
+				pstmt.setString(20, gameInfos.getRecomMemory());
+				pstmt.setString(21, gameInfos.getRecomGraphics());
+				pstmt.setString(22, gameInfos.getRecomDirectX());
+				pstmt.setString(23, gameInfos.getRecomStorage());
+				pstmt.setString(24, gameInfos.getLanguagesSupported());
+				pstmt.setInt(25, gameInfos.getId());
+				
+				return pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"update : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt);
+			}
+			
+			return -1;
+		}
+		
 		public GameInfos findById(int id) {
 			final String SQL = "SELECT * FROM gameinfo WHERE id = ?";
 			GameInfos gameInfos = null;

@@ -13,6 +13,7 @@ import com.cos.project.action.admin.AdminDetailSearchAction;
 import com.cos.project.action.admin.AdminPageAction;
 import com.cos.project.action.admin.AdminPageProcAction;
 import com.cos.project.action.admin.AdminSearchAction;
+import com.cos.project.action.admin.AdminUpdateAction;
 
 
 @WebServlet("/admin")
@@ -53,6 +54,8 @@ public class AdminController extends HttpServlet {
 			return new AdminSearchAction();
 		}else if(cmd.equals("detailsearch")) {
 			return new AdminDetailSearchAction();
+		}else if(cmd.equals("update")) {
+			return new AdminUpdateAction();
 		}
 		return null;
 	}

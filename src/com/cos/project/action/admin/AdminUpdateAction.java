@@ -20,7 +20,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import sun.security.provider.SHA;
 
-public class AdminPageProcAction implements Action{
+public class AdminUpdateAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -92,9 +92,9 @@ public class AdminPageProcAction implements Action{
 			return;
 		}
 		
-
 		
 		//1. 파라메터 받기
+		int id = Integer.parseInt(multi.getParameter("id"));
 		String image = multi.getFilesystemName("image");
 		String movie = multi.getParameter("movie");
 		String gamename = multi.getParameter("gamename");
@@ -125,7 +125,7 @@ public class AdminPageProcAction implements Action{
 		String gameImage = null;
 		
 		
-		System.out.println("여기옴?");
+	
 		try {
 
 			fileName = multi.getFilesystemName("image");
@@ -135,6 +135,7 @@ public class AdminPageProcAction implements Action{
 		
 		//2. GameInfos 오브젝트 변환
 		GameInfos gameInfos = GameInfos.builder()
+				.id(id)
 				.image(gameImage)
 				.movie(movie)
 				.gamename(gamename)
@@ -163,7 +164,7 @@ public class AdminPageProcAction implements Action{
 		
 		// 3. DB 연결 
 		GameInfoRepository gameInfoRepository = GameInfoRepository.getInstance();
-		int result = gameInfoRepository.save(gameInfos);
+		int result = gameInfoRepository.update(gameInfos);
 		
 		if(result == 1) {
 			Script.href("게임 정보  추가 성공", "/project/admin?cmd=admin", response);
