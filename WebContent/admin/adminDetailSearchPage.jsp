@@ -22,7 +22,7 @@
 			</div>
 			<div class="form-group bg-light">
 			
-				<input type="file" name="image" id="image" value="${detailgameInfo.image}"/>
+				<input type="file" name="image" id="img__preview" value="${detailgameInfo.image}"/>
 			</div>
 			<div class="form-group">
 				<label for="usr">Movie</label> <input type="text" class="form-control" id="movie" name="movie" value="${detailgameInfo.movie }">
@@ -113,6 +113,6 @@
 	</div>
 	
 	<br/><br/><br/>
-
+<script src="/project/js/imgPreview.js"></script>
 </body>
 </html>
