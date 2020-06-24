@@ -12,7 +12,8 @@
 </style>
 </head>
 <body>
-	<div class="container">
+
+<div class="container">
 		<div id="demo" class="carousel slide" data-ride="carousel">
 			<form class="form-inline justify-content-center">
 				<!-- Indicators -->
@@ -42,101 +43,123 @@
 			</form>
 		</div>
 	</div>
+	<br/><br/><br/><br/>
+<!-- Page Content -->
+  <div class="container">
 
-	<!-- Main -->
-	<section id="main">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
+    <!-- Page Features -->
+    <div style="background-color: #2A2A2A;">
+    
+    <h2><img alt="" src="images/pre.png">무료게임</h2>
+    <div class="row text-center justify-content-center">
+		
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="images/pathway.png" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, co</p>
+          </div>
 
-					<!-- Portfolio -->
-					<section>
-						<header class="major">
-							<h2>무료 게임</h2>
-						</header>
-						<div class="row">
-							<div class="col-4 col-6-medium col-12-small">
-								<section class="box">
-									<a href="#" class="image featured"><img src="images/Pathway.jpg" alt="" width="200px" height="200px" /></a>
-									<header>
-										<h3>Ipsum feugiat et dolor</h3>
-									</header>
-									<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat</p>
+        </div>
+      </div>
 
-								</section>
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<section class="box">
-									<a href="#" class="image featured"><img src="images/AER Memories of Old.jpg" alt="" width="200px" height="200px" /></a>
-									<header>
-										<h3>Sed etiam lorem nulla</h3>
-									</header>
-									<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit</p>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="images/AER.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, conse</p>
+          </div>
+          
+        </div>
+      </div>
 
-								</section>
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<section class="box">
-									<a href="#" class="image featured"><img src="images/Stranger Things 3 The Game.png" width="200px" height="200px" alt="" /></a>
-									<header>
-										<h3>Consequat et tempus</h3>
-									</header>
-									<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit cons</p>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-70">
+          <img class="card-img-top" src="images/stranger3.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit ame</p>
+          </div>
+          
+        </div>
+      </div>
 
-								</section>
-							</div>
-						</div>
-					</section>
 
-				</div>
-				<div class="col-12">
+    </div>
+    <!-- /.row -->
 
-					<!-- Blog -->
-					<section>
-						<header class="major">
-							<h2>The Blog</h2>
-						</header>
-						<div class="row">
-							<div class="col-6 col-12-small">
-								<section class="box">
-									<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-									<header>
-										<h3>Magna tempus consequat</h3>
-										<p>Posted 45 minutes ago</p>
-									</header>
-									<p>Lorem ipsum dolor sit amet sit veroeros sed et blandit consequat sed veroeros lorem et blandit adipiscing feugiat phasellus tempus hendrerit, tortor vitae mattis tempor, sapien sem
-										feugiat sapien, id suscipit magna felis nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos lorem ipsum dolor sit amet.</p>
-									<footer>
-										<ul class="actions">
-											<li><a href="#" class="button icon solid fa-file-alt">Continue Reading</a></li>
-											<li><a href="#" class="button alt icon solid fa-comment">33 comments</a></li>
-										</ul>
-									</footer>
-								</section>
-							</div>
-							<div class="col-6 col-12-small">
-								<section class="box">
-									<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
-									<header>
-										<h3>Aptent veroeros aliquam</h3>
-										<p>Posted 45 minutes ago</p>
-									</header>
-									<p>Lorem ipsum dolor sit amet sit veroeros sed et blandit consequat sed veroeros lorem et blandit adipiscing feugiat phasellus tempus hendrerit, tortor vitae mattis tempor, sapien sem
-										feugiat sapien, id suscipit magna felis nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos lorem ipsum dolor sit amet.</p>
-									<footer>
-										<ul class="actions">
-											<li><a href="#" class="button icon solid fa-file-alt">Continue Reading</a></li>
-											<li><a href="#" class="button alt icon solid fa-comment">33 comments</a></li>
-										</ul>
-									</footer>
-								</section>
-							</div>
-						</div>
-					</section>
+  </div>
+  <!-- /.container -->
+  </div>
+  <!-- new -->
+  <div class="container">
 
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- Page Features -->
+    <h2>신규게임</h2>
+    <div class="row text-center justify-content-center">
+		
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card h-100">
+          <img class="card-img-top" src="images/pathway.png" alt="" width="200px" height="200px">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, co</p>
+          </div>
 
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card h-100">
+          <img class="card-img-top" src="images/AER.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, conse</p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card h-70">
+          <img class="card-img-top" src="images/stranger.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit ame</p>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card h-70">
+          <img class="card-img-top" src="images/stranger.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit ame</p>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card h-70">
+          <img class="card-img-top" src="images/stranger.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit ame</p>
+          </div>
+          
+        </div>
+      </div>
+
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+  
 	<%@ include file="include/footer.jsp"%>

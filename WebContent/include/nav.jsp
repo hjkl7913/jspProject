@@ -7,37 +7,50 @@
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="assets/css/main.css" />
-</head>
-<body>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<!-- Brand/logo -->
-		<a class="navbar-brand" href="#"><img alt="" src="/project/images/EpicGamesLogo.png" width="50" height="50"></a>
-		<div class="justify-content-between collapse navbar-collapse" id="collapsibleNavbar">
-			<!-- Links -->
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#" style="text-decoration: none;">스토어</a></li>
-				<li class="nav-item"><a class="nav-link" href="#" style="text-decoration: none;">새 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="#" style="text-decoration: none;">자주 묻는 질문</a></li>
-				<li class="nav-item"><a class="nav-link" href="#" style="text-decoration: none;">지원센터</a></li>
-			</ul>
-			<ul class="navbar-nav">
-				<c:choose>
-					<c:when test="${empty sessionScope.principal}">
-						<li class="nav-item"><a class="nav-link" href="/project/user?cmd=login" style="text-decoration: none;">로그인</a></li>
-						<li class="nav-item"><a class="nav-link" href="/project/user?cmd=join" style="text-decoration: none;">회원가입</a></li>
-					</c:when>
-					<c:otherwise>
-						<li class="nav-item"><a class="nav-link" href="/project/user?cmd=logout" style="text-decoration: none;">로그아웃</a></li>
-					</c:otherwise>
-				</c:choose>
-			</ul>
-		</div>
-	</nav>
-	<br>
+<!-- Custom styles for this template -->
+<link href="css/heroic-features.css" rel="stylesheet">
+
+<title>Heroic Features - Start Bootstrap Template</title>
+
+</head>
+<body style="background-color: black">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container ">
+    <a class="navbar-brand" href="#"><img alt="" src="/project/images/EpicGamesLogo.png" width="30" height="30"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+
+    <div class="justify-content-between collapse navbar-collapse" id="navbarResponsive">
+    <a class="navbar-brand" href="#">스토어</a> <a class="navbar-brand" href="#">새 소식</a> <a class="navbar-brand" href="#">자주 묻는 질문</a> <a class="navbar-brand" href="#">지원센터</a>
+      <ul class="navbar-nav ml-auto">
+        <c:choose>
+          <c:when test="${empty sessionScope.principal}">
+            <li class="nav-item active"><a class="nav-link" href="/project/user?cmd=login">로그인</a></li>
+            <li class="nav-item"><a class="nav-link" href="/project/user?cmd=join">회원가입</a></li>
+          </c:when>
+          <c:otherwise>
+            <li class="nav-item"><a class="nav-link" href="/project/user?cmd=logout">로그아웃</a></li>
+          </c:otherwise>
+        </c:choose>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+	<br />
