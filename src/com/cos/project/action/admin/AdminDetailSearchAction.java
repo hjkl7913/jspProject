@@ -28,12 +28,12 @@ public class AdminDetailSearchAction implements Action{
 		
 		//2. 가져오기
 		
-		GameInfos gameInfos = gameInfoRepository.findById(id);
+		GameInfos detailgameInfo = gameInfoRepository.findById(id);
 		
-		request.setAttribute("gameInfos", gameInfos);
+		request.setAttribute("detailgameInfo", detailgameInfo);
 		
 		// 3. 이동 home.jsp
-		RequestDispatcher dis = request.getRequestDispatcher("admin/adminSearchPage.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("admin/adminDetailSearchPage.jsp");
 		dis.forward(request, response);
 		
 	}

@@ -95,7 +95,7 @@ public class GameInfoRepository {
 				
 				// 물음표 완성하기
 				pstmt.setString(1, "%"+keyword+"%");
-				pstmt.setInt(2, page*4);
+				pstmt.setInt(2, page*16);
 				
 				
 				// while 돌려서 rs -> java 오브젝트에 집어넣기

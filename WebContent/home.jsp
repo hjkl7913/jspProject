@@ -22,17 +22,18 @@
 					<li data-target="#demo" data-slide-to="1"></li>
 					<li data-target="#demo" data-slide-to="2"></li>
 				</ul>
+				
 
 				<!-- The slideshow -->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="images/Fortnite.jpg" alt="Los Angeles" width="600px" height="300px">
+						<img src="image/Fortnite.jpg" alt="Los Angeles" width="600px" height="300px">
 					</div>
 					<div class="carousel-item">
-						<img src="images/starwars.png" alt="Chicago" width="600px" height="300px">
+						<img src="image/starwars.png" alt="Chicago" width="600px" height="300px">
 					</div>
 					<div class="carousel-item">
-						<img src="images/control.jpg" alt="New York" width="600px" height="300px">
+						<img src="image/control.jpg" alt="New York" width="600px" height="300px">
 					</div>
 				</div>
 
@@ -50,12 +51,12 @@
     <!-- Page Features -->
     <div style="background-color: #2A2A2A;">
     
-    <h2><img alt="" src="images/pre.png">무료게임</h2>
+    <h2><img alt="" src="image/pre.png">무료게임</h2>
     <div class="row text-center justify-content-center">
 		
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="images/pathway.png" alt="">
+          <img class="card-img-top" src="image/pathway.png" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit amet, co</p>
@@ -66,7 +67,7 @@
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="images/AER.jpg" alt="">
+          <img class="card-img-top" src="image/AER.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit amet, conse</p>
@@ -77,7 +78,7 @@
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-70">
-          <img class="card-img-top" src="images/stranger3.jpg" alt="">
+          <img class="card-img-top" src="image/stranger3.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit ame</p>
@@ -102,7 +103,7 @@
 		
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="card h-100">
-          <img class="card-img-top" src="images/pathway.png" alt="" width="200px" height="200px">
+          <img class="card-img-top" src="image/pathway.png" alt="" width="200px" height="200px">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit amet, co</p>
@@ -113,7 +114,7 @@
 
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="card h-100">
-          <img class="card-img-top" src="/project/images/AER.jpg" alt="">
+          <img class="card-img-top" src="/project/image/AER.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit amet, conse</p>
@@ -124,7 +125,7 @@
 
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="card h-70">
-          <img class="card-img-top" src="images/stranger.jpg" alt="">
+          <img class="card-img-top" src="image/stranger.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit ame</p>
@@ -135,7 +136,7 @@
       
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="card h-70">
-          <img class="card-img-top" src="images/stranger.jpg" alt="">
+          <img class="card-img-top" src="image/stranger.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit ame</p>
@@ -146,7 +147,7 @@
       
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="card h-70">
-          <img class="card-img-top" src="images/stranger.jpg" alt="">
+          <img class="card-img-top" src="image/stranger.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit ame</p>

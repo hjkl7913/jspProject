@@ -15,6 +15,8 @@ import com.cos.project.repository.GameInfoRepository;
 import com.cos.project.repository.UsersRepository;
 import com.cos.project.util.SHA256;
 import com.cos.project.util.Script;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import sun.security.provider.SHA;
 
@@ -27,93 +29,113 @@ public class AdminPageProcAction implements Action{
 			return; 
 		}
 		
+		String realPath = request.getServletContext().getRealPath("image");
+
+		MultipartRequest multi = new MultipartRequest(request, realPath, 1024 * 1024 * 2, "UTF-8",
+				new DefaultFileRenamePolicy());
+		
+		
 		//유효성 검사
 		
 		if
 		(
-				request.getParameter("image").equals("") ||
-				request.getParameter("image") == null ||
-				request.getParameter("movie").equals("") ||
-				request.getParameter("movie") == null ||
-				request.getParameter("gamename").equals("") ||
-				request.getParameter("gamename") == null ||
-				request.getParameter("price").equals("") ||
-				request.getParameter("price") == null ||
-				request.getParameter("developer").equals("") ||
-				request.getParameter("developer") == null ||
-				request.getParameter("publisher").equals("") ||
-				request.getParameter("publisher") == null ||
-				request.getParameter("tags").equals("") ||
-				request.getParameter("tags") == null ||
-				request.getParameter("rating").equals("") ||
-				request.getParameter("rating") == null ||
-				request.getParameter("releasedate").equals("") ||
-				request.getParameter("releasedate") == null ||
-				request.getParameter("platform").equals("") ||
-				request.getParameter("platform") == null ||
-				request.getParameter("explanation").equals("") ||
-				request.getParameter("explanation") == null ||
-				request.getParameter("minos").equals("") ||
-				request.getParameter("minos") == null ||
-				request.getParameter("minprocessor").equals("") ||
-				request.getParameter("minprocessor") == null ||
-				request.getParameter("minmemory").equals("") ||
-				request.getParameter("minmemory") == null ||
-				request.getParameter("mingraphics").equals("") ||
-				request.getParameter("mingraphics") == null ||
-				request.getParameter("mindirectX").equals("") ||
-				request.getParameter("mindirectX") == null ||
-				request.getParameter("minstorage").equals("") ||
-				request.getParameter("minstorage") == null ||
-				request.getParameter("recomos").equals("") ||
-				request.getParameter("recomos") == null ||
-				request.getParameter("recomprocessor").equals("") ||
-				request.getParameter("recomprocessor") == null ||
-				request.getParameter("recommemory").equals("") ||
-				request.getParameter("recommemory") == null ||
-				request.getParameter("recomgraphics").equals("") ||
-				request.getParameter("recomgraphics") == null ||
-				request.getParameter("recomdirectX").equals("") ||
-				request.getParameter("recomdirectX") == null ||
-				request.getParameter("recomstorage").equals("") ||
-				request.getParameter("recomstorage") == null ||
-				request.getParameter("language").equals("") ||
-				request.getParameter("language") == null
+				multi.getFilesystemName("image").equals("") ||
+				multi.getFilesystemName("image") == null ||
+				multi.getParameter("movie").equals("") ||
+				multi.getParameter("movie") == null ||
+				multi.getParameter("gamename").equals("") ||
+				multi.getParameter("gamename") == null ||
+				multi.getParameter("price").equals("") ||
+				multi.getParameter("price") == null ||
+				multi.getParameter("developer").equals("") ||
+				multi.getParameter("developer") == null ||
+				multi.getParameter("publisher").equals("") ||
+				multi.getParameter("publisher") == null ||
+				multi.getParameter("tags").equals("") ||
+				multi.getParameter("tags") == null ||
+				multi.getParameter("rating").equals("") ||
+				multi.getParameter("rating") == null ||
+				multi.getParameter("releasedate").equals("") ||
+				multi.getParameter("releasedate") == null ||
+				multi.getParameter("platform").equals("") ||
+				multi.getParameter("platform") == null ||
+				multi.getParameter("explanation").equals("") ||
+				multi.getParameter("explanation") == null ||
+				multi.getParameter("minos").equals("") ||
+				multi.getParameter("minos") == null ||
+				multi.getParameter("minprocessor").equals("") ||
+				multi.getParameter("minprocessor") == null ||
+				multi.getParameter("minmemory").equals("") ||
+				multi.getParameter("minmemory") == null ||
+				multi.getParameter("mingraphics").equals("") ||
+				multi.getParameter("mingraphics") == null ||
+				multi.getParameter("mindirectX").equals("") ||
+				multi.getParameter("mindirectX") == null ||
+				multi.getParameter("minstorage").equals("") ||
+				multi.getParameter("minstorage") == null ||
+				multi.getParameter("recomos").equals("") ||
+				multi.getParameter("recomos") == null ||
+				multi.getParameter("recomprocessor").equals("") ||
+				multi.getParameter("recomprocessor") == null ||
+				multi.getParameter("recommemory").equals("") ||
+				multi.getParameter("recommemory") == null ||
+				multi.getParameter("recomgraphics").equals("") ||
+				multi.getParameter("recomgraphics") == null ||
+				multi.getParameter("recomdirectX").equals("") ||
+				multi.getParameter("recomdirectX") == null ||
+				multi.getParameter("recomstorage").equals("") ||
+				multi.getParameter("recomstorage") == null ||
+				multi.getParameter("language").equals("") ||
+				multi.getParameter("language") == null
 		) {
 			Script.back("빈곳 채우쇼", response);
 			return;
 		}
 		
+		System.out.println("여기옴?");
+		
 		//1. 파라메터 받기
-		String image = "/project/images/"+request.getParameter("image");
-		String movie = request.getParameter("movie");
-		String gamename = request.getParameter("gamename");
-		String price = request.getParameter("price");
-		String developer = request.getParameter("developer");
-		String publisher = request.getParameter("publisher");
-		String tags = request.getParameter("tags");
-		String rating = request.getParameter("rating");
-		String releasedate = request.getParameter("releasedate");
-		String platform = request.getParameter("platform");
-		String explanation = request.getParameter("explanation");
-		String minOS = request.getParameter("minos");
-		String minProcessor = request.getParameter("minprocessor");
-		String minMemory = request.getParameter("minmemory");
-		String minGraphics = request.getParameter("mingraphics");
-		String minDirectX = request.getParameter("mindirectX");
-		String minStorage = request.getParameter("minstorage");
-		String recomOS = request.getParameter("recomos");
-		String recomProcessor = request.getParameter("recomprocessor");
-		String recomMemory = request.getParameter("recommemory");
-		String recomGraphics = request.getParameter("recomgraphics");
-		String recomDirectX = request.getParameter("recomdirectX");
-		String recomStorage = request.getParameter("recomstorage");
-		String languagesSupported = request.getParameter("language");
+		String image = multi.getFilesystemName("image");
+		String movie = multi.getParameter("movie");
+		String gamename = multi.getParameter("gamename");
+		String price = multi.getParameter("price");
+		String developer = multi.getParameter("developer");
+		String publisher = multi.getParameter("publisher");
+		String tags = multi.getParameter("tags");
+		String rating = multi.getParameter("rating");
+		String releasedate = multi.getParameter("releasedate");
+		String platform = multi.getParameter("platform");
+		String explanation = multi.getParameter("explanation");
+		String minOS = multi.getParameter("minos");
+		String minProcessor = multi.getParameter("minprocessor");
+		String minMemory = multi.getParameter("minmemory");
+		String minGraphics = multi.getParameter("mingraphics");
+		String minDirectX = multi.getParameter("mindirectX");
+		String minStorage = multi.getParameter("minstorage");
+		String recomOS = multi.getParameter("recomos");
+		String recomProcessor = multi.getParameter("recomprocessor");
+		String recomMemory = multi.getParameter("recommemory");
+		String recomGraphics = multi.getParameter("recomgraphics");
+		String recomDirectX = multi.getParameter("recomdirectX");
+		String recomStorage = multi.getParameter("recomstorage");
+		String languagesSupported = multi.getParameter("language");
 				
+		String fileName = null;
+		String contextPath = request.getServletContext().getContextPath();
+		String gameImage = null;
+		
+		
+		System.out.println("여기옴?");
+		try {
+
+			fileName = multi.getFilesystemName("image");
+
+			gameImage = contextPath + "/image/" + fileName;
+		
 		
 		//2. GameInfos 오브젝트 변환
 		GameInfos gameInfos = GameInfos.builder()
-				.image(image)
+				.image(gameImage)
 				.movie(movie)
 				.gamename(gamename)
 				.price(price)
@@ -147,6 +169,10 @@ public class AdminPageProcAction implements Action{
 			Script.href("게임 정보  추가 성공", "/project/admin?cmd=admin", response);
 		} else {
 			Script.back("게임 정보 추가 실패", response);
+		}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 		

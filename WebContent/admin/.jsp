@@ -15,14 +15,14 @@
 			<button class="btn btn-danger" type="submit">검색</button>
 		</form>
 		
-		<form action="/project/admin?cmd=adminProc" method="post" enctype="multipart/form-data">
+		<form action="/project/admin?cmd=adminProc" method="post">
 		<label for="usr">이미지</label>
 			<div class="form-group">
-				<img id="img__wrap" onerror="this.src='/project/image/logo.png'" width="250px" height="200px" />
+				<img id="img__wrap" src="/project/images/EpicGamesLogo.png" width="250px" height="200px" />
 			</div>
 			<div class="form-group bg-light">
 			
-				<input type="file" name="image" id="img__preview" />
+				<input type="file" name="image" id="image" />
 			</div>
 			<div class="form-group">
 				<label for="usr">Movie</label> <input type="text" class="form-control" id="movie" name="movie">
@@ -108,8 +108,6 @@
 	</div>
 	
 	<br/><br/><br/>
-	
-<script src="/project/js/imgPreview.js"></script>
 
 </body>
 </html>
