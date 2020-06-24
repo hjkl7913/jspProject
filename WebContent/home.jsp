@@ -7,7 +7,7 @@
 /* Make the image fully responsive */
 .carousel-inner img {
 	width: 100%;
-	height: 100%;
+	height: 80%;
 }
 </style>
 </head>
@@ -113,7 +113,7 @@
 
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="card h-100">
-          <img class="card-img-top" src="images/AER.jpg" alt="">
+          <img class="card-img-top" src="/project/images/AER.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Lorem ipsum dolor sit amet, conse</p>

@@ -1,27 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Bootstrap Example</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</head>
-<body>
 
+<%@ include file="../include/nav.jsp"%>
 
-	<h2>관리자 모드</h2>
-	<p>ㅎㅎ</p>
-	<div class="container">
-		<form action="/action_page.php">
+	
+	
+	<div class="container" style="background-color: white;">
+		<br/><br/><br/><br/>
+		<h2>게임정보</h2><br/>
+		
+		<form class="form-inline justify-content-end" action="/project/admin">
+			<input type="hidden" name="cmd" value="search"> 
+			<input type="hidden" name="page" value="0"> 
+			<input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
+			<button class="btn btn-danger" type="submit">검색</button>
+		</form>
+		
+		<form action="/project/admin?cmd=adminProc" method="post">
+		<label for="usr">이미지</label>
 			<div class="form-group">
-				<label for="usr">Image</label> <input type="text" class="form-control" id="price" name="price">
+				<img id="img__wrap" src="/project/images/EpicGamesLogo.png" width="250px" height="200px" />
+			</div>
+			<div class="form-group bg-light">
+			
+				<input type="file" name="image" id="image" />
 			</div>
 			<div class="form-group">
-				<label for="usr">Movie</label> <input type="text" class="form-control" id="price" name="price">
+				<label for="usr">Movie</label> <input type="text" class="form-control" id="movie" name="movie">
 			</div>
 			<div class="form-group">
 				<label for="usr">Gamename</label> <input type="text" class="form-control" id="gamename" name="gamename">
@@ -54,52 +58,56 @@
 
 			<h2>최소사양</h2>
 			<div class="form-group">
-				<label for="usr">OS</label> <input type="text" class="form-control" id="os" name="os">
+				<label for="usr">OS</label> <input type="text" class="form-control" id="minos" name="minos">
 			</div>
 			<div class="form-group">
-				<label for="usr">Processor</label> <input type="text" class="form-control" id="processor" name="processor">
+				<label for="usr">Processor</label> <input type="text" class="form-control" id="minprocessor" name="minprocessor">
 			</div>
 			<div class="form-group">
-				<label for="usr">Memory</label> <input type="text" class="form-control" id="memory" name="memory">
+				<label for="usr">Memory</label> <input type="text" class="form-control" id="minmemory" name="minmemory">
 			</div>
 			<div class="form-group">
-				<label for="usr">Graphics</label> <input type="text" class="form-control" id="graphics" name="graphics">
+				<label for="usr">Graphics</label> <input type="text" class="form-control" id="mingraphics" name="mingraphics">
 			</div>
 			<div class="form-group">
-				<label for="usr">DirectX</label> <input type="text" class="form-control" id="directX" name="directX">
+				<label for="usr">DirectX</label> <input type="text" class="form-control" id="mindirectX" name="mindirectX">
 			</div>
 			<div class="form-group">
-				<label for="usr">Storage</label> <input type="text" class="form-control" id="storage" name="storage">
+				<label for="usr">Storage</label> <input type="text" class="form-control" id="minstorage" name="minstorage">
 			</div>
 
 			<h2>권장사양</h2>
 			<div class="form-group">
-				<label for="usr">OS</label> <input type="text" class="form-control" id="os" name="os">
+				<label for="usr">OS</label> <input type="text" class="form-control" id="recomos" name="recomos">
 			</div>
 			<div class="form-group">
-				<label for="usr">Processor</label> <input type="text" class="form-control" id="processor" name="processor">
+				<label for="usr">Processor</label> <input type="text" class="form-control" id="recomprocessor" name="recomprocessor">
 			</div>
 			<div class="form-group">
-				<label for="usr">Memory</label> <input type="text" class="form-control" id="memory" name="memory">
+				<label for="usr">Memory</label> <input type="text" class="form-control" id="recommemory" name="recommemory">
 			</div>
 			<div class="form-group">
-				<label for="usr">Graphics</label> <input type="text" class="form-control" id="graphics" name="graphics">
+				<label for="usr">Graphics</label> <input type="text" class="form-control" id="recomgraphics" name="recomgraphics">
 			</div>
 			<div class="form-group">
-				<label for="usr">DirectX</label> <input type="text" class="form-control" id="directX" name="directX">
+				<label for="usr">DirectX</label> <input type="text" class="form-control" id="recomdirectX" name="recomdirectX">
 			</div>
 			<div class="form-group">
-				<label for="usr">Storage</label> <input type="text" class="form-control" id="storage" name="storage">
+				<label for="usr">Storage</label> <input type="text" class="form-control" id="recomstorage" name="recomstorage">
 			</div>
 
 			<h4>지원 언어</h4>
 			<div class="form-group">
-				<label for="comment">지원 언어</label>
+				
 				<textarea class="form-control" rows="5" id="language" name="language"></textarea>
 			</div>
+			<div class="d-flex justify-content-end">
 			<button type="submit" class="btn btn-primary">Submit</button>
+			</div><br/><br/><br/><br/>
 		</form>
 	</div>
+	
+	<br/><br/><br/>
 
 </body>
 </html>

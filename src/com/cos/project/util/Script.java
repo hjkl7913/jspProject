@@ -24,6 +24,24 @@ public class Script {
 
 	}
 	
+	public static void getMessage(String msg, HttpServletResponse response) {
+
+		try {
+
+			//
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=utf-8");
+
+			// 버퍼를 달아서 
+			PrintWriter out = response.getWriter();
+			out.println("<h1>"+msg+"</h1>");
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	public static void href(String msg, String uri, HttpServletResponse response) {
 
 		try {

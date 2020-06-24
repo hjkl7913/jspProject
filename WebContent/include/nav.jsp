@@ -27,30 +27,33 @@
 </head>
 <body style="background-color: black">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container ">
-    <a class="navbar-brand" href="#"><img alt="" src="/project/images/EpicGamesLogo.png" width="30" height="30"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
+		<div class="container ">
+			<a class="navbar-brand" href="#"><img alt="" src="/project/images/EpicGamesLogo.png" width="30" height="30"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-    <div class="justify-content-between collapse navbar-collapse" id="navbarResponsive">
-    <a class="navbar-brand" href="#">스토어</a> <a class="navbar-brand" href="#">새 소식</a> <a class="navbar-brand" href="#">자주 묻는 질문</a> <a class="navbar-brand" href="#">지원센터</a>
-      <ul class="navbar-nav ml-auto">
-        <c:choose>
-          <c:when test="${empty sessionScope.principal}">
-            <li class="nav-item active"><a class="nav-link" href="/project/user?cmd=login">로그인</a></li>
-            <li class="nav-item"><a class="nav-link" href="/project/user?cmd=join">회원가입</a></li>
-          </c:when>
-          <c:otherwise>
-            <li class="nav-item"><a class="nav-link" href="/project/user?cmd=logout">로그아웃</a></li>
-          </c:otherwise>
-        </c:choose>
 
-      </ul>
-    </div>
-  </div>
-</nav>
+			<div class="justify-content-between collapse navbar-collapse" id="navbarResponsive">
+				<a class="navbar-brand" href="#">스토어</a> <a class="navbar-brand" href="#">새 소식</a> <a class="navbar-brand" href="#">자주 묻는 질문</a> <a class="navbar-brand" href="#">지원센터</a>
+				<ul class="navbar-nav ml-auto">
+					<c:choose>
+						<c:when test="${empty sessionScope.principal}">
+							<li class="nav-item active"><a class="nav-link" href="/project/user?cmd=login">로그인</a></li>
+							<li class="nav-item"><a class="nav-link" href="/project/user?cmd=join">회원가입</a></li>
+						</c:when>
+						<c:when test="${sessionScope.principal.userRole == 'ADMIN'}">
+							<li class="nav-item"><a class="nav-link" href="/project/admin?cmd=admin">관리자페이지</a></li>
+							<li class="nav-item"><a class="nav-link" href="/project/user?cmd=logout">로그아웃</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item"><a class="nav-link" href="/project/user?cmd=logout">로그아웃</a></li>
+						</c:otherwise>
+					</c:choose>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
 
 	<br />
