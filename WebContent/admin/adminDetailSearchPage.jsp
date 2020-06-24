@@ -106,13 +106,14 @@
 			</div>
 			<div class="d-flex justify-content-end">
 			<button type="submit" class="btn btn-warning">수정</button>&nbsp;&nbsp;
-			<button class="btn btn-danger" onclick="deleteById(${detailgameInfo.id})">삭제</button>
-			
-			</div><br/><br/><br/><br/>
+			</div>
 		</form>
+		<button class="btn btn-danger" onclick="deleteById(${detailgameInfo.id})">삭제</button>
+		<br/><br/><br/><br/>
 	</div>
 	
 	<br/><br/><br/>
 <script src="/project/js/imgPreview.js"></script>
+<script src="/project/js/delete.js"></script>
 </body>
 </html>

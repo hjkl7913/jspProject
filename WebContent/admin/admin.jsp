@@ -102,7 +102,7 @@
 				<textarea class="form-control" rows="5" id="language" name="language"></textarea>
 			</div>
 			<div class="d-flex justify-content-end">
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary">추가</button>
 			</div><br/><br/><br/><br/>
 		</form>
 	</div>

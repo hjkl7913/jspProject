@@ -251,6 +251,28 @@ public class GameInfoRepository {
 			return -1;
 		}
 		
+		public int deleteById(int id) {
+			final String SQL = "DELETE FROM gameinfo WHERE id = ?";		
+
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, id);
+				
+				//if 돌려서 rs
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"deleteById : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
 		public Users findByEmailAndPassword(String email, String password) {
 			final String SQL = "SELECT id, username, displayname, email, userProfile, userRole, createDate FROM users WHERE email=? AND password = ?";		
 			Users user = null;
