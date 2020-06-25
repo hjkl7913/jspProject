@@ -52,9 +52,13 @@
 				<label for="usr">Platform</label> <input type="text" class="form-control" id="platform" name="platform">
 			</div>
 			<div class="form-group">
+				<label for="usr">FreeDown</label> <input type="text" class="form-control" id="freedown" name="freedown">
+			</div>
+			<div class="form-group">
 				<label for="comment">Explanation</label>
 				<textarea class="form-control" rows="5" id="explanation" name="explanation"></textarea>
 			</div>
+			
 
 			<h2>최소사양</h2>
 			<div class="form-group">

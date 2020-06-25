@@ -24,8 +24,140 @@ public class GameInfoRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		public List<GameInfos> BestGameSelect() {
+			StringBuilder sb = new StringBuilder();
+			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown ");
+			sb.append("FROM GAMEINFO ");
+			sb.append("ORDER BY price desc ");		
+			sb.append("OFFSET 0 ROWS FETCH FIRST 6 ROWS ONLY ");
+			
+			
+			final String SQL = sb.toString();
+			List<GameInfos> gameInfos = new ArrayList<>();
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				
+				// while 돌려서 rs -> java 오브젝트에 집어넣기
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					GameInfos gameInfo = new GameInfos(
+							rs.getInt("id"),
+							rs.getString("gamename"),
+							rs.getString("price"),
+							rs.getString("img"),
+							rs.getString("movie"),
+							rs.getString("developer"),
+							rs.getString("publisher"),
+							rs.getString("explanation"),
+							rs.getString("tags"),
+							rs.getString("rating"),
+							rs.getString("releasedate"),
+							rs.getString("platform"),
+							rs.getString("minos"),
+							rs.getString("minprocessor"),
+							rs.getString("minmemory"),
+							rs.getString("minGraphics"),
+							rs.getString("minDirectX"),
+							rs.getString("minStorage"),
+							rs.getString("recomos"),
+							rs.getString("recomprocessor"),
+							rs.getString("recommemory"),
+							rs.getString("recomGraphics"),
+							rs.getString("recomDirectX"),
+							rs.getString("recomStorage"),
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown")
+					);
+					gameInfos.add(gameInfo);
+				}
+				
+				return gameInfos;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"BestGameSelect : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+		
+		public List<GameInfos> findByPriceZero() {
+			StringBuilder sb = new StringBuilder();
+			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown ");
+			sb.append("FROM GAMEINFO ");
+			sb.append("WHERE price = ? ");		
+			sb.append("OFFSET 0 ROWS FETCH FIRST 3 ROWS ONLY ");
+			
+			
+			final String SQL = sb.toString();
+			List<GameInfos> gameInfos = new ArrayList<>();
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				// 물음표 완성하기
+				pstmt.setString(1, "0");
+				
+				
+				
+				// while 돌려서 rs -> java 오브젝트에 집어넣기
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					GameInfos gameInfo = new GameInfos(
+							rs.getInt("id"),
+							rs.getString("gamename"),
+							rs.getString("price"),
+							rs.getString("img"),
+							rs.getString("movie"),
+							rs.getString("developer"),
+							rs.getString("publisher"),
+							rs.getString("explanation"),
+							rs.getString("tags"),
+							rs.getString("rating"),
+							rs.getString("releasedate"),
+							rs.getString("platform"),
+							rs.getString("minos"),
+							rs.getString("minprocessor"),
+							rs.getString("minmemory"),
+							rs.getString("minGraphics"),
+							rs.getString("minDirectX"),
+							rs.getString("minStorage"),
+							rs.getString("recomos"),
+							rs.getString("recomprocessor"),
+							rs.getString("recommemory"),
+							rs.getString("recomGraphics"),
+							rs.getString("recomDirectX"),
+							rs.getString("recomStorage"),
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown")
+					);
+					gameInfos.add(gameInfo);
+				}
+				
+				return gameInfos;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findByPriceZero : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+		
 		public int update(GameInfos gameInfos) {
-			final String SQL ="UPDATE gameinfo SET gamename = ?, price = ?, img = ?, movie = ?, developer = ?, publisher = ?, explanation = ?, tags = ?, rating = ?, releasedate = ?, platform = ?, minos = ?, minprocessor = ?, minmemory = ?, minGraphics = ?, minDirectX = ?, minStorage = ?, recomos = ?, recomprocessor = ?, recommemory = ?, recomGraphics = ?, recomDirectX = ?, recomStorage = ?, LanguagesSup = ?   WHERE id = ?";
+			final String SQL ="UPDATE gameinfo SET gamename = ?, price = ?, img = ?, movie = ?, developer = ?, publisher = ?, explanation = ?, tags = ?, rating = ?, releasedate = ?, platform = ?, minos = ?, minprocessor = ?, minmemory = ?, minGraphics = ?, minDirectX = ?, minStorage = ?, recomos = ?, recomprocessor = ?, recommemory = ?, recomGraphics = ?, recomDirectX = ?, recomStorage = ?, LanguagesSup = ?, freedown = ?  WHERE id = ?";
 			
 			try {
 				conn = DBConn.getConnection();
@@ -56,7 +188,8 @@ public class GameInfoRepository {
 				pstmt.setString(22, gameInfos.getRecomDirectX());
 				pstmt.setString(23, gameInfos.getRecomStorage());
 				pstmt.setString(24, gameInfos.getLanguagesSupported());
-				pstmt.setInt(25, gameInfos.getId());
+				pstmt.setString(25, gameInfos.getFreeDown());
+				pstmt.setInt(26, gameInfos.getId());
 				
 				return pstmt.executeUpdate();
 			} catch (Exception e) {
@@ -107,6 +240,7 @@ public class GameInfoRepository {
 							.recomDirectX(rs.getString("recomDirectX"))
 							.recomStorage(rs.getString("recomStorage"))
 							.languagesSupported(rs.getString("LanguagesSup"))
+							.freeDown(rs.getString("freedown"))
 							.build();
 								
 				}
@@ -125,7 +259,7 @@ public class GameInfoRepository {
 		public List<GameInfos> findAll(int page, String keyword) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
-			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown ");
 			sb.append("FROM GAMEINFO ");
 			sb.append("WHERE gamename like ? ");		
 			sb.append("OFFSET ? ROWS FETCH FIRST 16 ROWS ONLY ");
@@ -172,7 +306,8 @@ public class GameInfoRepository {
 							rs.getString("recomGraphics"),
 							rs.getString("recomDirectX"),
 							rs.getString("recomStorage"),
-							rs.getString("LanguagesSup")
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown")
 					);
 					gameInfos.add(gameInfo);
 				}
@@ -311,7 +446,7 @@ public class GameInfoRepository {
 		}
 		
 		public int save(GameInfos gameInfos) {
-			final String SQL = "INSERT INTO GAMEINFO(id, gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup) VALUES(GAMEINFO_SEQ.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
+			final String SQL = "INSERT INTO GAMEINFO(id, gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown) VALUES(GAMEINFO_SEQ.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
 			
 			try {
 				conn = DBConn.getConnection();
@@ -342,6 +477,7 @@ public class GameInfoRepository {
 				pstmt.setString(22, gameInfos.getRecomDirectX());
 				pstmt.setString(23, gameInfos.getRecomStorage());
 				pstmt.setString(24, gameInfos.getLanguagesSupported());
+				pstmt.setString(25, gameInfos.getFreeDown());
 				
 				return pstmt.executeUpdate();
 				

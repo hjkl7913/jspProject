@@ -69,8 +69,6 @@ public class AdminPageProcAction implements Action{
 				multi.getParameter("minmemory") == null ||
 				multi.getParameter("mingraphics").equals("") ||
 				multi.getParameter("mingraphics") == null ||
-				multi.getParameter("mindirectX").equals("") ||
-				multi.getParameter("mindirectX") == null ||
 				multi.getParameter("minstorage").equals("") ||
 				multi.getParameter("minstorage") == null ||
 				multi.getParameter("recomos").equals("") ||
@@ -81,8 +79,6 @@ public class AdminPageProcAction implements Action{
 				multi.getParameter("recommemory") == null ||
 				multi.getParameter("recomgraphics").equals("") ||
 				multi.getParameter("recomgraphics") == null ||
-				multi.getParameter("recomdirectX").equals("") ||
-				multi.getParameter("recomdirectX") == null ||
 				multi.getParameter("recomstorage").equals("") ||
 				multi.getParameter("recomstorage") == null ||
 				multi.getParameter("language").equals("") ||
@@ -119,6 +115,7 @@ public class AdminPageProcAction implements Action{
 		String recomDirectX = multi.getParameter("recomdirectX");
 		String recomStorage = multi.getParameter("recomstorage");
 		String languagesSupported = multi.getParameter("language");
+		String freeDown = multi.getParameter("freedown");
 				
 		String fileName = null;
 		String contextPath = request.getServletContext().getContextPath();
@@ -159,6 +156,7 @@ public class AdminPageProcAction implements Action{
 				.recomDirectX(recomDirectX)
 				.recomStorage(recomStorage)
 				.languagesSupported(languagesSupported)
+				.freeDown(freeDown)
 				.build();
 		
 		// 3. DB 연결 

@@ -35,5 +35,6 @@ public class GameInfos {
 	private String recomDirectX;
 	private String recomStorage;
 	private String languagesSupported;
+	private String freeDown;
 
 }

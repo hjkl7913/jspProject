@@ -9,22 +9,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cos.project.action.Action;
-import com.cos.project.action.user.UsersEmailCheckAction;
+import com.cos.project.action.admin.AdminDeleteAction;
+import com.cos.project.action.admin.AdminDetailSearchAction;
+import com.cos.project.action.admin.AdminPageAction;
+import com.cos.project.action.admin.AdminPageProcAction;
+import com.cos.project.action.admin.AdminSearchAction;
+import com.cos.project.action.admin.AdminUpdateAction;
+import com.cos.project.action.game.GameHomeAction;
 
-import com.cos.project.action.user.UsersJoinAction;
-import com.cos.project.action.user.UsersJoinProcAction;
-import com.cos.project.action.user.UsersLoginAction;
-import com.cos.project.action.user.UsersLoginProcAction;
-import com.cos.project.action.user.UsersLogoutAction;
 
 
-@WebServlet("/user")
-public class UsersController extends HttpServlet {
-	private static final String TAG = "UsersController : ";
+@WebServlet("/home")
+public class HomeController extends HttpServlet {
+	private static final String TAG = "AdminController : ";
 	private static final long serialVersionUID = 1L;
        
     
-    public UsersController() {
+    public HomeController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,18 +49,8 @@ public class UsersController extends HttpServlet {
 
 
 	public Action router(String cmd) {
-		if(cmd.equals("join")) {
-			return new UsersJoinAction();
-		}else if(cmd.equals("joinProc")) {
-			return new UsersJoinProcAction();
-		}else if (cmd.equals("userEmailCheck")) { 
-			return new UsersEmailCheckAction();
-		}else if(cmd.equals("login")) {
-			return new UsersLoginAction();
-		}else if(cmd.equals("loginProc")) {
-			return new UsersLoginProcAction();
-		}else if(cmd.equals("logout")) {
-			return new UsersLogoutAction();
+		if(cmd.equals("home")) {
+			return new GameHomeAction();
 		}
 		return null;
 	}

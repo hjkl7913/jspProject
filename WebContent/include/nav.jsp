@@ -21,6 +21,7 @@
 
 <!-- Custom styles for this template -->
 <link href="css/heroic-features.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
 <title>Heroic Features - Start Bootstrap Template</title>
 
