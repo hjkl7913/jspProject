@@ -36,7 +36,7 @@
 
 
 			<div class="justify-content-between collapse navbar-collapse" id="navbarResponsive">
-				<a class="navbar-brand" href="#">스토어</a> <a class="navbar-brand" href="#">새 소식</a> <a class="navbar-brand" href="#">자주 묻는 질문</a> <a class="navbar-brand" href="#">지원센터</a>
+				<a class="navbar-brand" href="/project/home?cmd=home">스토어</a> <a class="navbar-brand" href="#">새 소식</a> <a class="navbar-brand" href="#">자주 묻는 질문</a> <a class="navbar-brand" href="#">지원센터</a>
 				<ul class="navbar-nav ml-auto">
 					<c:choose>
 						<c:when test="${empty sessionScope.principal}">

@@ -24,6 +24,70 @@ public class GameInfoRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		
+		public List<GameInfos> ExpectedGameSelect() {
+			StringBuilder sb = new StringBuilder();
+			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown ");
+			sb.append("FROM GAMEINFO ");
+			sb.append("WHERE releasedate like ? ");
+			
+			
+			final String SQL = sb.toString();
+			List<GameInfos> gameInfos = new ArrayList<>();
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				pstmt.setString(1, "%출시예정%");
+				
+				// while 돌려서 rs -> java 오브젝트에 집어넣기
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					GameInfos gameInfo = new GameInfos(
+							rs.getInt("id"),
+							rs.getString("gamename"),
+							rs.getString("price"),
+							rs.getString("img"),
+							rs.getString("movie"),
+							rs.getString("developer"),
+							rs.getString("publisher"),
+							rs.getString("explanation"),
+							rs.getString("tags"),
+							rs.getString("rating"),
+							rs.getString("releasedate"),
+							rs.getString("platform"),
+							rs.getString("minos"),
+							rs.getString("minprocessor"),
+							rs.getString("minmemory"),
+							rs.getString("minGraphics"),
+							rs.getString("minDirectX"),
+							rs.getString("minStorage"),
+							rs.getString("recomos"),
+							rs.getString("recomprocessor"),
+							rs.getString("recommemory"),
+							rs.getString("recomGraphics"),
+							rs.getString("recomDirectX"),
+							rs.getString("recomStorage"),
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown")
+					);
+					gameInfos.add(gameInfo);
+				}
+				
+				return gameInfos;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"BestGameSelect : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
 		public List<GameInfos> BestGameSelect() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");

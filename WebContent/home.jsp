@@ -79,7 +79,7 @@
 	<!-- new -->
 	<div class="container">
 
-		<!-- Page Features -->
+		
 		<h2>베스트셀러</h2>
 		<div class="best__game">
 			<div class="row">
@@ -101,7 +101,33 @@
 			</div>
 			<!-- /.row -->
 		</div>
+	</div><br/><br/><br/>
+	
+	
+	<div class="container">
+
+		<h2>출시 예정</h2>
+		<div class="__game">
+			<div class="row">
+
+				<c:forEach var="ExpectedGameInfo" items="${ExpectedGameInfos}">
+					<div class="col-lg-3 col-md-6 mb-3">
+						<div class="card h-60">
+							<img class="card-img-top" src="${ExpectedGameInfo.image}" alt="" height="200px">
+							<div class="card-body">
+								<p class="card-text">${ExpectedGameInfo.gamename}</p>
+								<p class="card-text">${ExpectedGameInfo.developer}</p>
+								<h5 class="card-title">${ExpectedGameInfo.price}</h5>
+							</div>
+
+						</div>
+					</div>
+				</c:forEach>
+
+			</div>
+			<!-- /.row -->
+		</div>
 	</div>
-	<!-- /.container -->
+	
 
 	<%@ include file="include/footer.jsp"%>

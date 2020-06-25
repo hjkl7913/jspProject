@@ -33,7 +33,12 @@ public class GameHomeAction implements Action{
 		
 		request.setAttribute("BestGameInfos", BestGameInfos);
 		
-	
+		
+		//출시 예정
+		List<GameInfos> ExpectedGameInfos = gameInfoRepository.ExpectedGameSelect();
+		
+		request.setAttribute("ExpectedGameInfos", ExpectedGameInfos);
+		
 		// 3. 이동 home.jsp
 		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
 		dis.forward(request, response);
