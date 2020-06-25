@@ -15,6 +15,7 @@ import com.cos.project.action.admin.AdminPageAction;
 import com.cos.project.action.admin.AdminPageProcAction;
 import com.cos.project.action.admin.AdminSearchAction;
 import com.cos.project.action.admin.AdminUpdateAction;
+import com.cos.project.action.game.GameDetailAction;
 import com.cos.project.action.game.GameHomeAction;
 
 
@@ -51,6 +52,8 @@ public class HomeController extends HttpServlet {
 	public Action router(String cmd) {
 		if(cmd.equals("home")) {
 			return new GameHomeAction();
+		}else if(cmd.equals("detail")) {
+			return new GameDetailAction();
 		}
 		return null;
 	}

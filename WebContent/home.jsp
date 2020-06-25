@@ -43,10 +43,10 @@
 	<br />
 	<br />
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container" id="best__game">
 
 		<!-- Page Features -->
-		<div style="background-color: #2A2A2A;">
+		<div id="free__back">
 
 			<h2>
 				<img alt="" src="image/pre.png">무료게임
@@ -55,8 +55,8 @@
 
 				<c:forEach var="freeGameInfo" items="${freeGameInfos}">
 					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-80">
-							<img class="card-img-top" src="${freeGameInfo.image}" alt="" height="200px">
+						<div class="card h-80" id="card__div__free">
+							<a href="/project/home?cmd=detail&id=${freeGameInfo.id}"><img class="card-img-top" src="${freeGameInfo.image}" alt="" height="200px"></a>
 							<div class="card-body">
 								<h5 class="card-title">${freeGameInfo.gamename}</h5>
 								<p class="card-text">${freeGameInfo.freeDown}</p>
@@ -77,7 +77,7 @@
 	<br />
 	<br />
 	<!-- new -->
-	<div class="container">
+	<div class="container" id="best__game">
 
 		
 		<h2>베스트셀러</h2>
@@ -86,12 +86,12 @@
 
 				<c:forEach var="BestGameInfo" items="${BestGameInfos}">
 					<div class="col-lg-2 col-md-6 mb-3">
-						<div class="card h-60">
+						<div class="card h-60" id="card__div__best">
 							<img class="card-img-top" src="${BestGameInfo.image}" alt="" height="200px">
 							<div class="card-body">
 								<p class="card-text">${BestGameInfo.gamename}</p>
-								<p class="card-text">${BestGameInfo.developer}</p>
-								<h5 class="card-title">${BestGameInfo.price}</h5>
+								<p class="card-text" style="color: #6A6A6A">${BestGameInfo.developer}</p>
+								<h5 class="card-title" style="color: white;">${BestGameInfo.price}</h5>
 							</div>
 
 						</div>
@@ -104,7 +104,7 @@
 	</div><br/><br/><br/>
 	
 	
-	<div class="container">
+	<div class="container" id="best__game">
 
 		<h2>출시 예정</h2>
 		<div class="__game">
@@ -112,12 +112,12 @@
 
 				<c:forEach var="ExpectedGameInfo" items="${ExpectedGameInfos}">
 					<div class="col-lg-3 col-md-6 mb-3">
-						<div class="card h-60">
-							<img class="card-img-top" src="${ExpectedGameInfo.image}" alt="" height="200px">
+						<div class="card h-60" id="card__div__best">
+							<img class="card-img-top" src="${ExpectedGameInfo.image}" alt="" height="350px">
 							<div class="card-body">
 								<p class="card-text">${ExpectedGameInfo.gamename}</p>
-								<p class="card-text">${ExpectedGameInfo.developer}</p>
-								<h5 class="card-title">${ExpectedGameInfo.price}</h5>
+								<p class="card-text" style="color: #6A6A6A">${ExpectedGameInfo.developer}</p>
+								<h5 class="card-title" style="color: white;">${ExpectedGameInfo.price}</h5>
 							</div>
 
 						</div>
