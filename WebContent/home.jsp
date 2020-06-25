@@ -4,11 +4,8 @@
 <%@ include file="include/nav.jsp"%>
 
 
-</head>
-<body>
-
 	<div class="container">
-		<div id="demo" class="carousel slide" data-ride="carousel">
+		<div id="demo" class="carousel slide" data-ride="carousel"><br/><br/><br/><br/><br/>
 			<form class="form-inline justify-content-center">
 				<!-- Indicators -->
 				<ul class="carousel-indicators">

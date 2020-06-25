@@ -18,7 +18,7 @@
 		<form action="/project/admin?cmd=adminProc" method="post" enctype="multipart/form-data">
 		<label for="usr">이미지</label>
 			<div class="form-group">
-				<img id="img__wrap" onerror="this.src='/project/image/logo.png'" width="250px" height="200px" />
+				<img id="img__wrap" onerror="this.src='/project/image/logo.png'" width="250px" height="300px" />
 			</div>
 			<div class="form-group bg-light">
 			

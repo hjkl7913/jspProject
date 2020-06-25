@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Bootstrap Example</title>
+<title>Epic Games</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
@@ -28,15 +28,14 @@
 </head>
 <body style="background-color: black">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container ">
-			<a class="navbar-brand" href="#"><img alt="" src="/project/image/EpicGamesLogo.png" width="30" height="30"></a>
+			<a class="navbar-brand" href="#"><img alt="" src="/project/image/logo3.png" width="28" height="28"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 
-			<div class="justify-content-between collapse navbar-collapse" id="navbarResponsive">
-				<a class="navbar-brand" href="/project/home?cmd=home">스토어</a> <a class="navbar-brand" href="#">새 소식</a> <a class="navbar-brand" href="#">자주 묻는 질문</a> <a class="navbar-brand" href="#">지원센터</a>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<a class="navbar-brand" style="font-size: 18px" href="/project/home?cmd=home">스토어</a> <a class="navbar-brand" style="font-size: 18px" href="#">새 소식</a> <a class="navbar-brand" style="font-size: 18px" href="/project/home?cmd=question">자주 묻는 질문</a> <a class="navbar-brand" style="font-size: 18px" href="#">지원센터</a>
 				<ul class="navbar-nav ml-auto">
 					<c:choose>
 						<c:when test="${empty sessionScope.principal}">
@@ -54,7 +53,5 @@
 
 				</ul>
 			</div>
-		</div>
-	</nav>
 
-	<br />
+	</nav>
