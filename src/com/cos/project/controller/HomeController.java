@@ -17,7 +17,11 @@ import com.cos.project.action.admin.AdminSearchAction;
 import com.cos.project.action.admin.AdminUpdateAction;
 import com.cos.project.action.game.GameDetailAction;
 import com.cos.project.action.game.GameHomeAction;
+import com.cos.project.action.game.GameKeywordSearchAction;
+import com.cos.project.action.game.GameSearchAction;
+import com.cos.project.action.game.GameTagSearchAction;
 import com.cos.project.action.game.HomeQuestionAction;
+import com.cos.project.action.game.HomeSearchProcAction;
 
 
 
@@ -57,8 +61,16 @@ public class HomeController extends HttpServlet {
 			return new GameDetailAction();
 		}else if(cmd.equals("question")) {
 			return new HomeQuestionAction();
+		}else if(cmd.equals("search")) {
+			return new GameSearchAction();
+		}else if(cmd.equals("tagSearch")) {
+			return new GameTagSearchAction();
+		}else if(cmd.equals("homeGameSearch")) {
+			return new HomeSearchProcAction();
+		}else if(cmd.equals("keywordSearch")) {
+			return new GameKeywordSearchAction();
 		}
 		return null;
-	}
+		}
 
 }

@@ -1,10 +1,8 @@
-package com.cos.project.action.admin;
-
+package com.cos.project.action.game;
 
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,10 +11,9 @@ import com.cos.project.action.Action;
 import com.cos.project.model.GameInfos;
 import com.cos.project.repository.GameInfoRepository;
 import com.cos.project.util.Script;
+import com.google.gson.Gson;
 
-
-public class AdminSearchAction implements Action{
-
+public class GameKeywordSearchAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -30,28 +27,25 @@ public class AdminSearchAction implements Action{
 				return;
 		}
 		
-		int page = Integer.parseInt(request.getParameter("page"));
 		String keyword = request.getParameter("keyword");
-		// 1. DB연결해서 Board 목록 다불러와서
-		
+		System.out.println("keyword : "+keyword);
 		
 		GameInfoRepository gameInfoRepository = GameInfoRepository.getInstance();
 		
+		List<GameInfos> KeywordGameInfos = gameInfoRepository.findByKeyword(keyword);
 		
-		//2. 3건만 페이징하여 가져오기
+		System.out.println("KeywordGameInfos : "+KeywordGameInfos);
+		//request.setAttribute("products", products);
 		
-		List<GameInfos> gameInfos = gameInfoRepository.findByPageAndKeyword(page,keyword);
+		Gson gson = new Gson();
 		
-		request.setAttribute("gameInfos", gameInfos);
-		
-		//int result = gameInfoRepository.findBoardCount(keyword);
-		//System.out.println("AdminSearchAction : result: "+result);
-
-		System.out.println("gameInfos :" + gameInfos);
 		// 3. 이동 home.jsp
-		RequestDispatcher dis = request.getRequestDispatcher("admin/adminSearchPage.jsp");
-		dis.forward(request, response);
+		
+		String keySearchJsons = gson.toJson(KeywordGameInfos);
+		System.out.println("keySearchJsons : "+keySearchJsons);
+		Script.outJson(keySearchJsons, response);
+		
+		//Script.outText(products+"", response);
 		
 	}
-	
 }

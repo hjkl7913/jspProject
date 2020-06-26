@@ -83,5 +83,23 @@ public class Script {
 		}
 
 	}
+	
+	public static void outJson(String msg, HttpServletResponse response) {
+
+		try {
+
+			//
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("application/json; charset=utf-8");
+
+			// 버퍼를 달아서 
+			PrintWriter out = response.getWriter();
+			out.print(msg);
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }

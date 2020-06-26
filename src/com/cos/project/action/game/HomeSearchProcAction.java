@@ -1,4 +1,4 @@
-package com.cos.project.action.admin;
+package com.cos.project.action.game;
 
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ import com.cos.project.repository.GameInfoRepository;
 import com.cos.project.util.Script;
 
 
-public class AdminSearchAction implements Action{
+public class HomeSearchProcAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,7 +49,7 @@ public class AdminSearchAction implements Action{
 
 		System.out.println("gameInfos :" + gameInfos);
 		// 3. 이동 home.jsp
-		RequestDispatcher dis = request.getRequestDispatcher("admin/adminSearchPage.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("game/gamesearchpage.jsp");
 		dis.forward(request, response);
 		
 	}

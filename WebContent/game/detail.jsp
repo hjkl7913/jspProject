@@ -5,7 +5,7 @@
 
 <script src="js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
 <script src="js/jssor.slider-28.0.0.min2.js" type="text/javascript"></script>
- 
+ 	<br/><br/>
     <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
@@ -49,7 +49,7 @@
     </script>
     <!-- #endregion Jssor Slider End -->
 
-
+<br/><br/>
 <div class="container" id="game__detail">
 	
 <!-- 	<iframe src="http://www.youtube.com/embed/TgOu00Mf3kI?version=2&amp;showinfo=0&amp;autoplay=1&amp;loop=1" width="640px" height="360px" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->

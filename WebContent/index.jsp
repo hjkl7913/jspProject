@@ -4,4 +4,5 @@
 <%
 	// response.sendRedirect("/blog/board?cmd=home");
 %>
+
 <c:redirect url="/home?cmd=home" />

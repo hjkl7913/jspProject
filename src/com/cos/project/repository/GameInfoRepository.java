@@ -24,6 +24,183 @@ public class GameInfoRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		public List<GameInfos> findByKeyword(String keyword) {
+			final String SQL = "SELECT * FROM gameinfo WHERE gamename LIKE ?";
+			
+			List<GameInfos> gameInfos = new ArrayList<>();
+
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				// 물음표 완성하기
+				pstmt.setString(1, "%"+keyword+"%");
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					GameInfos gameInfo = new GameInfos(
+							rs.getInt("id"),
+							rs.getString("gamename"),
+							rs.getString("price"),
+							rs.getString("img"),
+							rs.getString("movie"),
+							rs.getString("developer"),
+							rs.getString("publisher"),
+							rs.getString("explanation"),
+							rs.getString("tags"),
+							rs.getString("rating"),
+							rs.getString("releasedate"),
+							rs.getString("platform"),
+							rs.getString("minos"),
+							rs.getString("minprocessor"),
+							rs.getString("minmemory"),
+							rs.getString("minGraphics"),
+							rs.getString("minDirectX"),
+							rs.getString("minStorage"),
+							rs.getString("recomos"),
+							rs.getString("recomprocessor"),
+							rs.getString("recommemory"),
+							rs.getString("recomGraphics"),
+							rs.getString("recomDirectX"),
+							rs.getString("recomStorage"),
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown")
+					);
+					gameInfos.add(gameInfo);
+				}
+				
+				return gameInfos;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findByKeyword : "+e.getMessage());
+			} finally {
+				DBConn.close(conn, pstmt, rs);
+			}
+
+			return null;
+		}
+		
+		
+		public List<GameInfos> findAll() {
+			StringBuilder sb = new StringBuilder();
+			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown ");
+			sb.append("FROM GAMEINFO ");	
+			//sb.append("OFFSET ? ROWS FETCH FIRST 16 ROWS ONLY ");
+			
+			
+			final String SQL = sb.toString();
+			System.out.println(TAG+" SQL : "+SQL);
+			List<GameInfos> gameInfos = new ArrayList<>();
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+					
+				
+				// while 돌려서 rs -> java 오브젝트에 집어넣기
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					GameInfos gameInfo = new GameInfos(
+							rs.getInt("id"),
+							rs.getString("gamename"),
+							rs.getString("price"),
+							rs.getString("img"),
+							rs.getString("movie"),
+							rs.getString("developer"),
+							rs.getString("publisher"),
+							rs.getString("explanation"),
+							rs.getString("tags"),
+							rs.getString("rating"),
+							rs.getString("releasedate"),
+							rs.getString("platform"),
+							rs.getString("minos"),
+							rs.getString("minprocessor"),
+							rs.getString("minmemory"),
+							rs.getString("minGraphics"),
+							rs.getString("minDirectX"),
+							rs.getString("minStorage"),
+							rs.getString("recomos"),
+							rs.getString("recomprocessor"),
+							rs.getString("recommemory"),
+							rs.getString("recomGraphics"),
+							rs.getString("recomDirectX"),
+							rs.getString("recomStorage"),
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown")
+					);
+					gameInfos.add(gameInfo);
+				}
+				
+				return gameInfos;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findAll() : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+		
+		public List<GameInfos> findByTags(String tags) {
+			final String SQL = "SELECT * FROM gameinfo WHERE tags LIKE ?";
+			
+			List<GameInfos> gameInfos = new ArrayList<>();
+
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				// 물음표 완성하기
+				pstmt.setString(1, "%"+tags+"%");
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					GameInfos gameInfo = new GameInfos(
+							rs.getInt("id"),
+							rs.getString("gamename"),
+							rs.getString("price"),
+							rs.getString("img"),
+							rs.getString("movie"),
+							rs.getString("developer"),
+							rs.getString("publisher"),
+							rs.getString("explanation"),
+							rs.getString("tags"),
+							rs.getString("rating"),
+							rs.getString("releasedate"),
+							rs.getString("platform"),
+							rs.getString("minos"),
+							rs.getString("minprocessor"),
+							rs.getString("minmemory"),
+							rs.getString("minGraphics"),
+							rs.getString("minDirectX"),
+							rs.getString("minStorage"),
+							rs.getString("recomos"),
+							rs.getString("recomprocessor"),
+							rs.getString("recommemory"),
+							rs.getString("recomGraphics"),
+							rs.getString("recomDirectX"),
+							rs.getString("recomStorage"),
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown")
+					);
+					gameInfos.add(gameInfo);
+				}
+				
+				return gameInfos;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findByTags : "+e.getMessage());
+			} finally {
+				DBConn.close(conn, pstmt, rs);
+			}
+
+			return null;
+		}
+		
 		
 		public List<GameInfos> ExpectedGameSelect() {
 			StringBuilder sb = new StringBuilder();
@@ -169,7 +346,7 @@ public class GameInfoRepository {
 				pstmt = conn.prepareStatement(SQL);
 				
 				// 물음표 완성하기
-				pstmt.setString(1, "0");
+				pstmt.setString(1, "무료");
 				
 				
 				
@@ -320,7 +497,7 @@ public class GameInfoRepository {
 		}
 		
 		
-		public List<GameInfos> findAll(int page, String keyword) {
+		public List<GameInfos> findByPageAndKeyword(int page, String keyword) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
 			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown ");
@@ -379,7 +556,7 @@ public class GameInfoRepository {
 				return gameInfos;
 			} catch (Exception e) {
 				e.printStackTrace();
-				System.out.println(TAG+"findAll(page, keyword) : "+e.getMessage());
+				System.out.println(TAG+"findByPageAndKeyword(page, keyword) : "+e.getMessage());
 				
 			} finally {
 				DBConn.close(conn, pstmt ,rs);

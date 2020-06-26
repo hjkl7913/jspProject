@@ -21,7 +21,7 @@
   font-size: 10pt;
   float: left;
   color: white;
-  padding-left: 45px;
+  padding-left: 15px;
 
 }
 
@@ -45,10 +45,11 @@
 input.img-button {
         background: url( "image/search.png" ) no-repeat;
         border: none;
+        float: left;
         width: 45px;
         height: 45px;
         cursor: pointer;
-      }
+}
 </style>
 </head>
 

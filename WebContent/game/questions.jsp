@@ -12,7 +12,7 @@
 Epic Games Store는 플레이어와 크리에이터를 모두 고려하여 게임들이 엄선된 PC 및 Mac용 디지털 스토어입니다. 게이머에게 굉장한 게임들을, 게임 개발사에게는 공평한 기회를 제공하는 것에 집중하고 있습니다. 제품 가격의 70%만이 개발사의 몫으로 제공되는 다른 스토어들과는 다르게 Epic Games Store에서 게임을 구매하면 제품 가격의 88%가 개발사의 몫으로 제공됩니다. 이는 개발사들이 더 방대하고, 더 뛰어난 게임을 개발하는 데 투자할 수 있도록 돕습니다.</span></p>
 
 <p dir="ltr"><span style="font-size:14px"><strong>Epic Games Store는 어디서 다운로드할 수 있나요?</strong><br>
-Epic Games Store 사이트인 <a href="https://www.epicgames.com/store">epicgames.com</a>을 방문하거나 페이지 우측 상단에서 “에픽 게임즈 받기”를 클릭하세요.&nbsp;오직 저희 공식 사이트에서만 Epic Games Store 런처 설치 프로그램을 안전하게 다운로드받을 수 있습니다. 다른 경로를 통해 다운로드받은 설치 프로그램은 안전하지 않을 수 있습니다.</span></p>
+Epic Games Store 사이트인 <a href="/project/home?cmd=home">epicgames.com</a>을 방문하거나 페이지 우측 상단에서 “에픽 게임즈 받기”를 클릭하세요.&nbsp;오직 저희 공식 사이트에서만 Epic Games Store 런처 설치 프로그램을 안전하게 다운로드받을 수 있습니다. 다른 경로를 통해 다운로드받은 설치 프로그램은 안전하지 않을 수 있습니다.</span></p>
 
 <p dir="ltr"><span style="font-size:14px"><strong>Epic Games Store는 어떤 플랫폼을 지원하나요?</strong><br>
 현재 Epic Games Store는 PC와 Mac을 지원하고 있습니다. 모든 상품 페이지의 “게임 소개” 섹션에서는 각각의 게임에 대하여 특정 플랫폼의 호환 여부를 확인할 수 있습니다.</span></p>

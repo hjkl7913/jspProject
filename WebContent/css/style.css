@@ -1,3 +1,14 @@
+.navbar-default {
+	background-color: #2b303b; 
+}
+
+.nav-link {
+	color: white;
+}
+
+.navbar-brand {
+	color: white;
+}
 
 #free__back {
 	background-color: #2A2A2A;
@@ -74,3 +85,95 @@
         .jssora051:hover {opacity:.8;}
         .jssora051.jssora051dn {opacity:.5;}
         .jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+        
+/* 메인홈 검색창 옵션 */
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-1 input#search{
+  width: 280px;
+  height: 45px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: white;
+  padding-left: 15px;
+
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-1 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+  
+}
+
+input.img-button {
+        background: url( "image/search.png" ) no-repeat;
+        border: none;
+        float: left;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+}
+/* 메인창 검색창 end */
+
+/* 고객센터 검색창 */
+.container-2{
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-2 input#search{
+  width: 100%;
+  height: 45px;
+  background: white;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: black;
+  padding-left: 15px;
+
+}
+
+.container-2 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-2 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-2 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+  
+}
+
+input.img-button2 {
+        background: url( "image/search.png" ) no-repeat;
+        border: none;
+        float: left;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+}
