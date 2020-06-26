@@ -1,5 +1,4 @@
 function FilterSearch(filter){
-	var keyword = $("#filter").val();
 	console.log(filter);
 	$.ajax({
 		type: "get",
@@ -18,7 +17,10 @@ function FilterSearch(filter){
 
 function Search(){
 	var keyword = $("#search").val();
-	console.log(keyword);
+	
+	if(keyword == null || keyword == "" ){
+	alert("검색 키워드가 없습니다.");
+	}
 	
 	$.ajax({
 		type: "get",
@@ -28,8 +30,6 @@ function Search(){
 		$("#tag__search").empty();
 		renderSearchList(keySearchJsons);
 	}).fail(function(error){
-		alert(error);
-		console.log(error);
 	});
 	
 }
@@ -46,11 +46,12 @@ function makeItem(tagSearchJson){
 	console.log(tagSearchJson);
 	var searchItem = `<div class="col-lg-3 col-md-6 mb-4">`
 	searchItem += `<div class="card h-80" id="card__div__free">`
-	searchItem += `<img class="card-img-top" src="${tagSearchJson.image}" alt="" height="230px">`
+	searchItem += `<a href="/project/home?cmd=detail&id=${tagSearchJson.id}">`
+	searchItem += `<img class="card-img-top" src="${tagSearchJson.image}" alt="" height="260px">`
 	searchItem += `<div class="card-body">`
-	searchItem += `<h5 class="card-title">${tagSearchJson.gamename }</h5>`
-	searchItem += `<p class="card-text">${tagSearchJson.developer}</p>`
-	searchItem += `<p class="card-text">${tagSearchJson.price}</p>`
+	searchItem += `<p class="card-text"><a href="/project/home?cmd=detail&id=${tagSearchJson.id}">${tagSearchJson.gamename }</a></p>`
+	searchItem += `<p class="card-text"><a style="color: #8e8e8e" href="/project/home?cmd=detail&id=${tagSearchJson.id}">${tagSearchJson.developer}</a></p>`
+	searchItem += `<h5 class="card-title"><a href="/project/home?cmd=detail&id=${tagSearchJson.id}">${tagSearchJson.price}</a></h5>`
 	searchItem +=`</div>`
 	searchItem +=`</div>`
 	searchItem +=`</div>`

@@ -5,7 +5,9 @@
 
 <script src="js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
 <script src="js/jssor.slider-28.0.0.min2.js" type="text/javascript"></script>
+
  	<br/><br/>
+ 	
     <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
@@ -13,7 +15,7 @@
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
             <div>
-                <iframe src="http://www.youtube.com/embed/TgOu00Mf3kI?version=2&amp;showinfo=0&amp;autoplay=1&amp;loop=1" width="640px" height="360px" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+               	<iframe width="560" height="315" src="https://www.youtube.com/embed/TgOu00Mf3kI?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
             </div>
             <div>
                 <img data-u="image" src="image/AER.jpg" />
@@ -104,23 +106,24 @@
 	
 <!-- 	<iframe src="http://www.youtube.com/embed/TgOu00Mf3kI?version=2&amp;showinfo=0&amp;autoplay=1&amp;loop=1" width="640px" height="360px" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
 <!-- 	<embed width="640" height="360" src="https://www.youtube.com/v/TgOu00Mf3kI?version=2&autoplay=1&loop=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed> -->
-	\
+	
 	<div class="row">
 	<div class="col-lg-4">
 	<h4>사양</h4>
 	</div>
 		<div class="col-lg-8">
 		<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-10">
 		<table class="table table-borderless " id="game__detail__table">
 			<thead>
 				<tr>
 					<th>최소</th>
-					
+					<th>권장</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					<th></th>
 					<td></td>
 					
 				</tr>
@@ -128,144 +131,81 @@
 			<thead>
 				<tr>
 					<th>운영체제</th>
-					
+					<th>운영체제</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>${homeDetailGameInfo.minOS}</td>
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>CPU</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>${homeDetailGameInfo.minProcessor}</td>
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>메모리</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>${homeDetailGameInfo.minMemory}</td>
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>GPU</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>${homeDetailGameInfo.minGraphics}</td>
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>DirectX</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>${homeDetailGameInfo.minDirectX}</td>
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>디스크 여유 공간</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>${homeDetailGameInfo.minStorage}</td>
-				</tr>
-			</tbody>
-			
-		</table>
-	</div>
-	<div class="col-lg-6">
-		<table class="table table-borderless " id="game__detail__table">
-			<thead>
-				<tr>
-					<th>권장</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					
-				</tr>
-			</tbody>
-			<thead>
-				<tr>
-					<th>운영체제</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
 					<td>${homeDetailGameInfo.recomOS}</td>
 				</tr>
 			</tbody>
 			<thead>
 				<tr>
-					<th>CPU</th>
+					<th>프로세서</th>
+					<th>프로세서</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr>					
+					<td>${homeDetailGameInfo.minProcessor}</td>
 					<td>${homeDetailGameInfo.recomProcessor}</td>
 				</tr>
 			</tbody>
 			<thead>
 				<tr>
 					<th>메모리</th>
+					<th>메모리</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					
+					<td>${homeDetailGameInfo.minMemory}</td>
 					<td>${homeDetailGameInfo.recomMemory}</td>
 				</tr>
 			</tbody>
 			<thead>
 				<tr>
-					<th>GPU</th>
+					<th>그래픽 카드</th>
+					<th>그래픽 카드</th>
+
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					<td>${homeDetailGameInfo.minGraphics}</td>
 					<td>${homeDetailGameInfo.recomGraphics}</td>
 				</tr>
 			</tbody>
 			<thead>
 				<tr>
-					<th>DirectX</th>
+					<th>Direct X</th>
+					<th>Direct X</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					<td>${homeDetailGameInfo.minDirectX}</td>
 					<td>${homeDetailGameInfo.recomDirectX}</td>
 				</tr>
 			</tbody>
 			<thead>
 				<tr>
-					<th>디스크 여유 공간</th>
+					<th>저장공간</th>
+					<th>저장공간</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					<td>${homeDetailGameInfo.minStorage}</td>
 					<td>${homeDetailGameInfo.recomStorage}</td>
 				</tr>
 			</tbody>
 			
 		</table>
+	</div>
+	<div class="col-lg-2">
 	</div>
 		
 		<h5>지원언어</h5>
@@ -277,6 +217,7 @@
 
 </div>
 </div>
+
 
 </body>
 </html>

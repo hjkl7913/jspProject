@@ -26,6 +26,17 @@ public class GameTagSearchAction implements Action{
 		System.out.println("gameInfos : "+gameInfos.size());
 		//request.setAttribute("products", products);
 		
+		for (GameInfos keywordGameInfosPre : gameInfos) {
+			if (keywordGameInfosPre.getGamename().length() >22) {
+				String previewGamename = keywordGameInfosPre.getGamename().substring(0, 22)+"...";
+				keywordGameInfosPre.setGamename(previewGamename);
+			}
+			if (keywordGameInfosPre.getDeveloper().length() >22) {
+				String previewDeveloper = keywordGameInfosPre.getDeveloper().substring(0, 22)+"...";
+				keywordGameInfosPre.setDeveloper(previewDeveloper);
+			}
+		}
+		
 		Gson gson = new Gson();
 		
 		// 3. 이동 home.jsp

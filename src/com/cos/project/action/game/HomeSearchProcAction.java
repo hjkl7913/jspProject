@@ -42,13 +42,24 @@ public class HomeSearchProcAction implements Action{
 		
 		List<GameInfos> gameInfos = gameInfoRepository.findByPageAndKeyword(page,keyword);
 		
+		for (GameInfos keywordGameInfosPre : gameInfos) {
+			if (keywordGameInfosPre.getGamename().length() >22) {
+				String previewGamename = keywordGameInfosPre.getGamename().substring(0, 22)+"...";
+				keywordGameInfosPre.setGamename(previewGamename);
+			}
+			if (keywordGameInfosPre.getDeveloper().length() >22) {
+				String previewDeveloper = keywordGameInfosPre.getDeveloper().substring(0, 22)+"...";
+				keywordGameInfosPre.setDeveloper(previewDeveloper);
+			}
+		}
+		
+		
 		request.setAttribute("gameInfos", gameInfos);
 		
 		//int result = gameInfoRepository.findBoardCount(keyword);
 		//System.out.println("AdminSearchAction : result: "+result);
 
-		System.out.println("gameInfos :" + gameInfos);
-		// 3. 이동 home.jsp
+		
 		RequestDispatcher dis = request.getRequestDispatcher("game/gamesearchpage.jsp");
 		dis.forward(request, response);
 		

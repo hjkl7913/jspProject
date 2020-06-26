@@ -30,18 +30,33 @@ public class GameKeywordSearchAction implements Action{
 		String keyword = request.getParameter("keyword");
 		System.out.println("keyword : "+keyword);
 		
+		//String keyword = request.getParameter("keyword");
+		//System.out.println("keyword : "+keyword);
+		
 		GameInfoRepository gameInfoRepository = GameInfoRepository.getInstance();
 		
-		List<GameInfos> KeywordGameInfos = gameInfoRepository.findByKeyword(keyword);
+		List<GameInfos> keywordGameInfos = gameInfoRepository.findByKeyword(keyword);
 		
-		System.out.println("KeywordGameInfos : "+KeywordGameInfos);
+		//System.out.println("KeywordGameInfos : "+KeywordGameInfos);
 		//request.setAttribute("products", products);
+		
+		for (GameInfos keywordGameInfosPre : keywordGameInfos) {
+			if (keywordGameInfosPre.getGamename().length() >22) {
+				String previewGamename = keywordGameInfosPre.getGamename().substring(0, 22)+"...";
+				keywordGameInfosPre.setGamename(previewGamename);
+			}
+			if (keywordGameInfosPre.getDeveloper().length() >22) {
+				String previewDeveloper = keywordGameInfosPre.getDeveloper().substring(0, 22)+"...";
+				keywordGameInfosPre.setDeveloper(previewDeveloper);
+			}
+		}
+		
 		
 		Gson gson = new Gson();
 		
 		// 3. 이동 home.jsp
 		
-		String keySearchJsons = gson.toJson(KeywordGameInfos);
+		String keySearchJsons = gson.toJson(keywordGameInfos);
 		System.out.println("keySearchJsons : "+keySearchJsons);
 		Script.outJson(keySearchJsons, response);
 		

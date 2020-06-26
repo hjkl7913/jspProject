@@ -10,9 +10,9 @@
 	color: white;
 }
 
-#free__back {
+/* #free__back {
 	background-color: #2A2A2A;
-}
+} */
 
 #best__game h2{
 	color: white;
@@ -53,6 +53,7 @@
 
 #game__detail__table td{
 	color: white;
+	width: 280px;
 }
 
 #game__detail__table th,h5{
@@ -177,3 +178,46 @@ input.img-button2 {
         height: 45px;
         cursor: pointer;
 }
+
+/*필터  메뉴*/
+#Tag__menu p {
+	color: #8e8e8e;
+}
+
+#Tag__menu strong {
+	color: white;
+}
+
+#Tag__menu p:hover {
+	color: white;
+}
+
+/*필터  end*/
+
+#card__div__free img:hover{
+	position: relative;
+    left: 1px;
+    bottom: 1px;
+}
+
+#card__div__free {
+	cursor: pointer;
+	background-color: black;
+}
+
+.card-body p a{
+	font-size: 13px;
+	color: white;
+	text-decoration: none;
+}
+
+.card-body h5 a{
+	color: white;
+	text-decoration: none;
+}
+.search__main h5 a{
+	font-size: 14px;
+	color: white;
+	text-decoration: none;
+}
+

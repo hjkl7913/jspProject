@@ -25,17 +25,52 @@ public class GameHomeAction implements Action{
 		//2. 3건만 페이징하여 가져오기(무료게임)
 		List<GameInfos> freeGameInfos = gameInfoRepository.findByPriceZero();
 	
+		
+		
+		for (GameInfos keywordGameInfosPre : freeGameInfos) {
+			if (keywordGameInfosPre.getGamename().length() >20) {
+				String previewGamename = keywordGameInfosPre.getGamename().substring(0, 20)+"...";
+				keywordGameInfosPre.setGamename(previewGamename);
+			}			
+		}
+		
 		request.setAttribute("freeGameInfos", freeGameInfos);
 		
 		
 		//베스트셀러
 		List<GameInfos> BestGameInfos = gameInfoRepository.BestGameSelect();
 		
+		
+		
+		for (GameInfos keywordGameInfosPre : BestGameInfos) {
+			if (keywordGameInfosPre.getGamename().length() >14) {
+				String previewGamename = keywordGameInfosPre.getGamename().substring(0, 14)+"...";
+				keywordGameInfosPre.setGamename(previewGamename);
+			}
+			if (keywordGameInfosPre.getDeveloper().length() >14) {
+				String previewDeveloper = keywordGameInfosPre.getDeveloper().substring(0, 14)+"...";
+				keywordGameInfosPre.setDeveloper(previewDeveloper);
+			}
+		}
+		
 		request.setAttribute("BestGameInfos", BestGameInfos);
 		
 		
 		//출시 예정
 		List<GameInfos> ExpectedGameInfos = gameInfoRepository.ExpectedGameSelect();
+		
+		
+		
+		for (GameInfos keywordGameInfosPre : ExpectedGameInfos) {
+			if (keywordGameInfosPre.getGamename().length() >27) {
+				String previewGamename = keywordGameInfosPre.getGamename().substring(0, 27)+"...";
+				keywordGameInfosPre.setGamename(previewGamename);
+			}
+			if (keywordGameInfosPre.getDeveloper().length() >27) {
+				String previewDeveloper = keywordGameInfosPre.getDeveloper().substring(0, 27)+"...";
+				keywordGameInfosPre.setDeveloper(previewDeveloper);
+			}
+		}
 		
 		request.setAttribute("ExpectedGameInfos", ExpectedGameInfos);
 		

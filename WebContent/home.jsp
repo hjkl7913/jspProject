@@ -10,7 +10,7 @@
 
 
 	<div class="container d-flex justify-content-between">
-	<div>
+	<div class="search__main">
 		<h5><a href="/project/home?cmd=search">찾아보기</a></h5>
 	</div>
 	<div class="box " >
@@ -81,8 +81,8 @@
 					<div class="card h-80" id="card__div__free">
 						<a href="/project/home?cmd=detail&id=${freeGameInfo.id}"><img class="card-img-top" src="${freeGameInfo.image}" alt="" height="200px"></a>
 						<div class="card-body">
-							<h5 class="card-title">${freeGameInfo.gamename}</h5>
-							<p class="card-text">${freeGameInfo.freeDown}</p>
+							<h5 class="card-title"><a href="/project/home?cmd=detail&id=${freeGameInfo.id}">${freeGameInfo.gamename}</a></h5>
+							<p class="card-text"><a style="color: #8e8e8e" href="/project/home?cmd=detail&id=${freeGameInfo.id}">${freeGameInfo.freeDown}</a></p>
 						</div>
 
 					</div>
@@ -105,16 +105,16 @@
 
 	<h2>베스트셀러</h2>
 	<div class="best__game">
-		<div class="row">
+		<div class="row justify-content-start">
 
 			<c:forEach var="BestGameInfo" items="${BestGameInfos}">
 				<div class="col-lg-2 col-md-6 mb-3">
-					<div class="card h-60" id="card__div__best">
+					<div class="card h-60" id="card__div__free">
 						<a href="/project/home?cmd=detail&id=${BestGameInfo.id}"><img class="card-img-top" src="${BestGameInfo.image}" alt="" height="200px"></a>
 						<div class="card-body">
-							<p class="card-text">${BestGameInfo.gamename}</p>
-							<p class="card-text" style="color: #6A6A6A">${BestGameInfo.developer}</p>
-							<h5 class="card-title" style="color: white;">${BestGameInfo.price}</h5>
+							<p class="card-text"><a href="/project/home?cmd=detail&id=${BestGameInfo.id}">${BestGameInfo.gamename}</a></p>
+							<p class="card-text"><a style="color: #8e8e8e" href="/project/home?cmd=detail&id=${BestGameInfo.id}">${BestGameInfo.developer}</a></p>
+							<h5 class="card-title"><a href="/project/home?cmd=detail&id=${BestGameInfo.id}">${BestGameInfo.price}</a></h5>
 						</div>
 
 					</div>
@@ -138,12 +138,12 @@
 
 			<c:forEach var="ExpectedGameInfo" items="${ExpectedGameInfos}">
 				<div class="col-lg-3 col-md-6 mb-3">
-					<div class="card h-60" id="card__div__best">
+					<div class="card h-60" id="card__div__free">
 						<a href="/project/home?cmd=detail&id=${ExpectedGameInfo.id}"><img class="card-img-top" src="${ExpectedGameInfo.image}" alt="" height="350px"></a>
 						<div class="card-body">
-							<p class="card-text">${ExpectedGameInfo.gamename}</p>
-							<p class="card-text" style="color: #6A6A6A">${ExpectedGameInfo.developer}</p>
-							<h5 class="card-title" style="color: white;">${ExpectedGameInfo.price}</h5>
+							<p class="card-text"><a href="/project/home?cmd=detail&id=${ExpectedGameInfo.id}">${ExpectedGameInfo.gamename}</a></p>
+							<p class="card-text"><a style="color: #8e8e8e" href="/project/home?cmd=detail&id=${ExpectedGameInfo.id}">${ExpectedGameInfo.developer}</a></p>
+							<h5 class="card-title"><a href="/project/home?cmd=detail&id=${ExpectedGameInfo.id}">${ExpectedGameInfo.price}</a></h5>
 						</div>
 
 					</div>
