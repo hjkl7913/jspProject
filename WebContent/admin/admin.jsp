@@ -13,9 +13,11 @@
 			<input type="hidden" name="page" value="0"> 
 			<input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
 			<button class="btn btn-danger" type="submit">검색</button>
-		</form>
+		</form><br/><br/><br/>
 		
 		<form action="/project/admin?cmd=adminProc" method="post" enctype="multipart/form-data">
+		<div class="row">
+		<div class="col-lg-3">
 		<label for="usr">이미지</label>
 			<div class="form-group">
 				<img id="img__wrap" onerror="this.src='/project/image/logo.png'" width="250px" height="300px" />
@@ -24,6 +26,39 @@
 			
 				<input type="file" name="image" id="img__preview" />
 			</div>
+		</div>
+		<div class="col-lg-3">
+		<label for="usr">플레이사진1</label>
+			<div class="form-group">
+				<img id="img__wrap1" onerror="this.src='/project/image/logo.png'" width="250px" height="300px" />
+			</div>
+			<div class="form-group bg-light">
+			
+				<input type="file" name="gamePlayImage1" id="img__preview1" />
+			</div>
+		</div>
+		<div class="col-lg-3">
+		<label for="usr">플레이사진2</label>
+			<div class="form-group">
+				<img id="img__wrap2" onerror="this.src='/project/image/logo.png'" width="250px" height="300px" />
+			</div>
+			<div class="form-group bg-light">
+			
+				<input type="file" name="gamePlayImage2" id="img__preview2" />
+			</div>
+		</div>
+		<div class="col-lg-3">
+		<label for="usr">플레이사진3</label>
+			<div class="form-group">
+				<img id="img__wrap3" onerror="this.src='/project/image/logo.png'" width="250px" height="300px" />
+			</div>
+			<div class="form-group bg-light">
+			
+				<input type="file" name="gamePlayImage3" id="img__preview3" />
+			</div>
+		</div>
+		</div>
+		
 			<div class="form-group">
 				<label for="usr">Movie</label> <input type="text" class="form-control" id="movie" name="movie">
 			</div>

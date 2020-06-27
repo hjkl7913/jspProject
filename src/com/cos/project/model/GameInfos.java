@@ -36,5 +36,8 @@ public class GameInfos {
 	private String recomStorage;
 	private String languagesSupported;
 	private String freeDown;
+	private String gamePlayImage1;
+	private String gamePlayImage2;
+	private String gamePlayImage3;
 
 }

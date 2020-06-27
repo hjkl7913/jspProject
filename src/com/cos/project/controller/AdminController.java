@@ -12,7 +12,7 @@ import com.cos.project.action.Action;
 import com.cos.project.action.admin.AdminDeleteAction;
 import com.cos.project.action.admin.AdminDetailSearchAction;
 import com.cos.project.action.admin.AdminPageAction;
-import com.cos.project.action.admin.AdminPageProcAction;
+import com.cos.project.action.admin.AdminPageAddAction;
 import com.cos.project.action.admin.AdminSearchAction;
 import com.cos.project.action.admin.AdminUpdateAction;
 
@@ -50,7 +50,7 @@ public class AdminController extends HttpServlet {
 		if(cmd.equals("admin")) {
 			return new AdminPageAction();
 		}else if(cmd.equals("adminProc")) {
-			return new AdminPageProcAction();
+			return new AdminPageAddAction();
 		}else if(cmd.equals("search")) {
 			return new AdminSearchAction();
 		}else if(cmd.equals("detailsearch")) {

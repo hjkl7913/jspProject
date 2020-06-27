@@ -84,7 +84,7 @@ public class AdminUpdateAction implements Action{
 				multi.getParameter("language").equals("") ||
 				multi.getParameter("language") == null
 		) {
-			Script.back("빈곳 채우쇼", response);
+			Script.back("빈칸이 있습니다.", response);
 			return;
 		}
 		
@@ -116,6 +116,9 @@ public class AdminUpdateAction implements Action{
 		String recomStorage = multi.getParameter("recomstorage");
 		String languagesSupported = multi.getParameter("language");
 		String freeDown = multi.getParameter("freedown");
+		String gamePlayImage1 = multi.getFilesystemName("gamePlayImage1");
+		String gamePlayImage2 = multi.getFilesystemName("gamePlayImage2");
+		String gamePlayImage3 = multi.getFilesystemName("gamePlayImage3");
 				
 		String fileName = null;
 		String contextPath = request.getServletContext().getContextPath();
@@ -158,6 +161,9 @@ public class AdminUpdateAction implements Action{
 				.recomStorage(recomStorage)
 				.languagesSupported(languagesSupported)
 				.freeDown(freeDown)
+				.gamePlayImage1(gamePlayImage1)
+				.gamePlayImage2(gamePlayImage2)
+				.gamePlayImage3(gamePlayImage3)
 				.build();
 		
 		// 3. DB 연결 

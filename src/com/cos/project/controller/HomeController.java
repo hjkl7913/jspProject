@@ -12,7 +12,7 @@ import com.cos.project.action.Action;
 import com.cos.project.action.admin.AdminDeleteAction;
 import com.cos.project.action.admin.AdminDetailSearchAction;
 import com.cos.project.action.admin.AdminPageAction;
-import com.cos.project.action.admin.AdminPageProcAction;
+import com.cos.project.action.admin.AdminPageAddAction;
 import com.cos.project.action.admin.AdminSearchAction;
 import com.cos.project.action.admin.AdminUpdateAction;
 import com.cos.project.action.game.GameDetailAction;

@@ -5,10 +5,10 @@
 
 
 
-<br /><br />
+
 <div class="container">
 
-
+<br /><br />
 	<div class="container d-flex justify-content-between">
 	<div class="search__main">
 		<h5><a href="/project/home?cmd=search">찾아보기</a></h5>
@@ -28,11 +28,12 @@
 	</div>
 	</div>
 
+<div class="container">
 
 	<div id="demo" class="carousel slide" data-ride="carousel">
 		<br />
 		<br />
-		<form class="form-inline justify-content-center">
+		<form class="form-inline justify-content-between">
 			<!-- Indicators -->
 			<ul class="carousel-indicators">
 				<li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -42,23 +43,28 @@
 
 
 			<!-- The slideshow -->
-			<div class="carousel-inner">
+				<div class="col-lg-10">
+			<div class="carousel-inner" style="width: 1000px">
 				<div class="carousel-item active">
-					<img src="image/Fortnite.jpg" alt="Los Angeles" width="600px" height="300px">
+					<img src="image/Fortnite.jpg" alt="Los Angeles">
 				</div>
 				<div class="carousel-item">
-					<img src="image/starwars.png" alt="Chicago" width="600px" height="300px">
+					<iframe style="width: 1000px" height="500px" src="https://www.youtube.com/embed/TgOu00Mf3kI?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 				</div>
 				<div class="carousel-item">
-					<img src="image/control.jpg" alt="New York" width="600px" height="300px">
+					<img src="image/control.jpg" alt="New York" >
 				</div>
 			</div>
-
+</div>
+		<div class="col-lg-2">
 			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev"> <span class="carousel-control-prev-icon"></span>
-			</a> <a class="carousel-control-next" href="#demo" data-slide="next"> <span class="carousel-control-next-icon"></span>
+			<a class="carousel-control-prev1" href="#demo" data-slide="prev"> <span class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next1" href="#demo" data-slide="next"> <span class="carousel-control-next-icon"></span>
 			</a>
+			</div>
 		</form>
+		
+	</div>
 	</div>
 </div>
 <br />
@@ -70,10 +76,11 @@
 
 	<!-- Page Features -->
 	<div id="free__back">
-
+		<div style="background-color: #2A2A2A">
 		<h2>
 			<img alt="" src="image/pre.png">무료게임
 		</h2>
+		</div>
 		<div class="row  text-center justify-content-center">
 
 			<c:forEach var="freeGameInfo" items="${freeGameInfos}">

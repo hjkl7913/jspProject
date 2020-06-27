@@ -15,7 +15,7 @@
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
             <div>
-               	<iframe width="560" height="315" src="https://www.youtube.com/embed/TgOu00Mf3kI?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+               	<iframe width="720" height="315" src="https://www.youtube.com/embed/TgOu00Mf3kI?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
             </div>
             <div>
                 <img data-u="image" src="image/AER.jpg" />
