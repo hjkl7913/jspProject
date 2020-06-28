@@ -52,6 +52,26 @@
     <!-- #endregion Jssor Slider End -->
 
 <br/><br/>
+
+<div class="container" id="game__detail">
+<div class="col-lg-12">
+<div class="row">
+	<div class="col-lg-4">
+		<img alt="" src="/project/image/AER.jpg" width="300px" height="170px">
+	</div>
+	<div class="col-lg-5">
+		<p>${homeDetailGameInfo.content}</p>
+	</div>
+	<div class="col-lg-3">
+		<div class="btn-group a">
+		<button class="buy-button" type="button" >지금 구매</button>
+		<button class="buy-button2" type="button"><span data-tooltip-text="위시리스트에 추가""><img src="/project/image/whi.png"></span></button>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<br/><br/>
 <div class="container" id="game__detail">
 	
 <!-- 	<iframe src="http://www.youtube.com/embed/TgOu00Mf3kI?version=2&amp;showinfo=0&amp;autoplay=1&amp;loop=1" width="640px" height="360px" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->

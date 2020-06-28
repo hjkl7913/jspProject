@@ -16,6 +16,7 @@ import com.cos.project.action.admin.AdminNewsAddProcAction;
 import com.cos.project.action.admin.AdminPageAction;
 import com.cos.project.action.admin.AdminPageAddAction;
 import com.cos.project.action.admin.AdminSearchAction;
+import com.cos.project.action.admin.AdminSearchAllAction;
 import com.cos.project.action.admin.AdminUpdateAction;
 
 
@@ -65,6 +66,8 @@ public class AdminController extends HttpServlet {
 			return new AdminNewsAddAction();
 		}else if(cmd.equals("newsAddProc")) {
 			return new AdminNewsAddProcAction();
+		}else if(cmd.equals("searchAll")) {
+			return new AdminSearchAllAction();
 		}
 		return null;
 	}

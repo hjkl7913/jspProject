@@ -39,5 +39,8 @@ public class GameInfos {
 	private String gamePlayImage1;
 	private String gamePlayImage2;
 	private String gamePlayImage3;
+	private String contentImage;
+	private String content;
+	private int buyCount;
 
 }

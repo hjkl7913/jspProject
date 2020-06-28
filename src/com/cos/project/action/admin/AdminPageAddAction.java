@@ -119,12 +119,18 @@ public class AdminPageAddAction implements Action{
 		String gamePlayImage1 = multi.getFilesystemName("gamePlayImage1");
 		String gamePlayImage2 = multi.getFilesystemName("gamePlayImage2");
 		String gamePlayImage3 = multi.getFilesystemName("gamePlayImage3");
+		String contentImage = multi.getFilesystemName("contentImage");
+		String content = multi.getParameter("content");
+		
+		
 				
 		String fileName = null;
 		
-		String fileName1 = null;
-		String fileName2 = null;
-		String fileName3 = null;
+		String fileName1 = null; //gamePlayImage1
+		String fileName2 = null; //gamePlayImage2	
+		String fileName3 = null; //gamePlayImage3
+		
+		String fileName4 = null; //contentImage
 		
 		String contextPath = request.getServletContext().getContextPath();
 		
@@ -133,6 +139,8 @@ public class AdminPageAddAction implements Action{
 		String gamePlayImageCon1 = null;
 		String gamePlayImageCon2 = null;
 		String gamePlayImageCon3 = null;
+		
+		String contentImageCon = null;
 
 		
 		
@@ -144,12 +152,16 @@ public class AdminPageAddAction implements Action{
 			fileName2 = multi.getFilesystemName("gamePlayImage2");
 			fileName3 = multi.getFilesystemName("gamePlayImage3");
 			
+			fileName4 = multi.getFilesystemName("contentImage");
+			
 
 			gameImage = contextPath + "/image/" + fileName;
 			
 			gamePlayImageCon1 = contextPath + "/image/" + fileName1;
 			gamePlayImageCon2 = contextPath + "/image/" + fileName2;
 			gamePlayImageCon3 = contextPath + "/image/" + fileName3;
+			
+			contentImageCon = contextPath + "/image/" + fileName4;
 		
 		
 		//2. GameInfos 오브젝트 변환
@@ -182,6 +194,8 @@ public class AdminPageAddAction implements Action{
 				.gamePlayImage1(gamePlayImageCon1)
 				.gamePlayImage2(gamePlayImageCon2)
 				.gamePlayImage3(gamePlayImageCon3)
+				.contentImage(contentImageCon)
+				.content(content)
 				.build();
 		
 		// 3. DB 연결 

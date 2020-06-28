@@ -66,7 +66,7 @@ public class AdminNewsAddProcAction implements Action{
 			gameImage = contextPath + "/image/" + fileName;
 		
 		
-		//2. GameInfos 오브젝트 변환
+		//2. GameNews 오브젝트 변환
 		GameNews gameNews = GameNews.builder()
 				.gameId(gameId)
 				.Image(gameImage)

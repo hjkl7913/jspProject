@@ -68,7 +68,10 @@ public class GameInfoRepository {
 							rs.getString("freeDown"),
 							rs.getString("gamePlayImage1"),
 							rs.getString("gamePlayImage2"),
-							rs.getString("gamePlayImage3")
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
 					);
 					gameInfos.add(gameInfo);
 				}
@@ -88,7 +91,7 @@ public class GameInfoRepository {
 		public List<GameInfos> findAll() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
-			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3 ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount ");
 			sb.append("FROM GAMEINFO ");	
 			//sb.append("OFFSET ? ROWS FETCH FIRST 16 ROWS ONLY ");
 			
@@ -134,7 +137,10 @@ public class GameInfoRepository {
 							rs.getString("freeDown"),
 							rs.getString("gamePlayImage1"),
 							rs.getString("gamePlayImage2"),
-							rs.getString("gamePlayImage3")
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
 					);
 					gameInfos.add(gameInfo);
 				}
@@ -195,7 +201,10 @@ public class GameInfoRepository {
 							rs.getString("freeDown"),
 							rs.getString("gamePlayImage1"),
 							rs.getString("gamePlayImage2"),
-							rs.getString("gamePlayImage3")
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
 							
 					);
 					gameInfos.add(gameInfo);
@@ -216,7 +225,7 @@ public class GameInfoRepository {
 		public List<GameInfos> ExpectedGameSelect() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
-			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3 ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount ");
 			sb.append("FROM GAMEINFO ");
 			sb.append("WHERE releasedate like ? ");
 			
@@ -262,7 +271,10 @@ public class GameInfoRepository {
 							rs.getString("freeDown"),
 							rs.getString("gamePlayImage1"),
 							rs.getString("gamePlayImage2"),
-							rs.getString("gamePlayImage3")
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
 					);
 					gameInfos.add(gameInfo);
 				}
@@ -282,7 +294,7 @@ public class GameInfoRepository {
 		public List<GameInfos> BestGameSelect() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
-			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3 ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount  ");
 			sb.append("FROM GAMEINFO ");
 			sb.append("ORDER BY price desc ");		
 			sb.append("OFFSET 0 ROWS FETCH FIRST 6 ROWS ONLY ");
@@ -328,7 +340,10 @@ public class GameInfoRepository {
 							rs.getString("freeDown"),
 							rs.getString("gamePlayImage1"),
 							rs.getString("gamePlayImage2"),
-							rs.getString("gamePlayImage3")
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
 					);
 					gameInfos.add(gameInfo);
 				}
@@ -349,7 +364,7 @@ public class GameInfoRepository {
 		public List<GameInfos> findByPriceZero() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
-			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3 ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount ");
 			sb.append("FROM GAMEINFO ");
 			sb.append("WHERE price = ? ");		
 			sb.append("OFFSET 0 ROWS FETCH FIRST 3 ROWS ONLY ");
@@ -399,7 +414,10 @@ public class GameInfoRepository {
 							rs.getString("freeDown"),
 							rs.getString("gamePlayImage1"),
 							rs.getString("gamePlayImage2"),
-							rs.getString("gamePlayImage3")
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
 					);
 					gameInfos.add(gameInfo);
 				}
@@ -418,7 +436,7 @@ public class GameInfoRepository {
 		
 		
 		public int update(GameInfos gameInfos) {
-			final String SQL ="UPDATE gameinfo SET gamename = ?, price = ?, img = ?, movie = ?, developer = ?, publisher = ?, explanation = ?, tags = ?, rating = ?, releasedate = ?, platform = ?, minos = ?, minprocessor = ?, minmemory = ?, minGraphics = ?, minDirectX = ?, minStorage = ?, recomos = ?, recomprocessor = ?, recommemory = ?, recomGraphics = ?, recomDirectX = ?, recomStorage = ?, LanguagesSup = ?, freedown = ?, gamePlayImage1 = ?, gamePlayImage2 = ?, gamePlayImage3 = ?  WHERE id = ?";
+			final String SQL ="UPDATE gameinfo SET gamename = ?, price = ?, img = ?, movie = ?, developer = ?, publisher = ?, explanation = ?, tags = ?, rating = ?, releasedate = ?, platform = ?, minos = ?, minprocessor = ?, minmemory = ?, minGraphics = ?, minDirectX = ?, minStorage = ?, recomos = ?, recomprocessor = ?, recommemory = ?, recomGraphics = ?, recomDirectX = ?, recomStorage = ?, LanguagesSup = ?, freedown = ?, gamePlayImage1 = ?, gamePlayImage2 = ?, gamePlayImage3 = ?, contentImage = ? , content = ? WHERE id = ?";
 			
 			try {
 				conn = DBConn.getConnection();
@@ -453,7 +471,9 @@ public class GameInfoRepository {
 				pstmt.setString(26, gameInfos.getGamePlayImage1());
 				pstmt.setString(27, gameInfos.getGamePlayImage2());
 				pstmt.setString(28, gameInfos.getGamePlayImage3());
-				pstmt.setInt(29, gameInfos.getId());
+				pstmt.setString(29, gameInfos.getContentImage());
+				pstmt.setString(30, gameInfos.getContent());
+				pstmt.setInt(31, gameInfos.getId());
 				
 				return pstmt.executeUpdate();
 			} catch (Exception e) {
@@ -508,6 +528,9 @@ public class GameInfoRepository {
 							.gamePlayImage1(rs.getString("gamePlayImage1"))
 							.gamePlayImage2(rs.getString("gamePlayImage2"))
 							.gamePlayImage3(rs.getString("gamePlayImage3"))
+							.contentImage(rs.getString("contentImage"))
+							.content(rs.getString("content"))
+							.buyCount(rs.getInt("buyCount"))
 							.build();
 								
 				}
@@ -526,7 +549,7 @@ public class GameInfoRepository {
 		public List<GameInfos> findByPageAndKeyword(int page, String keyword) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
-			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3 ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount ");
 			sb.append("FROM GAMEINFO ");
 			sb.append("WHERE gamename like ? ");		
 			sb.append("OFFSET ? ROWS FETCH FIRST 16 ROWS ONLY ");
@@ -577,7 +600,10 @@ public class GameInfoRepository {
 							rs.getString("freeDown"),
 							rs.getString("gamePlayImage1"),
 							rs.getString("gamePlayImage2"),
-							rs.getString("gamePlayImage3")
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
 					);
 					gameInfos.add(gameInfo);
 				}
@@ -716,7 +742,7 @@ public class GameInfoRepository {
 		}
 		
 		public int save(GameInfos gameInfos) {
-			final String SQL = "INSERT INTO GAMEINFO(id, gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3) VALUES(GAMEINFO_SEQ.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
+			final String SQL = "INSERT INTO GAMEINFO(id, gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount) VALUES(GAMEINFO_SEQ.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
 			
 			try {
 				conn = DBConn.getConnection();
@@ -751,6 +777,9 @@ public class GameInfoRepository {
 				pstmt.setString(26, gameInfos.getGamePlayImage1());
 				pstmt.setString(27, gameInfos.getGamePlayImage2());
 				pstmt.setString(28, gameInfos.getGamePlayImage3());
+				pstmt.setString(29, gameInfos.getContentImage());
+				pstmt.setString(30, gameInfos.getContent());
+
 				
 				return pstmt.executeUpdate();
 				

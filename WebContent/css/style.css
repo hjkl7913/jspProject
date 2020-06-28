@@ -243,3 +243,55 @@ input.img-button2 {
     font-weight: 400;
     text-decoration: none;
 }
+
+.buy-button {
+	width: 172px;
+	height: 50px;
+	background-color: #FFCC33;
+	border: none;
+	text-align: center;
+	font-size: 11px;
+}
+.buy-button:hover {
+	
+	background-color: #fcbf16;
+
+}
+
+
+.buy-button2 {
+	width: 50px;
+	height: 50px;
+	background-color: #FFCC33;
+	border: none;
+	align-content : center;
+	margin-left: 1px;
+	padding-left: -5px;
+}
+
+.buy-button2 img:hover{
+	
+}
+
+[data-tooltip-text]:hover {
+	position: relative;
+}
+
+[data-tooltip-text]:hover:after {
+	content: attr(data-tooltip-text);
+	
+	width : 100px;
+    position: absolute;
+	bottom: 100%;
+	left: 0;
+    
+    padding-left : -30px;
+    margin-left: -30px;
+    margin-bottom : 25px;
+    
+    background-color: rgba(0, 0, 0, 0.8);
+	color: #fcbf16;
+	font-size: 12px;
+
+	z-index: 9999;
+}

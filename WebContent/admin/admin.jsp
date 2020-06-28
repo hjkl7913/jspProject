@@ -5,7 +5,12 @@
 	
 	
 	<div class="container" style="background-color: white;">
-		<br/><br/><br/><br/>
+	
+		<br/><br/><br/>
+		<div class="search__main">
+		<h5><a style="text-decoration: green wavy underline; color: blue;" href="/project/admin?cmd=searchAll">게임목록 전체보기</a></h5>
+		</div><br/>
+		<br/>
 		<h2>게임정보</h2><br/>
 		
 		<form class="form-inline justify-content-end" action="/project/admin">
@@ -57,10 +62,25 @@
 				<input type="file" name="gamePlayImage3" id="img__preview3" />
 			</div>
 		</div>
+		<div class="col-lg-3">
+		<label for="usr">콘텐트 이미지</label>
+			<div class="form-group">
+				<img id="img__wrap4" onerror="this.src='/project/image/logo.png'" width="250px" height="200px" />
+			</div>
+			<div class="form-group bg-light">
+			
+				<input type="file" name="contentImage" id="img__preview4" />
+			</div>
 		</div>
 		
+		</div>
 			<div class="form-group">
-				<label for="usr">Movie</label> <input type="text" class="form-control" id="movie" name="movie">
+				<label for="comment">상세페이지 게임 설명</label>
+				<textarea class="form-control" rows="5" id="content" name="content"></textarea>
+			</div>
+		
+			<div class="form-group">
+				<label for="usr">영상 주소</label> <input type="text" class="form-control" id="movie" name="movie">
 			</div>
 			<div class="form-group">
 				<label for="usr">Gamename</label> <input type="text" class="form-control" id="gamename" name="gamename">
@@ -94,7 +114,8 @@
 				<textarea class="form-control" rows="5" id="explanation" name="explanation"></textarea>
 			</div>
 			
-
+			
+			
 			<h2>최소사양</h2>
 			<div class="form-group">
 				<label for="usr">OS</label> <input type="text" class="form-control" id="minos" name="minos">

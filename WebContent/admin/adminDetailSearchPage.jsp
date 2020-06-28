@@ -66,7 +66,26 @@
 				<input type="file" name="gamePlayImage3" id="img__preview3" />
 			</div>
 		</div>
+		
+		<div class="col-lg-3">
+		<label for="usr">콘텐트 이미지</label>
+			<div class="form-group">
+				<img id="img__wrap4" onerror="this.src='/project/image/logo.png'" width="250px" height="200px" />
+			</div>
+			<div class="form-group bg-light">
+			
+				<input type="file" name="contentImage" id="img__preview4" />
+			</div>
 		</div>
+		
+		</div>
+			<div class="form-group">
+				<label for="comment">상세페이지 게임 설명</label>
+				<textarea class="form-control" rows="5" id="content" name="content">${detailgameInfo.content}</textarea>
+			</div>
+			
+			<input type="hidden" name="buyCount" value="${detailgameInfo.buyCount}">
+			
 			<div class="form-group">
 				<label for="usr">Movie</label> <input type="text" class="form-control" id="movie" name="movie" value="${detailgameInfo.movie }">
 			</div>
@@ -101,6 +120,7 @@
 				<label for="comment">Explanation</label>
 				<textarea class="form-control" rows="5" id="explanation" name="explanation">${detailgameInfo.explanation}</textarea>
 			</div>
+			
 			
 
 			<h2>최소사양</h2>

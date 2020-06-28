@@ -119,11 +119,17 @@ public class AdminUpdateAction implements Action{
 		String gamePlayImage1 = multi.getFilesystemName("gamePlayImage1");
 		String gamePlayImage2 = multi.getFilesystemName("gamePlayImage2");
 		String gamePlayImage3 = multi.getFilesystemName("gamePlayImage3");
+		String contentImage = multi.getFilesystemName("contentImage");
+		String content = multi.getParameter("content");
+		int buyCount = Integer.parseInt(multi.getParameter("buyCount"));
 				
 		String fileName = null;
-		String fileName1 = null;
-		String fileName2 = null;
-		String fileName3 = null;
+		
+		String fileName1 = null; //gamePlayImage1
+		String fileName2 = null; //gamePlayImage2	
+		String fileName3 = null; //gamePlayImage3
+		
+		String fileName4 = null; //contentImage
 		
 		String contextPath = request.getServletContext().getContextPath();
 		
@@ -132,6 +138,8 @@ public class AdminUpdateAction implements Action{
 		String gamePlayImageCon1 = null;
 		String gamePlayImageCon2 = null;
 		String gamePlayImageCon3 = null;
+		
+		String contentImageCon = null;
 
 		
 		
@@ -143,6 +151,8 @@ public class AdminUpdateAction implements Action{
 			fileName2 = multi.getFilesystemName("gamePlayImage2");
 			fileName3 = multi.getFilesystemName("gamePlayImage3");
 			
+			fileName4 = multi.getFilesystemName("contentImage");
+			
 
 			gameImage = contextPath + "/image/" + fileName;
 			
@@ -150,6 +160,8 @@ public class AdminUpdateAction implements Action{
 			gamePlayImageCon2 = contextPath + "/image/" + fileName2;
 			gamePlayImageCon3 = contextPath + "/image/" + fileName3;
 		
+			contentImageCon = contextPath + "/image/" + fileName4;
+			
 		//2. GameInfos 오브젝트 변환
 		GameInfos gameInfos = GameInfos.builder()
 				.id(id)
@@ -181,6 +193,9 @@ public class AdminUpdateAction implements Action{
 				.gamePlayImage1(gamePlayImageCon1)
 				.gamePlayImage2(gamePlayImageCon2)
 				.gamePlayImage3(gamePlayImageCon3)
+				.contentImage(contentImageCon)
+				.content(content)
+				.buyCount(buyCount)
 				.build();
 		
 		// 3. DB 연결 
@@ -188,9 +203,9 @@ public class AdminUpdateAction implements Action{
 		int result = gameInfoRepository.update(gameInfos);
 		
 		if(result == 1) {
-			Script.href("게임 정보  추가 성공", "/project/admin?cmd=admin", response);
+			Script.href("게임 정보  수정 성공", "/project/admin?cmd=admin", response);
 		} else {
-			Script.back("게임 정보 추가 실패", response);
+			Script.back("게임 정보 수정 실패", response);
 		}
 		
 		} catch (Exception e) {
