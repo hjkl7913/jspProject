@@ -121,16 +121,35 @@ public class AdminPageAddAction implements Action{
 		String gamePlayImage3 = multi.getFilesystemName("gamePlayImage3");
 				
 		String fileName = null;
+		
+		String fileName1 = null;
+		String fileName2 = null;
+		String fileName3 = null;
+		
 		String contextPath = request.getServletContext().getContextPath();
+		
 		String gameImage = null;
 		
+		String gamePlayImageCon1 = null;
+		String gamePlayImageCon2 = null;
+		String gamePlayImageCon3 = null;
+
 		
-		System.out.println("여기옴?");
+		
 		try {
 
 			fileName = multi.getFilesystemName("image");
+			
+			fileName1 = multi.getFilesystemName("gamePlayImage1");
+			fileName2 = multi.getFilesystemName("gamePlayImage2");
+			fileName3 = multi.getFilesystemName("gamePlayImage3");
+			
 
 			gameImage = contextPath + "/image/" + fileName;
+			
+			gamePlayImageCon1 = contextPath + "/image/" + fileName1;
+			gamePlayImageCon2 = contextPath + "/image/" + fileName2;
+			gamePlayImageCon3 = contextPath + "/image/" + fileName3;
 		
 		
 		//2. GameInfos 오브젝트 변환
@@ -160,9 +179,9 @@ public class AdminPageAddAction implements Action{
 				.recomStorage(recomStorage)
 				.languagesSupported(languagesSupported)
 				.freeDown(freeDown)
-				.gamePlayImage1(gamePlayImage1)
-				.gamePlayImage2(gamePlayImage2)
-				.gamePlayImage3(gamePlayImage3)
+				.gamePlayImage1(gamePlayImageCon1)
+				.gamePlayImage2(gamePlayImageCon2)
+				.gamePlayImage3(gamePlayImageCon3)
 				.build();
 		
 		// 3. DB 연결 

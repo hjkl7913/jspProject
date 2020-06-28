@@ -85,6 +85,8 @@ public class UsersRepository {
 			return null;
 		}
 		
+		
+		
 		public int save(Users user) {
 			final String SQL = "INSERT INTO users(id, username, displayname, email, password, userProfile, userRole, createDate) VALUES(USERS_SEQ.nextval,?,?,?,?,?,?,sysdate)";		
 			

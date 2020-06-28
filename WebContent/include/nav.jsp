@@ -28,14 +28,17 @@
 </head>
 <body style="background-color: black">
 	<nav class="navbar navbar-expand-lg navbar-default fixed-top">
-			<a class="navbar-brand" href="#"><img alt="" src="/project/image/logo3.png" width="28" height="28"></a>
+			<a class="navbar-brand" href="/project/home?cmd=home"><img alt="" src="/project/image/logo3.png" width="33" height="38"></a>
 			<button class="navbar-toggler" type="button"  data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"><img src="/project/image/logo.png"></span>
 			</button>
 
 
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<a class="navbar-brand" style="font-size: 18px" href="/project/home?cmd=home">스토어</a> <a class="navbar-brand" style="font-size: 18px" href="#">새 소식</a> <a class="navbar-brand" style="font-size: 18px" href="/project/home?cmd=question">자주 묻는 질문</a> <a class="navbar-brand" style="font-size: 18px" href="#">지원센터</a>
+				<a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=home">스토어</a> &emsp;
+				<a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=news">새 소식</a> &emsp;
+				<a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=question">자주 묻는 질문</a> &emsp;
+				<a class="navbar-brand" style="font-size: 13px" href="#">지원센터</a>
 				<ul class="navbar-nav ml-auto">
 					<c:choose>
 						<c:when test="${empty sessionScope.principal}">

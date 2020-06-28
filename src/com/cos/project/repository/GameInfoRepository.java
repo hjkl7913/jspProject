@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.cos.project.db.DBConn;
 import com.cos.project.model.GameInfos;
+import com.cos.project.model.GameNews;
 import com.cos.project.model.Users;
 
 public class GameInfoRepository {
@@ -762,4 +763,6 @@ public class GameInfoRepository {
 			
 			return -1;
 		}
+		
+		
 }

@@ -61,6 +61,11 @@
 	color: #6d6d6d;
 }
 
+#search__admin h5,a{
+	color: #5151ff;
+	
+}
+
 /*jssor slider loading skin spin css*/
         .jssorl-009-spin img {
             animation-name: jssorl-009-spin;
@@ -222,3 +227,19 @@ input.img-button2 {
 	text-decoration: none;
 }
 
+#news__page {
+     padding: 0.19rem 2.5rem;
+}
+
+#news__page h5 a{
+	
+	color: #F5F5F5;
+	text-decoration: none;
+}
+
+#news__page p a{
+	font-size : 14px;
+	color: #959595;
+    font-weight: 400;
+    text-decoration: none;
+}

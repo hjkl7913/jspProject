@@ -1,6 +1,7 @@
 package com.cos.project.action.admin;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +34,6 @@ public class AdminUpdateAction implements Action{
 
 		MultipartRequest multi = new MultipartRequest(request, realPath, 1024 * 1024 * 2, "UTF-8",
 				new DefaultFileRenamePolicy());
-		
 		
 		//유효성 검사
 		
@@ -121,17 +121,34 @@ public class AdminUpdateAction implements Action{
 		String gamePlayImage3 = multi.getFilesystemName("gamePlayImage3");
 				
 		String fileName = null;
+		String fileName1 = null;
+		String fileName2 = null;
+		String fileName3 = null;
+		
 		String contextPath = request.getServletContext().getContextPath();
+		
 		String gameImage = null;
 		
+		String gamePlayImageCon1 = null;
+		String gamePlayImageCon2 = null;
+		String gamePlayImageCon3 = null;
+
 		
-	
+		
 		try {
 
 			fileName = multi.getFilesystemName("image");
+			
+			fileName1 = multi.getFilesystemName("gamePlayImage1");
+			fileName2 = multi.getFilesystemName("gamePlayImage2");
+			fileName3 = multi.getFilesystemName("gamePlayImage3");
+			
 
 			gameImage = contextPath + "/image/" + fileName;
-		
+			
+			gamePlayImageCon1 = contextPath + "/image/" + fileName1;
+			gamePlayImageCon2 = contextPath + "/image/" + fileName2;
+			gamePlayImageCon3 = contextPath + "/image/" + fileName3;
 		
 		//2. GameInfos 오브젝트 변환
 		GameInfos gameInfos = GameInfos.builder()
@@ -161,9 +178,9 @@ public class AdminUpdateAction implements Action{
 				.recomStorage(recomStorage)
 				.languagesSupported(languagesSupported)
 				.freeDown(freeDown)
-				.gamePlayImage1(gamePlayImage1)
-				.gamePlayImage2(gamePlayImage2)
-				.gamePlayImage3(gamePlayImage3)
+				.gamePlayImage1(gamePlayImageCon1)
+				.gamePlayImage2(gamePlayImageCon2)
+				.gamePlayImage3(gamePlayImageCon3)
 				.build();
 		
 		// 3. DB 연결 

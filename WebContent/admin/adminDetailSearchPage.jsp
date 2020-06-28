@@ -6,14 +6,23 @@
 	
 	<div class="container" style="background-color: white;">
 		<br/><br/><br/><br/>
-		<h2>게임정보</h2><br/>
+		<h2>게임정보</h2><br/><br/>
+		
+		<div class="container d-flex justify-content-start">
+			<div class="row">
+				<div class="search__admin">
+					<h5><a href="/project/admin?cmd=newsAdd&id=${detailgameInfo.id}">새소식 추가</a></h5>
+				</div>
+				&emsp;&emsp;
+			</div>
+		</div>
 		
 		<form class="form-inline justify-content-end" action="/project/admin">
 			<input type="hidden" name="cmd" value="search"> 
 			<input type="hidden" name="page" value="0"> 
 			<input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
 			<button class="btn btn-danger" type="submit">검색</button>
-		</form>
+		</form><br/>
 		
 		<form action="/project/admin?cmd=update" method="post" enctype="multipart/form-data">
 		<div class="row">

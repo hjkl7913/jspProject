@@ -20,6 +20,7 @@ import com.cos.project.action.game.GameHomeAction;
 import com.cos.project.action.game.GameKeywordSearchAction;
 import com.cos.project.action.game.GameSearchAction;
 import com.cos.project.action.game.GameTagSearchAction;
+import com.cos.project.action.game.HomeNewsAction;
 import com.cos.project.action.game.HomeQuestionAction;
 import com.cos.project.action.game.HomeSearchProcAction;
 
@@ -55,20 +56,22 @@ public class HomeController extends HttpServlet {
 
 
 	public Action router(String cmd) {
-		if(cmd.equals("home")) {
+		if(cmd.equals("home")) { // nav바 스토어 클릭했을때
 			return new GameHomeAction();
-		}else if(cmd.equals("detail")) {
+		}else if(cmd.equals("detail")) { //home 에서 게임 클릭했을때
 			return new GameDetailAction();
-		}else if(cmd.equals("question")) {
+		}else if(cmd.equals("question")) { // home 에서 자주묻는질문 클릭했을때
 			return new HomeQuestionAction();
-		}else if(cmd.equals("search")) {
+		}else if(cmd.equals("search")) { // home 에서 찾아보기 클릭 했을때
 			return new GameSearchAction();
-		}else if(cmd.equals("tagSearch")) {
+		}else if(cmd.equals("tagSearch")) { // home 에서 키워드로 검색 했을때 나오는 페이지 태그로 분류 검색
 			return new GameTagSearchAction();
-		}else if(cmd.equals("homeGameSearch")) {
+		}else if(cmd.equals("homeGameSearch")) { // home 에서 키워드로 검색 했을때
 			return new HomeSearchProcAction();
-		}else if(cmd.equals("keywordSearch")) {
+		}else if(cmd.equals("keywordSearch")) { // home 에서 키워드로 검색 했을때 나오는 페이지에서 키워드로 검색 했을때
 			return new GameKeywordSearchAction();
+		}else if(cmd.equals("news")) {	// nav바 새소식 클릭했을때
+			return new HomeNewsAction();
 		}
 		return null;
 		}

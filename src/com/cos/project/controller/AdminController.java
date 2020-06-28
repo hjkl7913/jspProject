@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.cos.project.action.Action;
 import com.cos.project.action.admin.AdminDeleteAction;
 import com.cos.project.action.admin.AdminDetailSearchAction;
+import com.cos.project.action.admin.AdminNewsAddAction;
+import com.cos.project.action.admin.AdminNewsAddProcAction;
 import com.cos.project.action.admin.AdminPageAction;
 import com.cos.project.action.admin.AdminPageAddAction;
 import com.cos.project.action.admin.AdminSearchAction;
@@ -59,6 +61,10 @@ public class AdminController extends HttpServlet {
 			return new AdminUpdateAction();
 		}else if(cmd.equals("delete")) {
 			return new AdminDeleteAction();
+		}else if(cmd.equals("newsAdd")) {
+			return new AdminNewsAddAction();
+		}else if(cmd.equals("newsAddProc")) {
+			return new AdminNewsAddProcAction();
 		}
 		return null;
 	}
