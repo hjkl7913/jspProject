@@ -34,7 +34,7 @@
 		</button>
 
 
-		<div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #252525;">
+		<div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #252525; ">
 			<a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=home">스토어</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=news">새 소식</a> &emsp; <a
 				class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=question">자주 묻는 질문</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="#">지원센터</a>
 			<ul class="navbar-nav ml-auto">
@@ -42,10 +42,12 @@
 					<c:when test="${empty sessionScope.principal}">
 						<li class="nav-item active"><a class="nav-link" href="/project/user?cmd=login">로그인</a></li>
 						<li class="nav-item"><a class="nav-link" href="/project/user?cmd=join">회원가입</a></li>
+						<a class="nav-link" href="#" id="nav__a__button1"><button type="button"> 에픽게임즈 받기</button></a>
 					</c:when>
 					<c:when test="${sessionScope.principal.userRole == 'ADMIN'}">
 						<li class="nav-item"><a class="nav-link" href="/project/admin?cmd=admin">관리자페이지</a></li>
 						<li class="nav-item"><a class="nav-link" href="/project/user?cmd=logout">로그아웃</a></li>
+						<a class="nav-link" href="#" id="nav__a__button2"><button type="button"> 에픽게임즈 받기</button></a>
 					</c:when>
 					<c:otherwise>
 						

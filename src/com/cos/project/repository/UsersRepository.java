@@ -22,6 +22,32 @@ public class UsersRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		
+		
+		public int tempPasswordUpdate(String email, String nasuPassword) {
+			final String SQL ="UPDATE users SET password = ?  WHERE email = ?";
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				// 물음표 완성하기
+				
+				pstmt.setString(1, nasuPassword);
+				pstmt.setString(2, email);
+				
+				
+				return pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"tempPasswordUpdate : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt);
+			}
+			
+			return -1;
+		}
+		
 		public Users findById(int id) {
 			final String SQL = "SELECT id, username, displayname, email, userProfile, userRole, createDate, tel, address, company, companyVAT, companyAddress FROM users WHERE id = ?";		
 			Users user = null;

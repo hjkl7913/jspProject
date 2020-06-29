@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cos.project.action.Action;
+import com.cos.project.action.user.UserPasswordEmailSendAction;
 import com.cos.project.action.user.UsersAcountAction;
 import com.cos.project.action.user.UsersAcountUpdateAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
-
+import com.cos.project.action.user.UsersFindPasswordAction;
 import com.cos.project.action.user.UsersJoinAction;
 import com.cos.project.action.user.UsersJoinProcAction;
 import com.cos.project.action.user.UsersLoginAction;
@@ -66,7 +67,12 @@ public class UsersController extends HttpServlet {
 			return new UsersAcountAction();
 		}else if(cmd.equals("accountUpdate")) {
 			return new UsersAcountUpdateAction();
+		}else if(cmd.equals("findPassword")) {
+			return new UsersFindPasswordAction();
+		}else if(cmd.equals("sendEmailFindPassword")) {
+			return new UserPasswordEmailSendAction();
 		}
+		
 		return null;
 	}
 
