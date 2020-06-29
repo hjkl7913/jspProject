@@ -291,6 +291,74 @@ public class GameInfoRepository {
 			return null;
 		}
 		
+		public List<GameInfos> greateBestGameSelect() {
+			StringBuilder sb = new StringBuilder();
+			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
+			sb.append("gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount ");
+			sb.append("FROM GAMEINFO ");
+			sb.append("ORDER BY buyCount desc ");		
+			sb.append("OFFSET 0 ROWS FETCH FIRST 5 ROWS ONLY ");
+			
+			
+			final String SQL = sb.toString();
+			List<GameInfos> gameInfos = new ArrayList<>();
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+					
+				// while 돌려서 rs -> java 오브젝트에 집어넣기
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					GameInfos gameInfo = new GameInfos(
+							rs.getInt("id"),
+							rs.getString("gamename"),
+							rs.getString("price"),
+							rs.getString("img"),
+							rs.getString("movie"),
+							rs.getString("developer"),
+							rs.getString("publisher"),
+							rs.getString("explanation"),
+							rs.getString("tags"),
+							rs.getString("rating"),
+							rs.getString("releasedate"),
+							rs.getString("platform"),
+							rs.getString("minos"),
+							rs.getString("minprocessor"),
+							rs.getString("minmemory"),
+							rs.getString("minGraphics"),
+							rs.getString("minDirectX"),
+							rs.getString("minStorage"),
+							rs.getString("recomos"),
+							rs.getString("recomprocessor"),
+							rs.getString("recommemory"),
+							rs.getString("recomGraphics"),
+							rs.getString("recomDirectX"),
+							rs.getString("recomStorage"),
+							rs.getString("LanguagesSup"),
+							rs.getString("freeDown"),
+							rs.getString("gamePlayImage1"),
+							rs.getString("gamePlayImage2"),
+							rs.getString("gamePlayImage3"),
+							rs.getString("contentImage"),
+							rs.getString("content"),
+							rs.getInt("buyCount")
+					);
+					gameInfos.add(gameInfo);
+				}
+				
+				return gameInfos;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"greateBestGameSelect : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
 		public List<GameInfos> BestGameSelect() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT /*+ INDEX_DESC(GAMEINFO SYS_C007853)*/id, ");
@@ -786,6 +854,32 @@ public class GameInfoRepository {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println(TAG+"save : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		public int buyGame(int id) {
+			final String SQL = "UPDATE gameinfo SET buyCount = buyCount+1 where id = ? ";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, id);
+				
+
+				System.out.println("SQL : " +SQL);
+				
+				System.out.println("pstmt.executeUpdate() : "+ pstmt.executeUpdate());
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"buyGame : "+e.getMessage());
 			}finally {
 				DBConn.close(conn, pstmt ,rs);
 			}

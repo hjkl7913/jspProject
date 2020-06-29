@@ -20,4 +20,11 @@ public class Users {
 	private String userRole;
 	private String userProfile;
 	private Timestamp createDate;
+	private String tel;
+	private String address;
+	private String company;
+	private int companyVAT;
+	private String companyAddress;
+
+	
 }

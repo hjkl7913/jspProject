@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cos.project.action.Action;
+import com.cos.project.action.user.UsersAcountAction;
+import com.cos.project.action.user.UsersAcountUpdateAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
 
 import com.cos.project.action.user.UsersJoinAction;
@@ -60,6 +62,10 @@ public class UsersController extends HttpServlet {
 			return new UsersLoginProcAction();
 		}else if(cmd.equals("logout")) {
 			return new UsersLogoutAction();
+		}else if(cmd.equals("account")) {
+			return new UsersAcountAction();
+		}else if(cmd.equals("accountUpdate")) {
+			return new UsersAcountUpdateAction();
 		}
 		return null;
 	}

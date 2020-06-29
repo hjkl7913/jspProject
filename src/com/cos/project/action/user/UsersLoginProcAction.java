@@ -55,7 +55,7 @@ public class UsersLoginProcAction implements Action{
 				response.addCookie(cookie);
 			}
 			
-			Script.href("로그인 성공", "/project/home.jsp", response);
+			Script.href("로그인 성공", "/project/home?cmd=home", response);
 		} else {
 			Script.back("로그인 실패", response);
 		}

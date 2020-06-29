@@ -13,7 +13,7 @@
 		<br/>
 		<h2>게임정보</h2><br/>
 		
-		<form class="form-inline justify-content-end" action="/project/admin">
+		<form class="form-inline justify-content-end" action="/project/admin" method="post">
 			<input type="hidden" name="cmd" value="search"> 
 			<input type="hidden" name="page" value="0"> 
 			<input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">

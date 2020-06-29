@@ -74,6 +74,24 @@ public class GameHomeAction implements Action{
 		
 		request.setAttribute("ExpectedGameInfos", ExpectedGameInfos);
 		
+		//최고 인기작
+		List<GameInfos> greatBestGameInfos = gameInfoRepository.greateBestGameSelect();
+				
+				
+				
+				for (GameInfos keywordGameInfosPre : greatBestGameInfos) {
+					if (keywordGameInfosPre.getGamename().length() >26) {
+						String previewGamename = keywordGameInfosPre.getGamename().substring(0, 26)+"...";
+						keywordGameInfosPre.setGamename(previewGamename);
+					}
+					if (keywordGameInfosPre.getDeveloper().length() >26) {
+						String previewDeveloper = keywordGameInfosPre.getDeveloper().substring(0, 26)+"...";
+						keywordGameInfosPre.setDeveloper(previewDeveloper);
+					}
+				}
+		System.out.println("greatBestGameInfos : "+greatBestGameInfos);
+		request.setAttribute("greatBestGameInfos", greatBestGameInfos);
+		
 		// 3. 이동 home.jsp
 		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
 		dis.forward(request, response);

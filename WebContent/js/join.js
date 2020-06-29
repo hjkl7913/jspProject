@@ -1,5 +1,28 @@
 var isCheckedEmail = false;
 
+function goPopup(){
+	window.open("/project/juso/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+}
+
+function jusoCallBack(roadFullAddr){
+	var tfAddress = document.querySelector("#address"); 
+	//클래스 는 .으로찾고  태그로찾기 input 여러개는 querySelectorAll('input')
+	tfAddress.value = roadFullAddr;
+	// document.form.roadFullAddr.value = roadFullAddr;		
+}
+
+function CompanyGoPopup(){
+	window.open("/project/juso/companyJusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+}
+
+function CompanyJusoCallBack(roadFullAddr){
+	console.log("ggggg : "+roadFullAddr);
+	
+	$("#companyAddress").val(""+roadFullAddr);
+	// document.form.roadFullAddr.value = roadFullAddr;		
+}
+
+
 function validate(){
 	if(!isCheckedEmail){
 		alert('email 중복체크를 해주세요');
