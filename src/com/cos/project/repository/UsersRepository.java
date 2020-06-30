@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.cos.project.db.DBConn;
-import com.cos.project.model.GameInfos;
+import com.cos.project.model.Carts;
 import com.cos.project.model.Users;
 
 public class UsersRepository {
@@ -22,6 +24,69 @@ public class UsersRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		
+		public int cartDeleteById(int id) {
+			final String SQL = "DELETE FROM cart WHERE id = ?";		
+
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, id);
+				
+				//if 돌려서 rs
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+" cartDeleteById : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		
+		public List<Carts> findCartByUserId(int userId) {
+			final String SQL = "SELECT id, gameId, userId, gamename, contentImage, price FROM cart WHERE userId = ?";		
+			
+			List<Carts> carts = new ArrayList<>(); 
+			
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, userId);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					Carts cart = new Carts(
+							rs.getInt("id"),
+							rs.getInt("gameId"),
+							rs.getInt("userId"),
+							rs.getString("gamename"),
+							rs.getString("contentImage"),
+							rs.getString("price")
+							);
+					carts.add(cart);
+				}
+				return carts;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findById : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
 		
 		public int findCartCheck(int gameId, int userId, String gamename) {
 			final String SQL = "SELECT count(*) FROM cart WHERE gameid=? and userid = ? and gamename = ?";		

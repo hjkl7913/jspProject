@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.cos.project.action.Action;
 import com.cos.project.action.user.UserPasswordEmailSendAction;
 import com.cos.project.action.user.UsersAcountAction;
+import com.cos.project.action.user.UsersAcountCartAction;
 import com.cos.project.action.user.UsersAcountPasswordAction;
 import com.cos.project.action.user.UsersAcountUpdateAction;
 import com.cos.project.action.user.UsersCartAddAction;
 import com.cos.project.action.user.UsersCartAddCheckAction;
+import com.cos.project.action.user.UsersCartDeleteAction;
+import com.cos.project.action.user.UsersCartReSearchAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
 import com.cos.project.action.user.UsersFindPasswordAction;
 import com.cos.project.action.user.UsersJoinAction;
@@ -24,6 +27,7 @@ import com.cos.project.action.user.UsersLoginProcAction;
 import com.cos.project.action.user.UsersLogoutAction;
 import com.cos.project.action.user.UsersPasswordCheckAction;
 import com.cos.project.action.user.UsersPasswordUpdateAction;
+import com.cos.project.action.user.UsersRefundPolicyAction;
 
 
 @WebServlet("/user")
@@ -86,9 +90,16 @@ public class UsersController extends HttpServlet {
 			return new UsersCartAddAction();
 		}else if(cmd.equals("cartAddCheck")) {
 			return new UsersCartAddCheckAction();
+		}else if(cmd.equals("accountCart")) {
+			return new UsersAcountCartAction();
+		}else if(cmd.equals("cartDelete")) {	//카트 목록 삭제
+			return new UsersCartDeleteAction();
+		}else if(cmd.equals("cartReSearch")) { // 카트목록 다시 불러오기
+			return new UsersCartReSearchAction();
+		}else if(cmd.equals("refundPolicy")) { // 카트목록 다시 불러오기
+			return new UsersRefundPolicyAction();
 		}
-		
-		
+
 		return null;
 	}
 

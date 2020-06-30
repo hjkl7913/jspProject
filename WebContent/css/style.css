@@ -516,3 +516,18 @@ section {
 	color: white;
 	
 }
+
+#cart__jumbo {
+	padding-bottom: 20px;
+	padding-top: 20px;
+	padding-left: 5px;
+	text-align: right;
+}
+
+.cartList-op h4,h5{
+	color: black;
+}
+
+.cartList-op i{
+	cursor: pointer;
+}

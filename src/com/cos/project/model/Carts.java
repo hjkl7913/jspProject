@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 
-public class Cart {
+public class Carts {
 		private int id;
 		private int gameId;
 		private int userId;
