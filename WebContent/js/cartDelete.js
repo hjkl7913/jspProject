@@ -55,7 +55,7 @@ function renderReplyList(cartReSearchJsons,id){
 
 
 function makeReplyItem(cartReSearchJson,id){
-	console.log("여기왔냐?2");
+	
 	var repyItem = `<div id="cart__de__${cartReSearchJson.id}">`;
 	replyItem += `<div class="jumbotron" id="cart__jumbo">`;
 	replyItem += `<div class="container">`;

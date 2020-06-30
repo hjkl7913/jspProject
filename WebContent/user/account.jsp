@@ -13,7 +13,7 @@
 					<div id="account__page__table">
 						
 								<a href="/project/user?cmd=account&id=${param.id}"><button>일반</button></a> <a href="/project/user?cmd=accountCart&id=${param.id}"><button>거래</button></a> <a
-							href="/project/user?cmd=accountPassword&id=${param.id}"><button>비밀번호 및 보안</button></a> <a href="/project/user?cmd=account&id=${param.id}"><button>코드 사용</button></a>
+							href="/project/user?cmd=accountPassword&id=${param.id}"><button>비밀번호 및 보안</button></a> <a href="/project/user?cmd=accountCode&id=${param.id}"><button>코드 사용</button></a>
 					</div>
 				</div>
 				<div class="container col-lg-9" style="background-color: white;"><br/>

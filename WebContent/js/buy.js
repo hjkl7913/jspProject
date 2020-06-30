@@ -93,7 +93,7 @@ function CartAddCheck(gameId, userId, gamename, contentImage, price) {
 		return;
 	}
 	
-	var cartConfirm = confirm("구매 하시겠습니까?");
+	var cartConfirm = confirm("위시리스트에 추가 하시겠습니까?");
 	
 	if(cartConfirm == true){
 	
