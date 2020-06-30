@@ -531,3 +531,43 @@ section {
 .cartList-op i{
 	cursor: pointer;
 }
+
+#code__con{
+	background-color: white;
+}
+
+
+#code__con p{
+	font-size: 14px;
+	color: #999999;
+}
+
+#code__btn button{
+	background-color: #0AAFF1;
+	border: 0;
+	outline: 0;
+	width: 76px;
+	height: 44px;
+	font-size: 14px;
+}
+
+#code__btn #gggg{
+	background-color: #707070;
+}
+
+.user-code {
+	background-color: #dbdbdb;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.user-code h5{
+	font-size: 15px;
+	margin-bottom: 0rem;
+}
+
+.user-code p{
+	font-size: 13px;
+	margin-top: 0;
+    margin-bottom: 0rem;
+}

@@ -15,7 +15,7 @@
 	</div>
 	<div class="box " >
 		<div class="container-1">
-			<span class="icon"><i class="fa fa-search"></i></span>
+			
 			<div class="row">
 				<form action="/project/home" method="get">
 				<input type="hidden" name="cmd" value="homeGameSearch"> 

@@ -18,7 +18,10 @@ import com.cos.project.action.user.UsersCartAddAction;
 import com.cos.project.action.user.UsersCartAddCheckAction;
 import com.cos.project.action.user.UsersCartDeleteAction;
 import com.cos.project.action.user.UsersCartReSearchAction;
+import com.cos.project.action.user.UsersCodeCheckAction;
 import com.cos.project.action.user.UsersCodePageAction;
+import com.cos.project.action.user.UsersCodeUseAction;
+import com.cos.project.action.user.UsersCodeUseCheckAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
 import com.cos.project.action.user.UsersFindPasswordAction;
 import com.cos.project.action.user.UsersGameBuyAction;
@@ -108,9 +111,17 @@ public class UsersController extends HttpServlet {
 			return new UsersGameBuyCheckAction();
 		}else if(cmd.equals("gameBuy")) { // 디테일 페이지에서 게임구매 버튼 눌렀을때 구매한 게임인지 체크
 			return new UsersGameBuyAction();
-		}else if(cmd.equals("accountCode")) { // 디테일 페이지에서 게임구매 버튼 눌렀을때 구매한 게임인지 체크
-			return new UsersCodePageAction(); // 사용자 코드 사용 탭
+		}else if(cmd.equals("accountCode")) { // 사용자 코드 사용 탭
+			return new UsersCodePageAction(); 
+		}else if(cmd.equals("codeCheck")) { // 사용자 페이지에서 코드 입력시 유효한 코드인지 확인
+			return new UsersCodeCheckAction();  
+		}else if(cmd.equals("codeUseCheck")) { // 코드 등록 하기전 사용자가 구매한 게임인지 확인
+			return new UsersCodeUseCheckAction();  
+		}else if(cmd.equals("codeUse")) { // 코드 등록
+			return new UsersCodeUseAction();  
 		}
+		
+		
 		
 		return null;
 	}

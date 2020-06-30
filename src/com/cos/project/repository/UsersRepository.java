@@ -9,6 +9,8 @@ import java.util.List;
 
 import com.cos.project.db.DBConn;
 import com.cos.project.model.Carts;
+import com.cos.project.model.GameCode;
+import com.cos.project.model.UsedGameCode;
 import com.cos.project.model.Users;
 
 public class UsersRepository {
@@ -23,6 +25,191 @@ public class UsersRepository {
 		private Connection conn = null;
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
+		
+
+		
+		// 사용한 코드 목록 userId로 찾기
+		public List<UsedGameCode> UsedGameCodeSearch(int userId) {
+			final String SQL = "SELECT id, userId, gameId, gamename, gameCode, useDate FROM USEDGAMECODE WHERE userId = ?";		
+			
+			List<UsedGameCode> usedGameCodes = new ArrayList<>();
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, userId);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					UsedGameCode usedGameCode = new UsedGameCode(
+							rs.getInt("id"),
+							rs.getInt("userId"),
+							rs.getInt("gameId"),
+							rs.getString("gamename"),
+							rs.getString("gameCode"),
+							rs.getTimestamp("useDate")
+							);
+					usedGameCodes.add(usedGameCode);
+				}
+				return usedGameCodes;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameCodeUse : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+		// 구매 테이블에 추가하기
+		public int BuyGameAdd(int gameId ,int userId, String gamename) {
+			final String SQL = "INSERT INTO userOrderList(orderId, gameId, userId, gamename, buyDate) VALUES(BUYLIST_SEQ.nextval,?,?,?,sysdate)";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, userId);
+				pstmt.setInt(2, gameId);
+				pstmt.setString(3, gamename);
+
+				
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"BuyGameAdd : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		//사용된 코드 테이블에 추가
+		public int UsedGameCodeAdd(int userId ,int gameId, String gamename, String Gcode) {
+			final String SQL = "INSERT INTO USEDGAMECODE(id, userId, gameId, gamename, gameCode, useDate) VALUES(USEDCODE_SEQ.nextval,?,?,?,?,sysdate)";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, userId);
+				pstmt.setInt(2, gameId);
+				pstmt.setString(3, gamename);
+				pstmt.setString(4, Gcode);
+
+				
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"UsedGameCodeAdd : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		
+		// gameCode 정보 가져가기
+		public GameCode gameCodeUse(String code) {
+			final String SQL = "SELECT codeId, gameId, gamename , code FROM gameCode WHERE code = ?";		
+			
+			GameCode gameCode = null;
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setString(1, code);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					gameCode = new GameCode();
+					gameCode.setCodeId(rs.getInt("codeId"));
+					gameCode.setGameId(rs.getInt("gameId"));
+					gameCode.setGamename(rs.getString("gamename"));
+					gameCode.setCode(rs.getString("code"));
+				}
+				return gameCode;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameCodeUse : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+		//gameCode 테이블에서 지우기
+		public int gameCodeDelete(int codeId) {
+			final String SQL = "DELETE FROM gamecode WHERE codeId = ?";		
+
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, codeId);
+				
+				//if 돌려서 rs
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+" gameCodeDelete : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		
+		//게임코드 체크 
+		public int gameCodeCheck(String code) {
+			final String SQL = "SELECT count(*) FROM gameCode WHERE code = ?";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setString(1, code);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					return rs.getInt(1); // 0 or 1
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameCodeCheck : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
 		
 		
 		// 게임 구매 하기 

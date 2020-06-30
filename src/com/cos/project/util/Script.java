@@ -42,6 +42,7 @@ public class Script {
 
 	}
 	
+	
 	public static void href(String msg, String uri, HttpServletResponse response) {
 
 		try {

@@ -226,12 +226,12 @@
 		</table>
 	</div>
 	<div class="col-lg-2">
-	</div>
+	</div><br/>
 		
-		<h5>지원언어</h5>
-	<p>${homeDetailGameInfo.languagesSupported}</p>
+		<h5 style="color: #6D6D6D;">지원언어 &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; </h5><p></p>
+	&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;<p>${homeDetailGameInfo.languagesSupported}</p>
 	<img alt="" src="">
-	
+	<br/><br/><br/>
 	</div>
 	</div>
 

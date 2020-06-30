@@ -8,7 +8,7 @@
 	<div class="container d-flex justify-content-end">
 	<div class="box " >
 		<div class="container-1">
-			<span class="icon"><i class="fa fa-search"></i></span>
+			
 			<div class="row">
 				<input type="button" class="img-button" style="background-image: url('image/search.png');" onclick="Search()">
 				<input type="search" id="search" placeholder="검색" />
