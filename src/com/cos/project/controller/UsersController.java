@@ -18,6 +18,7 @@ import com.cos.project.action.user.UsersCartAddAction;
 import com.cos.project.action.user.UsersCartAddCheckAction;
 import com.cos.project.action.user.UsersCartDeleteAction;
 import com.cos.project.action.user.UsersCartReSearchAction;
+import com.cos.project.action.user.UsersCodePageAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
 import com.cos.project.action.user.UsersFindPasswordAction;
 import com.cos.project.action.user.UsersGameBuyAction;
@@ -107,8 +108,10 @@ public class UsersController extends HttpServlet {
 			return new UsersGameBuyCheckAction();
 		}else if(cmd.equals("gameBuy")) { // 디테일 페이지에서 게임구매 버튼 눌렀을때 구매한 게임인지 체크
 			return new UsersGameBuyAction();
+		}else if(cmd.equals("accountCode")) { // 디테일 페이지에서 게임구매 버튼 눌렀을때 구매한 게임인지 체크
+			return new UsersCodePageAction(); // 사용자 코드 사용 탭
 		}
-	
+		
 		return null;
 	}
 
