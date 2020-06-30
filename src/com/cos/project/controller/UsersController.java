@@ -20,6 +20,9 @@ import com.cos.project.action.user.UsersCartDeleteAction;
 import com.cos.project.action.user.UsersCartReSearchAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
 import com.cos.project.action.user.UsersFindPasswordAction;
+import com.cos.project.action.user.UsersGameBuyAction;
+import com.cos.project.action.user.UsersGameBuyCheckAction;
+import com.cos.project.action.user.UsersGameBuyCountAction;
 import com.cos.project.action.user.UsersJoinAction;
 import com.cos.project.action.user.UsersJoinProcAction;
 import com.cos.project.action.user.UsersLoginAction;
@@ -96,10 +99,16 @@ public class UsersController extends HttpServlet {
 			return new UsersCartDeleteAction();
 		}else if(cmd.equals("cartReSearch")) { // 카트목록 다시 불러오기
 			return new UsersCartReSearchAction();
-		}else if(cmd.equals("refundPolicy")) { // 카트목록 다시 불러오기
+		}else if(cmd.equals("refundPolicy")) { // 환불정책 페이지
 			return new UsersRefundPolicyAction();
+		}else if(cmd.equals("gameBuyCount")) {	// 게임구매버튼 눌렀을때 
+			return new UsersGameBuyCountAction();
+		}else if(cmd.equals("gameBuyCheck")) { // 디테일 페이지에서 게임구매 버튼 눌렀을때 구매한 게임인지 체크
+			return new UsersGameBuyCheckAction();
+		}else if(cmd.equals("gameBuy")) { // 디테일 페이지에서 게임구매 버튼 눌렀을때 구매한 게임인지 체크
+			return new UsersGameBuyAction();
 		}
-
+	
 		return null;
 	}
 

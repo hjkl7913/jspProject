@@ -1,29 +1,101 @@
-function gameBuy(id){
+function gameBuyCheck(gameId,userId,gamename){
+	if(userId == "" || userId == null){
+		alert("로그인이 필요합니다.");
+		return;
+	}
+	
+	var Buyconfirm = confirm("구매 하시겠습니까?");
+	
+	if(Buyconfirm == true){
+		$.ajax({
+			type : "get",
+			url : "/project/user?cmd=gameBuyCheck",
+			data: {
+				"gameId":gameId , 
+				"userId":userId,
+				"gamename":gamename
+			},
+			dataType: "text"
+			
+		}).done(function(result) {
+			if(result == 1){
+				alert("이미 구매한 게임 입니다.");
+			} else {
+				gameBuy(gameId,userId,gamename);
+			}
+			
+		}).fail(function(error){
+			alert("서버 오류");
+		})
+		
+	} else {
+		return;
+	}
+	
+}
+
+
+function gameBuy(gameId,userId,gamename){
+	
+		$.ajax({
+			type : "post",
+			url : "/project/user?cmd=gameBuy",
+			data: {
+				"gameId":gameId , 
+				"userId":userId,
+				"gamename":gamename
+			},
+			dataType: "text"
+			
+		}).done(function(result) {
+			if(result == 1){
+				gameBuyCount(gameId);
+			} else {
+				alert("구매 실패");
+			}
+			
+		}).fail(function(error){
+			alert("서버 오류");
+		})
+		
+	
+}
+
+
+
+
+
+function gameBuyCount(gameId){
+	
 	$.ajax({
 		type: "get",
-		url: "/project/home?cmd=gameBuy&id="+id
+		url: "/project/user?cmd=gameBuyCount&id="+gameId
 	}).done(function(result){
 		if(result == 1){
-			console.log(result);
 			alert("구매 성공");
-			
+			console.log(result);
 		}else{
-			alert("로그인이 필요합니다.");
+			alert("카운트 증가 실패");
 		}
 			
 	}).fail(function(error){
 		alert("서버오류");
 		
 	})
+	
 }
 
+
 function CartAddCheck(gameId, userId, gamename, contentImage, price) {
-	console.log("userId : "+userId);
+	
 	if(userId == "" || userId == null){
 		alert("로그인이 필요합니다.");
 		return;
 	}
 	
+	var cartConfirm = confirm("구매 하시겠습니까?");
+	
+	if(cartConfirm == true){
 	
 	$.ajax({
 		type: "post",
@@ -48,6 +120,11 @@ function CartAddCheck(gameId, userId, gamename, contentImage, price) {
 		alert("서버오류");
 		console.log(error);
 	})
+	
+	}
+	else{
+		return;
+	}
 	
 }
 

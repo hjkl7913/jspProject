@@ -64,7 +64,7 @@
 	</div>
 	<div class="col-lg-3">
 		<div class="btn-group a">
-		<button class="buy-button" type="button" onclick="gameBuy('${homeDetailGameInfo.id}')" >지금 구매</button>
+		<button class="buy-button" type="button" onclick="gameBuyCheck('${homeDetailGameInfo.id}','${sessionScope.principal.id}','${homeDetailGameInfo.gamename}')" >지금 구매</button>
 		<button class="buy-button2" type="button" onclick="CartAddCheck('${homeDetailGameInfo.id}','${sessionScope.principal.id}','${homeDetailGameInfo.gamename}','${homeDetailGameInfo.contentImage}','${homeDetailGameInfo.price}')"><span data-tooltip-text="위시리스트에 추가"><img src="/project/image/whi.png"></span></button>
 		</div>
 	</div>

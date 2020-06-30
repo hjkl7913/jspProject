@@ -9,13 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cos.project.action.Action;
-import com.cos.project.action.admin.AdminDeleteAction;
-import com.cos.project.action.admin.AdminDetailSearchAction;
-import com.cos.project.action.admin.AdminPageAction;
-import com.cos.project.action.admin.AdminPageAddAction;
-import com.cos.project.action.admin.AdminSearchAction;
-import com.cos.project.action.admin.AdminUpdateAction;
-import com.cos.project.action.game.GameBuyAction;
 import com.cos.project.action.game.GameDetailAction;
 import com.cos.project.action.game.GameHomeAction;
 import com.cos.project.action.game.GameKeywordSearchAction;
@@ -73,8 +66,6 @@ public class HomeController extends HttpServlet {
 			return new GameKeywordSearchAction();
 		}else if(cmd.equals("news")) {	// nav바 새소식 클릭했을때
 			return new HomeNewsAction();
-		}else if(cmd.equals("gameBuy")) {	// nav바 새소식 클릭했을때
-			return new GameBuyAction();
 		}
 		return null;
 		}

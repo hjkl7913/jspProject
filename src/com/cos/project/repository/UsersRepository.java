@@ -25,6 +25,89 @@ public class UsersRepository {
 		private ResultSet rs = null;
 		
 		
+		// 게임 구매 하기 
+		public int gameBuy(int gameId, int userId, String gamename) {
+			final String SQL = "INSERT INTO userOrderList(orderId , gameId , userId, gamename, buyDate) VALUES(BUYLIST_SEQ.nextval,?,?,?,sysdate)";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, gameId);
+				pstmt.setInt(2, userId);
+				pstmt.setString(3, gamename);
+
+				
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameBuy : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		//게임구매시 카운트 증가
+		public int gameBuyCount(int id) {
+			final String SQL = "UPDATE gameinfo SET buyCount = buyCount+1 where id = ? ";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, id);
+				
+
+				System.out.println("SQL : " +SQL);
+				
+				System.out.println("pstmt.executeUpdate() : "+ pstmt.executeUpdate());
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameBuyCount : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		//게임 구매했는지 확인
+		public int userGamebuyCheck(int gameId, int userId, String gamename) {
+			final String SQL = "SELECT count(*) FROM userOrderList WHERE gameid=? and userid = ? and gamename = ?";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, gameId);
+				pstmt.setInt(2, userId);
+				pstmt.setString(3, gamename);
+
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1); // 0 or 1
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"userGamebuyCheck : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		
 		public int cartDeleteById(int id) {
 			final String SQL = "DELETE FROM cart WHERE id = ?";		
 
@@ -79,7 +162,7 @@ public class UsersRepository {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				System.out.println(TAG+"findById : "+e.getMessage());
+				System.out.println(TAG+"findCartByUserId : "+e.getMessage());
 				
 			}finally {
 				DBConn.close(conn, pstmt ,rs);
@@ -107,7 +190,7 @@ public class UsersRepository {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				System.out.println(TAG+"findByEmail : "+e.getMessage());
+				System.out.println(TAG+"findCartCheck : "+e.getMessage());
 			}finally {
 				DBConn.close(conn, pstmt ,rs);
 			}
@@ -131,7 +214,7 @@ public class UsersRepository {
 				return pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
-				System.out.println(TAG+"update : "+e.getMessage());
+				System.out.println(TAG+"passwordUpdate : "+e.getMessage());
 				
 			} finally {
 				DBConn.close(conn, pstmt);
@@ -142,7 +225,7 @@ public class UsersRepository {
 		
 		
 		public int cartAdd(int gameId, int userId, String gamename, String contentImage, String price) {
-			final String SQL = "INSERT INTO cart(id, gameId , userId, gamename, contentImage, price) VALUES(USERS_SEQ.nextval,?,?,?,?,?)";		
+			final String SQL = "INSERT INTO cart(id, gameId , userId, gamename, contentImage, price) VALUES(CART_SEQ.nextval,?,?,?,?,?)";		
 			
 			try {
 				conn = DBConn.getConnection();
@@ -186,7 +269,7 @@ public class UsersRepository {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				System.out.println(TAG+"findByEmail : "+e.getMessage());
+				System.out.println(TAG+"idAndPasswordCheck : "+e.getMessage());
 			}finally {
 				DBConn.close(conn, pstmt ,rs);
 			}

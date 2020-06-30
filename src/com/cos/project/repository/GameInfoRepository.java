@@ -861,31 +861,7 @@ public class GameInfoRepository {
 			return -1;
 		}
 		
-		public int buyGame(int id) {
-			final String SQL = "UPDATE gameinfo SET buyCount = buyCount+1 where id = ? ";		
-			
-			try {
-				conn = DBConn.getConnection();
-				pstmt = conn.prepareStatement(SQL);
-				
-				//물음표 완성하기
-				pstmt.setInt(1, id);
-				
-
-				System.out.println("SQL : " +SQL);
-				
-				System.out.println("pstmt.executeUpdate() : "+ pstmt.executeUpdate());
-				return pstmt.executeUpdate();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println(TAG+"buyGame : "+e.getMessage());
-			}finally {
-				DBConn.close(conn, pstmt ,rs);
-			}
-			
-			return -1;
-		}
+		
 		
 		
 }

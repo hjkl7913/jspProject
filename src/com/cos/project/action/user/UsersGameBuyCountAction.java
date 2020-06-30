@@ -1,4 +1,4 @@
-package com.cos.project.action.game;
+package com.cos.project.action.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cos.project.action.Action;
-import com.cos.project.repository.GameInfoRepository;
+import com.cos.project.repository.UsersRepository;
 import com.cos.project.util.Script;
 
-public class GameBuyAction implements Action {
+public class UsersGameBuyCountAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -26,9 +26,11 @@ public class GameBuyAction implements Action {
 
 		// 1. DB연결
 
-		GameInfoRepository gameInfoRepository = GameInfoRepository.getInstance();
+		UsersRepository usersRepository = UsersRepository.getInstance();
 
-		int result = gameInfoRepository.buyGame(id);
+		int result = usersRepository.gameBuyCount(id);
+		
+		System.out.println("UsersGameBuyCountAction : result :" +result);
 
 		PrintWriter out = response.getWriter();
 		out.print(result);
