@@ -23,6 +23,58 @@ public class UsersRepository {
 		private ResultSet rs = null;
 		
 		
+		public int passwordUpdate(int id, String newPassword) {
+			final String SQL ="UPDATE users SET  password = ?  WHERE id = ?";
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				// 물음표 완성하기
+				
+				pstmt.setString(1, newPassword);
+				pstmt.setInt(2, id);
+				
+				
+				return pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(TAG+"update : "+e.getMessage());
+				
+			} finally {
+				DBConn.close(conn, pstmt);
+			}
+			
+			return -1;
+		}
+		
+		
+		public int idAndPasswordCheck(int id, String password) {
+			final String SQL = "SELECT count(*) FROM users WHERE id=? and password = ?";		
+			Users user = null;
+			
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, id);
+				pstmt.setString(2, password);
+				
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1); // 0 or 1
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findByEmail : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
 		
 		public int tempPasswordUpdate(String email, String nasuPassword) {
 			final String SQL ="UPDATE users SET password = ?  WHERE email = ?";

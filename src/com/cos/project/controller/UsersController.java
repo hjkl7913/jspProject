@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cos.project.action.Action;
 import com.cos.project.action.user.UserPasswordEmailSendAction;
 import com.cos.project.action.user.UsersAcountAction;
+import com.cos.project.action.user.UsersAcountPasswordAction;
 import com.cos.project.action.user.UsersAcountUpdateAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
 import com.cos.project.action.user.UsersFindPasswordAction;
@@ -19,6 +20,8 @@ import com.cos.project.action.user.UsersJoinProcAction;
 import com.cos.project.action.user.UsersLoginAction;
 import com.cos.project.action.user.UsersLoginProcAction;
 import com.cos.project.action.user.UsersLogoutAction;
+import com.cos.project.action.user.UsersPasswordCheckAction;
+import com.cos.project.action.user.UsersPasswordUpdateAction;
 
 
 @WebServlet("/user")
@@ -71,7 +74,14 @@ public class UsersController extends HttpServlet {
 			return new UsersFindPasswordAction();
 		}else if(cmd.equals("sendEmailFindPassword")) {
 			return new UserPasswordEmailSendAction();
+		}else if(cmd.equals("accountPassword")) {
+			return new UsersAcountPasswordAction();
+		}else if(cmd.equals("passwordCheck")) {
+			return new UsersPasswordCheckAction();
+		}else if(cmd.equals("passwordUpdate")) {
+			return new UsersPasswordUpdateAction();
 		}
+		
 		
 		return null;
 	}
