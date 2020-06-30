@@ -13,6 +13,8 @@ import com.cos.project.action.user.UserPasswordEmailSendAction;
 import com.cos.project.action.user.UsersAcountAction;
 import com.cos.project.action.user.UsersAcountPasswordAction;
 import com.cos.project.action.user.UsersAcountUpdateAction;
+import com.cos.project.action.user.UsersCartAddAction;
+import com.cos.project.action.user.UsersCartAddCheckAction;
 import com.cos.project.action.user.UsersEmailCheckAction;
 import com.cos.project.action.user.UsersFindPasswordAction;
 import com.cos.project.action.user.UsersJoinAction;
@@ -80,6 +82,10 @@ public class UsersController extends HttpServlet {
 			return new UsersPasswordCheckAction();
 		}else if(cmd.equals("passwordUpdate")) {
 			return new UsersPasswordUpdateAction();
+		}else if(cmd.equals("cartAdd")) {
+			return new UsersCartAddAction();
+		}else if(cmd.equals("cartAddCheck")) {
+			return new UsersCartAddCheckAction();
 		}
 		
 		

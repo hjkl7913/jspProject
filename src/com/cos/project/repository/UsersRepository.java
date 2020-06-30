@@ -23,6 +23,34 @@ public class UsersRepository {
 		private ResultSet rs = null;
 		
 		
+		public int findCartCheck(int gameId, int userId, String gamename) {
+			final String SQL = "SELECT count(*) FROM cart WHERE gameid=? and userid = ? and gamename = ?";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, gameId);
+				pstmt.setInt(2, userId);
+				pstmt.setString(3, gamename);
+
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1); // 0 or 1
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findByEmail : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		
 		public int passwordUpdate(int id, String newPassword) {
 			final String SQL ="UPDATE users SET  password = ?  WHERE id = ?";
 			
@@ -48,10 +76,35 @@ public class UsersRepository {
 		}
 		
 		
+		public int cartAdd(int gameId, int userId, String gamename, String contentImage, String price) {
+			final String SQL = "INSERT INTO cart(id, gameId , userId, gamename, contentImage, price) VALUES(USERS_SEQ.nextval,?,?,?,?,?)";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, gameId);
+				pstmt.setInt(2, userId);
+				pstmt.setString(3, gamename);
+				pstmt.setString(4, contentImage);
+				pstmt.setString(5, price);
+
+				
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"cartAdd : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
 		public int idAndPasswordCheck(int id, String password) {
 			final String SQL = "SELECT count(*) FROM users WHERE id=? and password = ?";		
-			Users user = null;
-			
 			
 			try {
 				conn = DBConn.getConnection();
