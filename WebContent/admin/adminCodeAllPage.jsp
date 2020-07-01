@@ -29,5 +29,4 @@
 
 <script src="/project/js/adminCodeDelete.js"></script>
 
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

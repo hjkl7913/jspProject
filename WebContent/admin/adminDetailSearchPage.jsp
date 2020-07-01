@@ -229,5 +229,4 @@
 <br />
 <script src="/project/js/imgPreview.js"></script>
 <script src="/project/js/delete.js"></script>
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

@@ -240,5 +240,4 @@
 
 <script src="/project/js/buy.js"></script>
 
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

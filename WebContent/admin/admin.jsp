@@ -171,5 +171,4 @@
 	
 <script src="/project/js/imgPreview.js"></script>
 
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cos.project.Dto.OrderListResponseDto;
 import com.cos.project.db.DBConn;
 import com.cos.project.model.Carts;
 import com.cos.project.model.GameCode;
 import com.cos.project.model.GameInfos;
+import com.cos.project.model.OrderList;
 import com.cos.project.model.UsedGameCode;
 import com.cos.project.model.Users;
 
@@ -27,7 +29,56 @@ public class UsersRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
-
+		
+		
+		public List<OrderListResponseDto> userOrderListAll(int userId) {
+			StringBuffer sb = new StringBuffer();
+			sb.append("SELECT  o.orderid,  o.gameid, o.userid, o.gamename, o.buydate, g.contentimage, g.price ");
+			sb.append("FROM gameinfo g INNER JOIN userorderlist o ");
+			sb.append("ON  g.id = o.gameid ");
+			sb.append("where o.userid = ? ");
+			sb.append("ORDER BY o.buydate asc ");
+			final String SQL = sb.toString();		
+			
+			List<OrderListResponseDto> orderListResponseDtos = new ArrayList<>();
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, userId);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					OrderList orderList = OrderList.builder()
+							.orderId(rs.getInt(1))
+							.gameId(rs.getInt(2))
+							.userId(rs.getInt(3))
+							.gamename(rs.getString(4))
+							.buyDate(rs.getTimestamp(5))
+							.build();
+					OrderListResponseDto oderDto = OrderListResponseDto.builder()
+							.orderList(orderList)
+							.contentImage(rs.getString(6))
+							.price(rs.getString(7))
+							.build();
+					orderListResponseDtos.add(oderDto);
+			}
+				return orderListResponseDtos;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameCodeUse : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
 		
 		// 사용한 코드 목록 userId로 찾기
 		public List<UsedGameCode> UsedGameCodeSearch(int userId) {

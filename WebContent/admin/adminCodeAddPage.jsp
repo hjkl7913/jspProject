@@ -47,5 +47,4 @@
 <br />
 <br />
 <script src="/project/js/adminCodeAdd.js"></script>
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

@@ -14,6 +14,7 @@ import com.cos.project.action.user.UsersAcountAction;
 import com.cos.project.action.user.UsersAcountCartAction;
 import com.cos.project.action.user.UsersAcountPasswordAction;
 import com.cos.project.action.user.UsersAcountUpdateAction;
+import com.cos.project.action.user.UsersOrderListAction;
 import com.cos.project.action.user.UsersCartAddAction;
 import com.cos.project.action.user.UsersCartAddCheckAction;
 import com.cos.project.action.user.UsersCartDeleteAction;
@@ -119,6 +120,8 @@ public class UsersController extends HttpServlet {
 			return new UsersCodeUseCheckAction();  
 		}else if(cmd.equals("codeUse")) { // 코드 등록
 			return new UsersCodeUseAction();  
+		}else if(cmd.equals("accountBuyList")) { // 구매목록 가져오기
+			return new UsersOrderListAction();  
 		}
 		
 		

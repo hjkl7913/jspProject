@@ -56,7 +56,7 @@
 								<li><a href="#">${sessionScope.principal.displayName}</a>
 									<ul id="sub-menu">
 										<li><a href="/project/user?cmd=account&id=${sessionScope.principal.id}" aria-label="subemnu">계정</a></li>
-										<li><a href="#" aria-label="subemnu">코드사용</a></li>
+										<li><a href="/project/user?cmd=accountCode&id=${sessionScope.principal.id}" aria-label="subemnu">코드사용</a></li>
 										<li><a href="#" aria-label="subemnu">submenu</a></li>
 										<li><a href="/project/user?cmd=logout" aria-label="subemnu">로그아웃</a></li>
 									</ul></li>

@@ -2479,5 +2479,4 @@ Epic Games Store는 신용카드, PayPal 및 다양한 대체 결제 수단을 �
 </div>
 </div>
 </div>
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

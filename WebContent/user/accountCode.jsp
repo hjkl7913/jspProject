@@ -13,8 +13,11 @@
 				<div class="container col-lg-3">
 					<div id="account__page__table">
 
-						<a href="/project/user?cmd=account&id=${param.id}"><button>일반</button></a> <a href="/project/user?cmd=accountCart&id=${param.id}"><button>거래</button></a> <a
-							href="/project/user?cmd=accountPassword&id=${param.id}"><button>비밀번호 및 보안</button></a> <a href="/project/user?cmd=accountCode&id=${param.id}"><button>코드 사용</button></a>
+						<a href="/project/user?cmd=account&id=${param.id}"><button>일반</button></a> 
+						<a href="/project/user?cmd=accountBuyList&id=${param.id}"><button>결제내역</button></a> 
+						<a href="/project/user?cmd=accountCart&id=${param.id}"><button>위시리스트</button></a> 
+						<a href="/project/user?cmd=accountPassword&id=${param.id}"><button>비밀번호 및 보안</button></a> 
+						<a href="/project/user?cmd=accountCode&id=${param.id}"><button>코드 사용</button></a>
 
 					</div>
 				</div>
@@ -107,5 +110,4 @@
 
 <script src="/project/js/accountCode.js"></script>
 
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

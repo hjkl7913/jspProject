@@ -54,5 +54,5 @@ Epic Games Store에서 구매한 상품을 환불하는 방법을 안내해 드�
 &nbsp;</div>
 </div>
 </div>
-</body>
-</html>
+
+<%@ include file="../include/footer.jsp"%>

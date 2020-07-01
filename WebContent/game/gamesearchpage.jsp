@@ -85,5 +85,4 @@
 </div>
 
 <script src="/project/js/gameSearch.js"></script>
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

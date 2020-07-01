@@ -591,4 +591,41 @@ section {
 	font-size: 15px;
 	margin-top: 0;
     margin-bottom: 0rem;
+    font-weight: 700;
+}
+
+#footer__m p{
+	margin-left: -20px;
+	color: #585858;
+}
+
+#footer__my {
+	margin-left: -70px;
+}
+
+#footer__my a{
+	color: #E7E7E7;
+	font-size: 14px;
+}
+
+#footer__myd {
+	margin-right: -66px;
+}
+
+#footer__1 {
+	background-color: #202020;
+}
+
+#footer__2 {
+	background-color: #202020;
+	border-top: 20px;
+	border-top-color: #CCCCCC;
+	margin-top: 1px;
+	
+}
+
+#footer__2 p{
+	font-size: 12px;
+	color: #CCCCCC;
+	
 }

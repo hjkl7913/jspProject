@@ -30,9 +30,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div><br/><br/><br/><br/><br/>
 
 <script src="/project/js/findPassword.js"></script>
 
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>

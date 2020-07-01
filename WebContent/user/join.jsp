@@ -41,8 +41,7 @@
 		</div>
 	</div>
 </div>
-
+<br/><br/><br/><br/>
 <script src="/project/js/join.js"></script>
-</body>
 
-</html>
+<%@ include file="../include/footer.jsp"%>
