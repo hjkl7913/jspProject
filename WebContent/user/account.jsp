@@ -99,7 +99,7 @@
 </div>
 
 <script src="/project/js/join.js"></script>
-
+<script src="/project/js/companyJuso.js"></script>
 
 </body>
 </html>

@@ -3,7 +3,6 @@ function CompanyGoPopup(){
 }
 
 function CompanyJusoCallBack(roadFullAddr){
-	console.log("ggggg : "+roadFullAddr);
 	
 	$("#companyAddress").val(""+roadFullAddr);
 	// document.form.roadFullAddr.value = roadFullAddr;		
