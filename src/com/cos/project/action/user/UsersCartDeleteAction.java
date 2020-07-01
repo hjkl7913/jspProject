@@ -25,6 +25,7 @@ public class UsersCartDeleteAction implements Action{
 			return; 
 		}
 		
+		
 		int id = Integer.parseInt(request.getParameter("id"));  //cart 테이블 id
 		
 		UsersRepository usersRepository = UsersRepository.getInstance();

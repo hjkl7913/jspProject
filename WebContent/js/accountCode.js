@@ -7,6 +7,7 @@ function DeleteInput() {
 function codeCheck(userId) {
 	var code = $("#code__input").val();
 	
+	
 	if(code =="" || code==null) {
 		alert("코드를 입력하세요.");
 		return;
@@ -18,20 +19,25 @@ function codeCheck(userId) {
 		dataType: "text"
 			
 	}).done(function(result){
-		if(result == 1){
-			codeUseCheck(userId,code)
-		}else {
+		if(result == '없음'){
 			alert("이미 사용 했거나 존재하지 않는 코드 입니다.");
+			return;
+		}else if(result != null){
+			codeUseCheck(userId,code,result);
 		}
 		
 	}).fail(function(error){
+		if(userId == null || userId == ""){
+			alert("로그인이 필요합니다.");
+			return;
+		}
 		alert("서버오류1");
 		console.log(error);
 	})
 	
 }
 
-function codeUseCheck(userId,code) {
+function codeUseCheck(userId,code,gamename) {
 	$.ajax({
 		type: "post",
 		url: "/project/user?cmd=codeUseCheck",
@@ -45,17 +51,18 @@ function codeUseCheck(userId,code) {
 		if(result == 1){
 			alert("이미 구매한 게임 입니다.");
 		}else {
-			codeUse(userId,code)
+			codeUse(userId,code,gamename)
 		}
 		
 	}).fail(function(error){
+		
 		alert("서버오류2");
 		console.log(error);
 	})
 	
 }
 
-function codeUse(userId,code) {
+function codeUse(userId,code,gamename) {
 	$.ajax({
 		type: "post",
 		url: "/project/user?cmd=codeUse",
@@ -67,18 +74,35 @@ function codeUse(userId,code) {
 			
 	}).done(function(usedGameCodeJsons){
 		if(usedGameCodeJsons != null){
-			alert("여까지 왔나?");
-			console.log(usedGameCodeJsons);
+			$(".usecode-add").empty();
+			renderUsedCodeList(usedGameCodeJsons);
+			alert(gamename+" : 게임 코드 사용 성공");
 		}else {
 			alert("코드 사용 실패");
 		}
 		
 	}).fail(function(error){
-		alert("서버오류2");
+		alert("서버오류3");
 		console.log(error);
 	})
 	
 }
 
+function renderUsedCodeList(usedGameCodeJsons){
+	for(var usedGameCodeJson of usedGameCodeJsons){
+		$(".usecode-add").append(makeCodeItem(usedGameCodeJson));
+	}
+}
 
+
+function makeCodeItem(usedGameCodeJson){
+	var usedCodeItem = `<div class="user-code" id="user__code__${usedGameCodeJson.id}">`;
+	usedCodeItem += `<h5>게임이름 : ${usedGameCodeJson.gamename}</h5>`;
+	usedCodeItem += `<p>사용한 코드: ${usedGameCodeJson.gameCode}</p>`;
+	usedCodeItem += `<p>사용한 날짜: ${usedGameCodeJson.useDate}</p>`;
+	usedCodeItem += `</div>`;
+
+	
+	return usedCodeItem;
+} 
 

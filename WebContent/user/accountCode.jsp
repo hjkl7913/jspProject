@@ -74,6 +74,8 @@
 						<h5>코드 사용 기록</h5>
 					</div><br />
 					
+					<div class="usecode-add">
+					
 					<c:forEach var="usedGameCode" items="${usedGameCodes}">
 					<div class="user-code" id="user__code__${usedGameCode.id}">
 						<h5>게임이름 : ${usedGameCode.gamename}</h5>
@@ -81,6 +83,9 @@
 						<p>사용한 날짜: ${usedGameCode.useDate}</p>
 					</div>
 					</c:forEach>
+					</div>
+					
+					</div>
 			<br />
 				<br />
 				</div>
@@ -95,7 +100,7 @@
 
 
 	</div>
-</div>
+
 <br />
 <br />
 

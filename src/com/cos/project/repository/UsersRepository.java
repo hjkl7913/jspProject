@@ -10,6 +10,7 @@ import java.util.List;
 import com.cos.project.db.DBConn;
 import com.cos.project.model.Carts;
 import com.cos.project.model.GameCode;
+import com.cos.project.model.GameInfos;
 import com.cos.project.model.UsedGameCode;
 import com.cos.project.model.Users;
 
@@ -76,9 +77,9 @@ public class UsersRepository {
 				conn = DBConn.getConnection();
 				pstmt = conn.prepareStatement(SQL);
 				
-				//물음표 완성하기
-				pstmt.setInt(1, userId);
-				pstmt.setInt(2, gameId);
+				//물음표 완성하기gameId
+				pstmt.setInt(1, gameId);
+				pstmt.setInt(2, userId);
 				pstmt.setString(3, gamename);
 
 				
@@ -183,8 +184,10 @@ public class UsersRepository {
 		
 		
 		//게임코드 체크 
-		public int gameCodeCheck(String code) {
-			final String SQL = "SELECT count(*) FROM gameCode WHERE code = ?";		
+		public GameCode gameCodeCheck(String code) {
+			final String SQL = "SELECT codeId, gameId, gamename, code  FROM gameCode WHERE code = ?";		
+				
+				GameCode gameCode = null;
 			
 			try {
 				conn = DBConn.getConnection();
@@ -197,8 +200,15 @@ public class UsersRepository {
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
-					return rs.getInt(1); // 0 or 1
+					gameCode = GameCode.builder()
+							.codeId(rs.getInt("codeId"))
+							.gameId(rs.getInt("gameId"))
+							.gamename(rs.getString("gamename"))
+							.code(rs.getString("code"))
+							.build();
+								
 				}
+				return gameCode;
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -208,7 +218,7 @@ public class UsersRepository {
 				DBConn.close(conn, pstmt ,rs);
 			}
 			
-			return -1;
+			return null;
 		}
 		
 		

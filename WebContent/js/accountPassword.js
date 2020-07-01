@@ -39,7 +39,7 @@ function PassChangeCheck(id) {
 		}
 		
 	}).fail(function(error){
-		alert("서버오류");
+		alert("서버오류1");
 		console.log(error);
 	})
 	
@@ -62,7 +62,7 @@ function ChangePassword(id,newPassword) {
 		alert("비밀번호 변경 실패");
 		}
 	}).fail(function(error){
-		alert("서버오류!");
+		alert("서버오류2");
 	})
 }
 

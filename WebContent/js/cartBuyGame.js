@@ -21,11 +21,12 @@ function gameBuyCheck(cartId , gameId, userId, gamename){ //id 는 cart 아이�
 			if(result == 1){
 				alert("이미 구매한 게임 입니다.");
 			} else {
+				console.log("gameBuyCheck : gameId : " + gameId)
 				gameBuy(cartId, gameId, userId, gamename);
 			}
 			
 		}).fail(function(error){
-			alert("서버 오류");
+			alert("서버 오류1");
 		})
 		
 	} else {
@@ -55,7 +56,7 @@ function gameBuy(cartId ,gameId,userId,gamename){
 			}
 			
 		}).fail(function(error){
-			alert("서버 오류");
+			alert("서버 오류2");
 		})
 		
 	
@@ -71,6 +72,7 @@ function gameBuyCount(cartId , gameId){
 	}).done(function(result){
 		if(result == 1){
 			alert("구매 성공");
+			console.log("gameBuyCount : "+cartId);
 			$("#cart__de__"+cartId).remove();
 			cartDelete2(cartId);
 		}else{
@@ -78,7 +80,7 @@ function gameBuyCount(cartId , gameId){
 		}
 			
 	}).fail(function(error){
-		alert("서버오류");
+		alert("서버오류3");
 		
 	})
 	
@@ -93,8 +95,8 @@ function cartDelete2(id) {
 	
 	}).done(function(result) {
 		if(result == 1){
-			console.log("삭제성공");
 			$("#cart__de__"+id).remove();
+			console.log("삭제성공");
 			cartReSearch2(id);
 			
 		} else {
@@ -102,7 +104,7 @@ function cartDelete2(id) {
 		}
 		
 	}).fail(function(error){
-		alert("서버 오류");
+		alert("서버 오류4");
 	})
 	
 }
@@ -122,7 +124,7 @@ function cartReSearch2(id) {
 			alert("목록 받아오기 실패");
 		}	
 	}).fail(function(error){
-		alert("서버 오류");
+		alert("서버 오류5");
 	})
 }
 

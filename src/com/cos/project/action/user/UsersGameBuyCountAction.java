@@ -23,7 +23,8 @@ public class UsersGameBuyCountAction implements Action {
 		}
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-
+		
+		System.out.println("UsersGameBuyCountAction : gameId : "+id);
 		// 1. DB연결
 
 		UsersRepository usersRepository = UsersRepository.getInstance();
