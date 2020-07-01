@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cos.project.db.DBConn;
+import com.cos.project.model.Carts;
+import com.cos.project.model.GameCode;
 import com.cos.project.model.GameInfos;
-import com.cos.project.model.GameNews;
 import com.cos.project.model.Users;
 
 public class GameInfoRepository {
@@ -24,6 +25,123 @@ public class GameInfoRepository {
 		private Connection conn = null;
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
+		
+		//코드삭제
+		public int adminCodeDeleteById(int codeId) {
+			final String SQL = "DELETE FROM gamecode WHERE codeId = ?";		
+
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, codeId);
+				
+				//if 돌려서 rs
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"adminCodeDeleteById : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		
+		public List<GameCode> AdminCodeSearchAll() {
+			final String SQL = "SELECT codeId, gameId, gamename, code FROM gamecode ORDER BY gamename";		
+			
+			List<GameCode> gameCodes = new ArrayList<>(); 
+			
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+			
+
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					GameCode gameCode = new GameCode(
+							rs.getInt("codeId"),
+							rs.getInt("gameId"),
+							rs.getString("gamename"),
+							rs.getString("code")
+							);
+					gameCodes.add(gameCode);
+				}
+				return gameCodes;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"findCartByUserId : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+		
+		// 코드 있는지 체크 
+		public int gameCodeCheck(String code) {
+			final String SQL = "SELECT count(*)  FROM gameCode WHERE code = ?";		
+				
+				GameCode gameCode = null;
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setString(1, code);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					return rs.getInt(1); // 0 or 1
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameCodeCheck : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		//코드 추가
+		public int codeAdd(GameCode gameCode) {
+			final String SQL = "INSERT INTO gamecode(codeId, gameId, gamename, code) VALUES(GAMECODE_SEQ.nextval,?,?,?)";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, gameCode.getGameId());
+				pstmt.setString(2, gameCode.getGamename());
+				pstmt.setString(3, gameCode.getCode());
+
+				
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"codeAdd : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
 		
 		public List<GameInfos> findByKeyword(String keyword) {
 			final String SQL = "SELECT * FROM gameinfo WHERE gamename LIKE ?";

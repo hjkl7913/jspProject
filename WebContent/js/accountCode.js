@@ -7,7 +7,6 @@ function DeleteInput() {
 function codeCheck(userId) {
 	var code = $("#code__input").val();
 	
-	
 	if(code =="" || code==null) {
 		alert("코드를 입력하세요.");
 		return;
@@ -20,7 +19,7 @@ function codeCheck(userId) {
 			
 	}).done(function(result){
 		if(result == '없음'){
-			alert("이미 사용 했거나 존재하지 않는 코드 입니다.");
+			alert("이미 사용 하거나 존재하지 않는 코드 입니다.");
 			return;
 		}else if(result != null){
 			codeUseCheck(userId,code,result);
@@ -49,7 +48,7 @@ function codeUseCheck(userId,code,gamename) {
 			
 	}).done(function(result){
 		if(result == 1){
-			alert("이미 구매한 게임 입니다.");
+			alert("게임이름: gamename은 이미 구매한 게임 입니다.");
 		}else {
 			codeUse(userId,code,gamename)
 		}

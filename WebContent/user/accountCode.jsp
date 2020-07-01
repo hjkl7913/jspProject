@@ -32,7 +32,7 @@
 
 							<div class="form-group">
 
-								<br /> <input class="form-control" type="text" id="code__input" placeholder="코드입력 *" maxlength="19" />
+								<br /> <input class="form-control" type="text" id="code__input" name="code" placeholder="코드입력 *" maxlength="23" />
 							</div>
 							<br />
 							<div id="code__btn">
@@ -84,7 +84,7 @@
 					</div>
 					</c:forEach>
 					</div>
-					
+					<br /><br />
 					</div>
 			<br />
 				<br />
