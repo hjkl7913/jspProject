@@ -34,8 +34,10 @@ function questionSubmit() {
 		if(result == 1){
 			$("#question").val("");
 			alert("문의가 등록 되었습니다.");
+			location.href='/project/home?cmd=home';
 		} else {
 			alert("문의 등록에 실패하였습니다.");
+			location.href='/project/home?cmd=home';
 		}
 		
 	}).fail(function(error){

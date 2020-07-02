@@ -28,6 +28,9 @@ import com.cos.project.action.user.UsersFindPasswordAction;
 import com.cos.project.action.user.UsersGameBuyAction;
 import com.cos.project.action.user.UsersGameBuyCheckAction;
 import com.cos.project.action.user.UsersGameBuyCountAction;
+import com.cos.project.action.user.UsersHomeCodeAction;
+import com.cos.project.action.user.UsersHomeUseCodeAction;
+import com.cos.project.action.user.UsersHomeUseCodeCheckAction;
 import com.cos.project.action.user.UsersJoinAction;
 import com.cos.project.action.user.UsersJoinProcAction;
 import com.cos.project.action.user.UsersLoginAction;
@@ -123,8 +126,14 @@ public class UsersController extends HttpServlet {
 			return new UsersCodeUseAction();  
 		}else if(cmd.equals("accountBuyList")) { // 구매목록 가져오기
 			return new UsersOrderListAction();  
-		}else if(cmd.equals("questionProc")) { // 구매목록 가져오기
-			return new UsersQuestionProcAction();   //유저 질문 등록
+		}else if(cmd.equals("questionProc")) { // //유저 질문 등록
+			return new UsersQuestionProcAction();   
+		}else if(cmd.equals("homeCode")) { // 홈에서 코드등록 눌럿을때
+			return new UsersHomeCodeAction();   
+		}else if(cmd.equals("homeCodeCheck")) { // 홈에서 코드 등록페이지에서 코드 체크할때
+			return new UsersHomeUseCodeCheckAction();   
+		}else if(cmd.equals("homeUseCode")) { // 홈에서 코드 등록페이지에서 코드 사용 눌렀을때
+			return new UsersHomeUseCodeAction();   
 		}
 		
 		

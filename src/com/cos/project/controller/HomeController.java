@@ -68,7 +68,7 @@ public class HomeController extends HttpServlet {
 			return new GameKeywordSearchAction();
 		}else if(cmd.equals("news")) {	// nav바 새소식 클릭했을때
 			return new HomeNewsAction();
-		}else if(cmd.equals("customerCenter")) {	// nav바 지원센터 눌렀을때
+		}else if(cmd.equals("spCenter")) {	// nav바 지원센터 눌렀을때
 			return new HomeCustomerCenterAction();
 		}else if(cmd.equals("customerQuestion")) {	// nav바 지원센터 눌렀을때
 			return new HomeCustomerQuetionAction();

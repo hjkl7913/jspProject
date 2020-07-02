@@ -18,17 +18,15 @@ function codeCheck(userId) {
 		dataType: "text"
 			
 	}).done(function(result){
-		if(result == '없음'){
+		if(result == 0 || result == -1){
 			alert("이미 사용 하거나 존재하지 않는 코드 입니다.");
-			return;
-		}else if(result != null){
+		}else{
 			codeUseCheck(userId,code,result);
 		}
 		
 	}).fail(function(error){
 		if(userId == null || userId == ""){
 			alert("로그인이 필요합니다.");
-			return;
 		}
 		alert("서버오류1");
 		console.log(error);

@@ -6,7 +6,7 @@
 			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto" id="login__col__con">
 				<div class="card card-signin my-5">
 					<div class="card-body" id="login__con">
-						<h5 class="card-title text-center">Sign In</h5>
+						<h5 class="card-title text-center">로그인</h5><br/><br/>
 						<form action="/project/user?cmd=loginProc" method="POST" class="form-signin">
 							<div class="form-label-group">
 							<p>에픽게임즈 계정으로 로그인하세요</p>

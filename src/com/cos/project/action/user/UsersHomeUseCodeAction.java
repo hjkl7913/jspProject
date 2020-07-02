@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.cos.project.action.Action;
 import com.cos.project.model.GameCode;
@@ -15,16 +14,9 @@ import com.cos.project.repository.UsersRepository;
 import com.cos.project.util.Script;
 import com.google.gson.Gson;
 
-public class UsersCodeUseAction implements Action{
+public class UsersHomeUseCodeAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		if(session.getAttribute("principal") == null) {
-			Script.href("잘못된접근입니다.", "/project/user?cmd=login", response);
-			return; 
-		}
-		
 		
 		int userId= Integer.parseInt(request.getParameter("userId"));
 		String tempCode = request.getParameter("code");
@@ -48,14 +40,11 @@ public class UsersCodeUseAction implements Action{
 		// gamecode 테이블에서 지우기
 		int deleteResult = usersRepository.gameCodeDelete(codeId);
 		
-		// userId 로 검색해서 사용한 코드 목록 가져오기
-		List<UsedGameCode> usedGameCodes = usersRepository.UsedGameCodeSearch(userId);
+		if(deleteResult == 1) {
+			Script.outText(deleteResult+"", response);
+		} else {
+			Script.outText(deleteResult+"", response);
+		}
 		
-		
-		Gson gson = new Gson();
-		
-		String usedGameCodeJsons = gson.toJson(usedGameCodes);
-		
-		Script.outJson(usedGameCodeJsons, response);
 	}
 }

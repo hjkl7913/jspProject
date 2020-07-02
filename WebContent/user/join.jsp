@@ -6,7 +6,7 @@
 		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 			<div class="card card-signin my-5">
 				<div class="card-body">
-					<h5 class="card-title text-center">Sign In</h5>
+					<h5 class="card-title text-center">회원가입</h5><br/><br/>
 					<form action="/project/user?cmd=joinProc" method="POST" class="form-signin" onsubmit="return validate()">
 						
 						<div class="form-label-group">

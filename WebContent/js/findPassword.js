@@ -29,7 +29,7 @@ function renderFindEmail() {
 	var sendEmail = $(".form-control").val();
 	console.log("sendEmail : "+sendEmail);
 	
-	var searchItem = `<h4>계정을 발견했습니다.</h4>`;
+	var searchItem = `<h5>계정을 발견했습니다.</h5>`;
 	$("#find__email").append(searchItem);
 	
 	passwordEmailSend(sendEmail);
@@ -57,7 +57,7 @@ function passwordEmailSend(sendEmail) {
 
 function renderFindEmailFail() {
 
-	var searchItem2 = `<h3>죄송합니다, 계정을 발견하지 못했습니다.</h3>`;
+	var searchItem2 = `<h5>죄송합니다, 계정을 발견하지 못했습니다.</h5>`;
 	$("#find__email").append(searchItem2);
 }
 

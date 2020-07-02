@@ -37,7 +37,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #252525; ">
 			<a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=home">스토어</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=news">새 소식</a> &emsp; <a
-				class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=question">자주 묻는 질문</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=customerCenter">지원센터</a>
+				class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=question">자주 묻는 질문</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=spCenter">지원센터</a>
 			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty sessionScope.principal}">
@@ -63,8 +63,7 @@
 								<li><a href="#">${sessionScope.principal.displayName}</a>
 									<ul id="sub-menu">
 										<li><a href="/project/user?cmd=account&id=${sessionScope.principal.id}" aria-label="subemnu">계정</a></li>
-										<li><a href="/project/user?cmd=accountCode&id=${sessionScope.principal.id}" aria-label="subemnu">코드사용</a></li>
-										<li><a href="/project/user?cmd=homeCode&id=${sessionScope.principal.id}" aria-label="subemnu">코드사용3</a></li>
+										<li><a href="/project/user?cmd=homeCode&id=${sessionScope.principal.id}" aria-label="subemnu">코드사용</a></li>
 										<li><a href="/project/user?cmd=accountCart&id=${sessionScope.principal.id}" aria-label="subemnu">위시리스트</a></li>
 										<li><a href="/project/user?cmd=logout" aria-label="subemnu">로그아웃</a></li>
 									</ul></li>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cos.project.Dto.HomeUseCodeResponseDto;
 import com.cos.project.Dto.OrderListResponseDto;
 import com.cos.project.db.DBConn;
 import com.cos.project.model.AdminAnswer;
@@ -31,6 +32,52 @@ public class UsersRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		//
+		public HomeUseCodeResponseDto homeCodeCheck(String code) {
+			StringBuffer sb = new StringBuffer();
+			sb.append("select c.codeId, c.gameId, c.gamename, c.code , i.img ");
+			sb.append("from gameInfo i inner join gamecode c ");
+			sb.append("on i.id =  c.gameId ");
+			sb.append("where c.code = ? ");
+			
+			final String SQL = sb.toString();		
+			
+			HomeUseCodeResponseDto homeUseCodeResponseDto = null;
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setString(1, code);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					GameCode gameCode = new GameCode();
+					gameCode.setCodeId(rs.getInt(1));
+					gameCode.setGameId(rs.getInt(2));
+					gameCode.setGamename(rs.getString(3));
+					gameCode.setCode(rs.getString(4));
+					homeUseCodeResponseDto  = new HomeUseCodeResponseDto();
+					homeUseCodeResponseDto.setGameCode(gameCode);
+					homeUseCodeResponseDto.setGameImage(rs.getString(5));
+					
+				}
+				//System.out.println(TAG+"homeCodeCheck : homeUseCodeResponseDto : "+homeUseCodeResponseDto);
+				return homeUseCodeResponseDto;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"homeCodeCheck : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
 		
 		//답변완료 테이블추가
 		public int answerComplete(AdminAnswer adminAnswer) {
@@ -375,7 +422,7 @@ public class UsersRepository {
 				System.out.println(TAG+"gameCodeUse : "+e.getMessage());
 				
 			}finally {
-				DBConn.close(conn, pstmt ,rs);
+				
 			}
 			
 			return null;
@@ -406,8 +453,8 @@ public class UsersRepository {
 		
 		
 		//게임코드 체크 
-		public GameCode gameCodeCheck(String code) {
-			final String SQL = "SELECT codeId, gameId, gamename, code  FROM gameCode WHERE code = ?";		
+		public int gameCodeCheck(String code) {
+			final String SQL = "SELECT count(*)  FROM gameCode WHERE code = ?";		
 				
 				GameCode gameCode = null;
 			
@@ -422,15 +469,10 @@ public class UsersRepository {
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
-					gameCode = GameCode.builder()
-							.codeId(rs.getInt("codeId"))
-							.gameId(rs.getInt("gameId"))
-							.gamename(rs.getString("gamename"))
-							.code(rs.getString("code"))
-							.build();
+					return rs.getInt(1);
 								
 				}
-				return gameCode;
+	
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -440,7 +482,7 @@ public class UsersRepository {
 				DBConn.close(conn, pstmt ,rs);
 			}
 			
-			return null;
+			return -1;
 		}
 		
 		

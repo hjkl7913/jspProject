@@ -18,7 +18,9 @@ public class HomeCustomerCenterAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher dis = request.getRequestDispatcher("/game/supportCenter.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("game/spCenter.jsp");
 		dis.forward(request, response);
+		
+		
 	}
 }

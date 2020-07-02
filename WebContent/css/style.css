@@ -682,3 +682,53 @@ section {
 
 #admin__answer button{
 }
+
+#home__user__code h3{
+	color: white;
+}
+
+#home__user__code p{
+	color: #898989;
+	font-size: 12px;
+}
+
+#home__user__code h5{
+	color: #E63C3C;
+	font-size: 14px;
+}
+
+#home__user__code h4{
+	color: #3e3eff;
+	font-size: 14px;
+}
+
+#code__use__home{
+	background-color: black;
+	color: white;
+	outline: none;
+	border: 0;
+	font-weight:bold;
+	font-size: 25px;
+	box-shadow: none;
+	
+}
+
+#code__use__home:placeholder{
+	
+	font-weight:bold;
+	font-size: 25px;
+	
+}
+
+.home-code-btn {
+	width: 180px;
+	height: 45px;
+	outline: none;
+	border: 0;
+	box-shadow: none;
+	
+	
+}
+
+
+
