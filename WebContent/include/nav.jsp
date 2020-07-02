@@ -37,7 +37,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #252525; ">
 			<a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=home">스토어</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=news">새 소식</a> &emsp; <a
-				class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=question">자주 묻는 질문</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="#">지원센터</a>
+				class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=question">자주 묻는 질문</a> &emsp; <a class="navbar-brand" style="font-size: 13px" href="/project/home?cmd=customerCenter">지원센터</a>
 			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty sessionScope.principal}">
@@ -46,9 +46,16 @@
 						<a class="nav-link" href="#" id="nav__a__button1"><button type="button"> 에픽게임즈 받기</button></a>
 					</c:when>
 					<c:when test="${sessionScope.principal.userRole == 'ADMIN'}">
-						<li class="nav-item"><a class="nav-link" href="/project/admin?cmd=admin">관리자페이지</a></li>
-						<li class="nav-item"><a class="nav-link" href="/project/user?cmd=logout">로그아웃</a></li>
-						<a class="nav-link" href="#" id="nav__a__button2"><button type="button"> 에픽게임즈 받기</button></a>
+						<ul id="main-menu">
+								<li><a href="#">관리자페이지</a>
+									<ul id="sub-menu">
+										<li><a href="/project/admin?cmd=admin" aria-label="subemnu">게임관리</a></li>
+										<li><a href="/project/admin?cmd=answer" aria-label="subemnu">답변하기</a></li>
+										<li><a href="/project/user?cmd=logout" aria-label="subemnu">로그아웃</a></li>
+									</ul></li>
+
+							</ul>
+						
 					</c:when>
 					<c:otherwise>
 						
@@ -57,7 +64,8 @@
 									<ul id="sub-menu">
 										<li><a href="/project/user?cmd=account&id=${sessionScope.principal.id}" aria-label="subemnu">계정</a></li>
 										<li><a href="/project/user?cmd=accountCode&id=${sessionScope.principal.id}" aria-label="subemnu">코드사용</a></li>
-										<li><a href="#" aria-label="subemnu">submenu</a></li>
+										<li><a href="/project/user?cmd=homeCode&id=${sessionScope.principal.id}" aria-label="subemnu">코드사용3</a></li>
+										<li><a href="/project/user?cmd=accountCart&id=${sessionScope.principal.id}" aria-label="subemnu">위시리스트</a></li>
 										<li><a href="/project/user?cmd=logout" aria-label="subemnu">로그아웃</a></li>
 									</ul></li>
 

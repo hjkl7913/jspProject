@@ -28,7 +28,7 @@
 					
 					<c:forEach var="cart" items="${carts}">
 					<div class="cartList-op" id="cart__de__${cart.id}">
-					<div class="jumbotron" id="cart__jumbo">
+					<div class="jumbotron" id="cart__jumbo2">
 						<div class="container">
 					
 							<div class="row">
@@ -49,7 +49,7 @@
 
 								</div>
 								<div class="col-lg-1 ">
-								<i style='font-size:24px' class='fas' onclick="cartDelete('${cart.id}')">&#xf410;</i>
+								<i style='font-size:24px' class='far' onclick="cartDelete('${cart.id}')">&#xf410;</i>
 								</div>
 							</div>
 

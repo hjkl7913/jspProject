@@ -17,7 +17,7 @@
 						<br/>
 						
 						<div class="form-label-group">
-							 <label for="inputDisplay">표시이름</label><input type="text" id="displayname" name="displayname" class="form-control" placeholder="displayname" required autofocus>
+							 <label for="inputDisplay">표시이름</label><input type="text" id="displayname" name="displayname" class="form-control" placeholder="displayname" maxlength="10" required autofocus>
 						</div>
 						<br/>
 						

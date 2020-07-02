@@ -347,12 +347,15 @@ input.img-button2 {
   opacity: 0;
   visibility: hidden;
   transition: all 0.15s ease-in;
+ 
 }
 
 #sub-menu > li {
-  padding: 10px 15px 5px 15px ;
+  padding: 10px 29px 5px 0px ;
   border-bottom: 1px solid rgba(0,0,0,0.15);
-  margin: 0 20px 0 -20px;
+  margin: 0 -10px 0 -20px;
+  font-size: 12px;
+   width: 100px;
 }
 
 #sub-menu > li >  a {
@@ -518,19 +521,32 @@ section {
 }
 
 #cart__jumbo {
-	padding-bottom: 20px;
-	padding-top: 20px;
+	padding-bottom: 5px;
+	padding-top: 7px;
 	padding-left: 5px;
+	padding-right: 5px;
+	text-align: right;
+	
+}
+
+#cart__jumbo2 {
+	padding-bottom: 5px;
+	padding-top: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
 	text-align: right;
 }
 
-.cartList-op h4,h5{
+
+
+.cartList-op h4,h5,i,a{
 	color: black;
 }
 
 .cartList-op i{
 	cursor: pointer;
 }
+
 
 #code__con{
 	background-color: white;
@@ -609,7 +625,7 @@ section {
 }
 
 #footer__myd {
-	margin-right: -66px;
+	margin-right: -50px;
 }
 
 #footer__1 {
@@ -628,4 +644,41 @@ section {
 	font-size: 12px;
 	color: #CCCCCC;
 	
+}
+
+.form-question input,select {
+	height: 50px;
+}
+
+.form-question p {
+	font-size: 16px;
+}
+
+.form-question select {
+	width: 100%;
+}
+
+.form-question button {
+	margin-top: 5px;
+	width: 250px;
+}
+
+.form-question button {
+	font-size: 12px;
+}
+
+.form-question button #question_btn{
+	background-color: #F6F6F6;
+}
+
+#admin__answer {
+	background-color: dimgray;
+	margin: 5px 40px 10px 40px;
+	padding-top: 3px;
+}
+#admin__answer p{
+	color: white;
+}
+
+#admin__answer button{
 }

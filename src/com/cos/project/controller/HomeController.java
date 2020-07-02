@@ -14,6 +14,8 @@ import com.cos.project.action.game.GameHomeAction;
 import com.cos.project.action.game.GameKeywordSearchAction;
 import com.cos.project.action.game.GameSearchAction;
 import com.cos.project.action.game.GameTagSearchAction;
+import com.cos.project.action.game.HomeCustomerCenterAction;
+import com.cos.project.action.game.HomeCustomerQuetionAction;
 import com.cos.project.action.game.HomeNewsAction;
 import com.cos.project.action.game.HomeQuestionAction;
 import com.cos.project.action.game.HomeSearchProcAction;
@@ -66,7 +68,13 @@ public class HomeController extends HttpServlet {
 			return new GameKeywordSearchAction();
 		}else if(cmd.equals("news")) {	// nav바 새소식 클릭했을때
 			return new HomeNewsAction();
+		}else if(cmd.equals("customerCenter")) {	// nav바 지원센터 눌렀을때
+			return new HomeCustomerCenterAction();
+		}else if(cmd.equals("customerQuestion")) {	// nav바 지원센터 눌렀을때
+			return new HomeCustomerQuetionAction();
 		}
+		
+		
 		return null;
 		}
 	

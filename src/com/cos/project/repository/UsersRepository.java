@@ -9,11 +9,13 @@ import java.util.List;
 
 import com.cos.project.Dto.OrderListResponseDto;
 import com.cos.project.db.DBConn;
+import com.cos.project.model.AdminAnswer;
 import com.cos.project.model.Carts;
 import com.cos.project.model.GameCode;
 import com.cos.project.model.GameInfos;
 import com.cos.project.model.OrderList;
 import com.cos.project.model.UsedGameCode;
+import com.cos.project.model.UserQuestion;
 import com.cos.project.model.Users;
 
 public class UsersRepository {
@@ -29,6 +31,175 @@ public class UsersRepository {
 		private PreparedStatement pstmt = null;
 		private ResultSet rs = null;
 		
+		
+		//답변완료 테이블추가
+		public int answerComplete(AdminAnswer adminAnswer) {
+			final String SQL = "INSERT INTO answer(answerId, userId, displayname, email, platform, language, question, answer , writeDate, answerDate) VALUES(ANSWER_SEQ.nextval,?,?,?,?,?,?,?,?,sysdate)";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, adminAnswer.getUserId());
+				pstmt.setString(2, adminAnswer.getDisplayName());
+				pstmt.setString(3, adminAnswer.getEmail());
+				pstmt.setString(4, adminAnswer.getPlatform());
+				pstmt.setString(5, adminAnswer.getLanguage());
+				pstmt.setString(6, adminAnswer.getQuestion());
+				pstmt.setString(7, adminAnswer.getAnswer());
+				pstmt.setString(8, adminAnswer.getWriteDate());
+
+				
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"answerComplete : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		// 운영자 답변후에 삭제
+		public int userQuestionDelete(int questionId) {
+			final String SQL = "DELETE FROM userquestion WHERE questionId = ?";		
+
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, questionId);
+				
+				//if 돌려서 rs
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+" gameCodeDelete : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
+		
+		//문의 상세보기
+		public UserQuestion userQuestionSearch(int questionId) {
+			final String SQL = "SELECT questionId, userId, displayName, email, platform, language, question, writeDate  FROM userQuestion WHERE questionId = ?";		
+			
+			UserQuestion userQuestion = null;
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, questionId);
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					userQuestion = new UserQuestion();
+					userQuestion.setQuestionId(rs.getInt("questionId"));
+					userQuestion.setUserId(rs.getInt("userId"));
+					userQuestion.setDisplayName(rs.getString("displayName"));
+					userQuestion.setEmail(rs.getString("email"));
+					userQuestion.setPlatform(rs.getString("platform"));
+					userQuestion.setLanguage(rs.getString("language"));
+					userQuestion.setQuestion(rs.getString("question"));
+					userQuestion.setWriteDate(rs.getString("writeDate"));
+				}
+				return userQuestion;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"gameCodeUse : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+
+		//유저 문의 전체 불러오기
+		public List<UserQuestion> userQuestionAllSearch() {
+			final String SQL = "SELECT questionId, userId, displayName, email, platform, language, question, writeDate  FROM userQuestion";		
+			
+			List<UserQuestion> userQuestions = new ArrayList<>(); 
+			
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				
+			
+				//if 돌려서 rs
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					UserQuestion userQuestion = new UserQuestion(
+							rs.getInt("questionId"),
+							rs.getInt("userId"),
+							rs.getString("displayName"),
+							rs.getString("email"),
+							rs.getString("platform"),
+							rs.getString("language"),
+							rs.getString("question"),
+							rs.getString("writeDate")
+							
+							);
+					userQuestions.add(userQuestion);
+				}
+				return userQuestions;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"userQuestionAllSearch : "+e.getMessage());
+				
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return null;
+		}
+		
+		
+		//유저 질문 디비 추가
+		public int questionAdd(UserQuestion userQuestion) {
+			final String SQL = "INSERT INTO userquestion(questionId, userId, displayname, email, platform, language, question, writeDate) VALUES(QUESTION_SEQ.nextval,?,?,?,?,?,?,sysdate)";		
+			
+			try {
+				conn = DBConn.getConnection();
+				pstmt = conn.prepareStatement(SQL);
+				
+				//물음표 완성하기
+				pstmt.setInt(1, userQuestion.getUserId());
+				pstmt.setString(2, userQuestion.getDisplayName());
+				pstmt.setString(3, userQuestion.getEmail());
+				pstmt.setString(4, userQuestion.getPlatform());
+				pstmt.setString(5, userQuestion.getLanguage());
+				pstmt.setString(6, userQuestion.getQuestion());
+
+				
+				return pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(TAG+"questionAdd : "+e.getMessage());
+			}finally {
+				DBConn.close(conn, pstmt ,rs);
+			}
+			
+			return -1;
+		}
 		
 		
 		public List<OrderListResponseDto> userOrderListAll(int userId) {

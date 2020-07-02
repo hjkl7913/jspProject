@@ -35,6 +35,7 @@ import com.cos.project.action.user.UsersLoginProcAction;
 import com.cos.project.action.user.UsersLogoutAction;
 import com.cos.project.action.user.UsersPasswordCheckAction;
 import com.cos.project.action.user.UsersPasswordUpdateAction;
+import com.cos.project.action.user.UsersQuestionProcAction;
 import com.cos.project.action.user.UsersRefundPolicyAction;
 
 
@@ -122,6 +123,8 @@ public class UsersController extends HttpServlet {
 			return new UsersCodeUseAction();  
 		}else if(cmd.equals("accountBuyList")) { // 구매목록 가져오기
 			return new UsersOrderListAction();  
+		}else if(cmd.equals("questionProc")) { // 구매목록 가져오기
+			return new UsersQuestionProcAction();   //유저 질문 등록
 		}
 		
 		
