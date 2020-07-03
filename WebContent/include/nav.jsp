@@ -70,7 +70,7 @@
 
 							</ul>
 						
-						<a class="nav-link" href="#" id="nav__a__button"><button type="button"> 에픽게임즈 받기</button></a>
+						<a class="nav-link"  href="/project/image/epicgamesinstall.msi" id="nav__a__button" download><button type="button" > 에픽게임즈 받기</button></a>
 					</c:otherwise>
 				</c:choose>
 
