@@ -7,7 +7,11 @@
 <script src="js/jssor.slider-28.0.0.min2.js" type="text/javascript"></script>
 
  	<br/><br/>
- 	
+ 	<div class="container ">
+    <div class="col-lg-12 d-flex justify-content-start">
+	<p style="color: white;">${homeDetailGameInfo.gamename}</p>
+</div>
+	</div>
     <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
@@ -15,16 +19,16 @@
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
             <div>
-               	<iframe width="720" height="315" src="https://www.youtube.com/embed/TgOu00Mf3kI?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+               	<iframe width="720" height="315" src="https://www.youtube.com/embed/${homeDetailGameInfo.movie}?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
             </div>
             <div>
-                <img data-u="image" src="image/AER.jpg" />
+                <img data-u="image" src="${homeDetailGameInfo.gamePlayImage1}" />
             </div>
             <div>
-                <img data-u="image" src="image/AER.jpg" />
+                <img data-u="image" src="${homeDetailGameInfo.gamePlayImage2}" />
             </div>
             <div>
-                <img data-u="image" src="image/AER.jpg" />
+                <img data-u="image" src="${homeDetailGameInfo.gamePlayImage3}" />
             </div>
         </div><a data-scale="0" href="https://www.jssor.com" style="display:none;position:absolute;">animation</a>
         <!-- Bullet Navigator -->
@@ -46,24 +50,32 @@
                 <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
             </svg>
         </div>
-    </div>
+    </div><br/>
+    <div class="container ">
+    <div class="col-lg-12 d-flex justify-content-end">
+	<p style="color: white;">${homeDetailGameInfo.price}</p>
+</div>
+	</div>
     <script type="text/javascript">jssor_1_slider_init();
     </script>
     <!-- #endregion Jssor Slider End -->
 
-<br/><br/>
 
 <div class="container" id="game__detail">
+
 <div class="col-lg-12">
+
 <div class="row">
+	
 	<div class="col-lg-4">
-		<img alt="" src="/project/image/AER.jpg" width="300px" height="170px">
+		<img alt="" src="${homeDetailGameInfo.contentImage}" width="300px" height="170px">
 	</div>
 	<div class="col-lg-5">
 		<p>${homeDetailGameInfo.content}</p>
 	</div>
 	<div class="col-lg-3">
 		<div class="btn-group a">
+		
 		<button class="buy-button" type="button" onclick="gameBuyCheck('${homeDetailGameInfo.id}','${sessionScope.principal.id}','${homeDetailGameInfo.gamename}')" >지금 구매</button>
 		<button class="buy-button2" type="button" onclick="CartAddCheck('${homeDetailGameInfo.id}','${sessionScope.principal.id}','${homeDetailGameInfo.gamename}','${homeDetailGameInfo.contentImage}','${homeDetailGameInfo.price}')"><span data-tooltip-text="위시리스트에 추가"><img src="/project/image/whi.png"></span></button>
 		</div>

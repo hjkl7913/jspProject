@@ -928,7 +928,7 @@ public class GameInfoRepository {
 		}
 		
 		public int save(GameInfos gameInfos) {
-			final String SQL = "INSERT INTO GAMEINFO(id, gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content, buyCount) VALUES(GAMEINFO_SEQ.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
+			final String SQL = "INSERT INTO GAMEINFO(id, gamename, price, img, movie, developer, publisher, explanation, tags, rating, releasedate, platform, minos, minprocessor, minmemory, minGraphics, minDirectX, minStorage, recomos, recomprocessor, recommemory, recomGraphics, recomDirectX, recomStorage, LanguagesSup, freedown, gamePlayImage1, gamePlayImage2, gamePlayImage3, contentImage, content) VALUES(GAMEINFO_SEQ.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
 			
 			try {
 				conn = DBConn.getConnection();

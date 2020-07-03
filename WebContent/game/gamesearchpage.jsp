@@ -66,7 +66,7 @@
 			<strong>필터</strong><br/><br/><hr/>
 			<p style="cursor: pointer" onclick="FilterSearch('액션')">액션</p>
 			<p style="cursor: pointer" onclick="FilterSearch('어드벤처')">어드벤처</p>
-			<p style="cursor: pointer" onclick="FilterSearch('모든 툴키트')">모든 툴키트</p>
+			<p style="cursor: pointer" onclick="FilterSearch('모드 툴키트')">모드 툴키트</p>
 			<p style="cursor: pointer" onclick="FilterSearch('퍼즐')">퍼즐</p>
 			<p style="cursor: pointer" onclick="FilterSearch('레이싱')">레이싱</p>
 			<p style="cursor: pointer" onclick="FilterSearch('RPG')">RPG</p>

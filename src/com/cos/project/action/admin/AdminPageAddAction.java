@@ -31,7 +31,7 @@ public class AdminPageAddAction implements Action{
 		
 		String realPath = request.getServletContext().getRealPath("image");
 
-		MultipartRequest multi = new MultipartRequest(request, realPath, 1024 * 1024 * 2, "UTF-8",
+		MultipartRequest multi = new MultipartRequest(request, realPath, 1024 * 1024 * 10, "UTF-8",
 				new DefaultFileRenamePolicy());
 		
 		

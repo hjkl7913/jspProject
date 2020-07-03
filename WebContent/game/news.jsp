@@ -3,10 +3,10 @@
 
 <br />
 <br />
-<br />
+
 <div class="container">
 	<div class="col-lg-12">
-		<p>새소식</p>
+		<p style="color: white;">새소식</p>
 	</div>
 	<c:forEach var="gameNews" items="${gameNewss}">
 

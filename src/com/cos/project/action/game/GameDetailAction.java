@@ -26,6 +26,23 @@ public class GameDetailAction implements Action{
 		
 		GameInfos homeDetailGameInfo = gameInfoRepository.findById(id);
 		
+		String movieAddress = homeDetailGameInfo.getMovie();
+		if (movieAddress.contains("https://www.youtube.com/")) {
+			String[] yu = movieAddress.split("=");
+			String youtuMovieAddress =  yu[1];
+			homeDetailGameInfo.setMovie(youtuMovieAddress);	
+			
+		} else if (movieAddress.contains("https://youtu.be/")) {
+			String[] yu = movieAddress.split("/");
+			String youtuMovieAddress = yu[3];		
+			homeDetailGameInfo.setMovie(youtuMovieAddress);	
+			
+		} else {
+			System.out.println("유튜브 아니네?");
+		}
+		
+		
+		
 		System.out.println("homeDetailGameInfo : "+homeDetailGameInfo);
 		
 		request.setAttribute("homeDetailGameInfo", homeDetailGameInfo);

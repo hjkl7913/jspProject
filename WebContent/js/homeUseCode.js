@@ -1,40 +1,52 @@
+
 $("#code__use__home").keyup(function (e){
     var code = $(this).val();
     if(code.length == 5 || code.length == 11 || code.length == 17){
     	$("#code__use__home").val(code+"-");
     }
+    setTimeout(function() {
     if(code.length == 23){
     	
     	$.ajax({
     		type: "get",
     		url: "/project/user?cmd=homeCodeCheck&code="+code,
-    		dataType: "json"
+    		dataType: "json",
+    		async : false
     	}).done(function(homeUseCodeDto){
     		if(homeUseCodeDto != null){
     			console.log(homeUseCodeDto);
     			var img = homeUseCodeDto.gameImage;
     			var gamename = homeUseCodeDto.gameCode.gamename;
+    			
+    			
+    				
     			$("#find__code").empty();
     			renderFindcode(gamename);
     			$("#img_form_url").attr("src", img);
     			$(".home-code-btn").removeAttr("disabled");
-    		
+    			
+    			
     			
     		} else if (homeUseCodeDto == null) {
     			//console.log(homeUseCodeDto);
+    			
     			$("#find__code").empty();
     			renderFindCodeFail();
     			$("#img_form_url").attr("src", "/project/image/codeuse.png");
     			$(".home-code-btn").attr("disabled");
+    			
     		}
     		
     	}).fail(function(error){
     		alert("서버오류");
     	})
     } else if(code.length < 23) {
+    	
     	$(".home-code-btn").attr("disabled","disabled");
     	$("#img_form_url").attr("src", "/project/image/codeuse.png");
+    	
     }
+    }, 1000);
 });
 
 
