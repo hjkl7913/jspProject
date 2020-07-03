@@ -17,9 +17,9 @@
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
         </div>
-        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+        <div data-u="slides" style="cursor:pointer;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
             <div>
-               	<iframe width="720" height="315" src="https://www.youtube.com/embed/${homeDetailGameInfo.movie}?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+               	<iframe  width="720" height="315" src="https://www.youtube.com/embed/${homeDetailGameInfo.movie}?autoplay=1&mute=1&amp;playlist=${homeDetailGameInfo.movie}&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
             </div>
             <div>
                 <img data-u="image" src="${homeDetailGameInfo.gamePlayImage1}" />

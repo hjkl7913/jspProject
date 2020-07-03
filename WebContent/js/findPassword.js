@@ -29,7 +29,7 @@ function renderFindEmail() {
 	var sendEmail = $(".form-control").val();
 	console.log("sendEmail : "+sendEmail);
 	
-	var searchItem = `<h5>계정을 발견했습니다.</h5>`;
+	var searchItem = `<h5>임시 비밀번호가 전송 되었습니다.</h5>`;
 	$("#find__email").append(searchItem);
 	
 	passwordEmailSend(sendEmail);
