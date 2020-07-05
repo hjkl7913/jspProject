@@ -6,7 +6,7 @@
 			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto" id="login__col__con">
 				<div class="card card-signin my-5">
 					<div class="card-body" id="login__con">
-						<h5 class="card-title text-center">Sign In</h5>
+						<h5 class="card-title text-center">비밀번호 찾기</h5><br/><br/>
 													
 							<div class="form-label-group">
 							<p>비밀번호를 잊으셨나요?</p>

@@ -164,7 +164,7 @@
 
 
 
-		<h2>최소사양</h2>
+		<h2 style="color: black;">최소사양</h2>
 		<div class="form-group">
 			<label for="usr">OS</label> <input type="text" class="form-control" id="minos" name="minos" value="${detailgameInfo.minOS}">
 		</div>
@@ -184,7 +184,7 @@
 			<label for="usr">Storage</label> <input type="text" class="form-control" id="minstorage" name="minstorage" value="${detailgameInfo.minStorage}">
 		</div>
 
-		<h2>권장사양</h2>
+		<h2 style="color: black;">권장사양</h2>
 		<div class="form-group">
 			<label for="usr">OS</label> <input type="text" class="form-control" id="recomos" name="recomos" value="${detailgameInfo.recomOS}">
 		</div>
@@ -207,7 +207,7 @@
 			<input type="hidden" class="form-control" id="id" name="id" value="${detailgameInfo.id}">
 		</div>
 
-		<h4>지원 언어</h4>
+		<h4 style="color: black;">지원 언어</h4>
 		<div class="form-group">
 
 			<textarea class="form-control" rows="5" id="language" name="language">${detailgameInfo.languagesSupported}</textarea>

@@ -23,12 +23,12 @@ public class EmailAnswer {
 		final String bodyEncoding = "UTF-8"; // 콘텐츠 인코딩
 
 		String subject = "안녕하세요 에픽게임즈입니다.";
-		String fromEmail = "";  // 보내는 이메일 주소
+		String fromEmail = "보내는 이메일 주소";  // 보내는 이메일 주소
 		String fromUsername = "SYSTEM MANAGER";
 		String toEmail = email; // 콤마(,)로 여러개 나열 //받는 이메일 주소
 
-		final String username = ""; // 구글 이메일 아이디
-		final String password = ""; // 발급받은 앱 비밀번호
+		final String username = "구글 이메일 아이디"; // 구글 이메일 아이디
+		final String password = "발급받은 앱 비밀번호"; // 발급받은 앱 비밀번호
 
 		// 메일에 출력할 텍스트
 		StringBuffer sb = new StringBuffer();

@@ -46,7 +46,7 @@ function codeUseCheck(userId,code,gamename) {
 			
 	}).done(function(result){
 		if(result == 1){
-			alert("게임이름: gamename은 이미 구매한 게임 입니다.");
+			alert("게임이름: "+gamename+" 은 이미 구매한 게임 입니다.");
 		}else {
 			codeUse(userId,code,gamename)
 		}

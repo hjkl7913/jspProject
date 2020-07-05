@@ -6,7 +6,7 @@
 	<br/><br/><br/><br/>
 	<div class="container" style="background-color: white;">
 		<br/><br/>
-		<h2>새소식 추가</h2><br/><br/>
+		<h2 style="color: black;">새소식 추가</h2><br/><br/>
 		<form action="/project/admin?cmd=newsAddProc" method="post" enctype="multipart/form-data">
 		
 		<div class="col-lg-3">

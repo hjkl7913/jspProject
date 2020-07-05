@@ -62,7 +62,7 @@ function makeCodeItem(gameCodesJason,codeId){
 	CodeItem += `<p>게임코드: ${gameCode.code}</p>`;
 	CodeItem += `</div>`;
 	CodeItem += `<div>`;
-	CodeItem += `<i style='font-size:24px' class='fas' onclick="adminCodeDelete('${gameCode.codeId}')">&#xf410;</i>`;
+	CodeItem += `<i style='font-size:24px; cursor: pointer;' class='fas' onclick="adminCodeDelete('${gameCode.codeId}')">&#xf410;</i>`;
 	CodeItem += `</div>`;
 
 

@@ -22,7 +22,7 @@ public class EmailSendTempPassword {
 	public static int  SendTempPassword(String email, String nansu) {
 		final String bodyEncoding = "UTF-8"; // 콘텐츠 인코딩
 
-		String subject = "메일 발송 테스트";
+		String subject = "에픽게임즈 임시 비밀번호 입니다.";
 		String fromEmail = "보내는 이메일 주소";  // 보내는 이메일 주소
 		String fromUsername = "SYSTEM MANAGER";
 		String toEmail = email; // 콤마(,)로 여러개 나열 //받는 이메일 주소

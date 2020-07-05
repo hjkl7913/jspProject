@@ -176,7 +176,7 @@ public class UsersRepository {
 
 		//유저 문의 전체 불러오기
 		public List<UserQuestion> userQuestionAllSearch() {
-			final String SQL = "SELECT questionId, userId, displayName, email, platform, language, question, writeDate  FROM userQuestion";		
+			final String SQL = "SELECT questionId, userId, displayName, email, platform, language, question, writeDate  FROM userQuestion ORDER BY questionId desc";		
 			
 			List<UserQuestion> userQuestions = new ArrayList<>(); 
 			

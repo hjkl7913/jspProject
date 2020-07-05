@@ -48,7 +48,7 @@
 									</div><br/>
 									
 									<div class="d-flex justify-content-end">
-									<span class="text-center d-inline-block"> <a class="btn btn-warning btn-lg w-100" role="button">다운로드</a>
+									<span class="text-center d-inline-block"> <a class="btn btn-warning btn-lg w-100" href="/project/image/${orderListResponseDto.orderList.gameId}" role="button" download>다운로드</a>
 									</span>
 									</div>
 

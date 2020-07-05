@@ -14,7 +14,7 @@
 
 function init(){
 	var url = location.href; //자기자신주소  http://localhost:8000/blog/test/jusoPopup.jsp
-	var confmKey = "devU01TX0FVVEgyMDIwMDYwMjA5NDkwMjEwOTgyMDE=";
+	var confmKey = "devU01TX0FVVEgyMDIwMDcwNDIwMDc0NzEwOTkyNjQ=";
 	var resultType = "4";
 	var inputYn= "<%=inputYn%>";
 	if(inputYn != "Y"){ //null 이니까 Y아님

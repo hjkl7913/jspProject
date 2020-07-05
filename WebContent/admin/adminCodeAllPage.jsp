@@ -16,8 +16,8 @@
 		<h5>게임이름 : ${gameCode.gamename}</h5>
 		<p>게임코드: ${gameCode.code}</p>
 	</div>
-	<div>
-		<i style='font-size:24px' class='fas' onclick="adminCodeDelete('${gameCode.codeId}')">&#xf410;</i>
+	<div >
+		<i style='font-size:24px; cursor: pointer;' class='fas' onclick="adminCodeDelete('${gameCode.codeId}')">&#xf410;</i>
 	</div>
 	</div>
 	</c:forEach>

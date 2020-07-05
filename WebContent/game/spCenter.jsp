@@ -14,7 +14,7 @@
 					<div class="row">
 						<div class="col-lg-5">
 
-							<h4>원하는 내용을 찾을 수 없나요?</h4>
+							<h4 style="color: #2C2C2C">원하는 내용을 찾을 수 없나요?</h4>
 							<p>저희가 도와드릴 수 있는 방법을 알려주세요.</p>
 					
 						</div>

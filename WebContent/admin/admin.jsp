@@ -11,7 +11,7 @@
 		<h5><a style="text-decoration: green wavy underline; color: blue;" href="/project/admin?cmd=searchAll">게임목록 전체보기</a></h5>
 		</div><br/>
 		<br/>
-		<h2>게임정보</h2><br/>
+		<h2 style="color: black;">게임정보</h2><br/>
 		
 		<form class="form-inline justify-content-end" action="/project/admin" method="post">
 			<input type="hidden" name="cmd" value="search"> 

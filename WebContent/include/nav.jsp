@@ -43,7 +43,7 @@
 					<c:when test="${empty sessionScope.principal}">
 						<li class="nav-item active"><a class="nav-link" href="/project/user?cmd=login">로그인</a></li>
 						<li class="nav-item"><a class="nav-link" href="/project/user?cmd=join">회원가입</a></li>
-						<a class="nav-link" href="#" id="nav__a__button1"><button type="button"> 에픽게임즈 받기</button></a>
+						<a class="nav-link" href="/project/image/epicgamesinstall.msi" id="nav__a__button1" download><button type="button"> 에픽게임즈 받기</button></a>
 					</c:when>
 					<c:when test="${sessionScope.principal.userRole == 'ADMIN'}">
 						<ul id="main-menu">

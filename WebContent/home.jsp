@@ -119,7 +119,7 @@
 				<h2>Borderlands 3</h2>
 				<p>모든 에디션 50% 할인 및 시즌 패스 20% 할인!</p>
 				<p>할인 기간은 6월 30일(미국 동부 시간 기준)에 종료됩니다.</p>
-				<a href="/project/home?cmd=detail&id=10"><button type="button">할인 보기</button></a>
+				<a href="/project/home?cmd=detail&id=10"><button class="btn btn-dark" type="button">할인 보기</button></a>
 
 			</div>
 			<div>
