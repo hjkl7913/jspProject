@@ -31,6 +31,7 @@ public class GameNewsRepository {
 			sb.append("SELECT /*+ INDEX_DESC(GAMENEWS GAMENEWS_PK)*/id, ");
 			sb.append("gameId, image, content, createDate,timeAgo ");
 			sb.append("FROM GAMENEWS ");	
+			sb.append("ORDER BY id DESC ");	
 			//sb.append("OFFSET ? ROWS FETCH FIRST 16 ROWS ONLY ");
 			
 			
